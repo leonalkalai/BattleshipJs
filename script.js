@@ -12,6 +12,15 @@ for (let i = 0; i < 10; i++) {
   }
 }
 
+// Create an object to store ship information
+const shipTypes = {
+  carrier: { length: 5 },
+  battleship: { length: 4 },
+  cruiser: { length: 3 },
+  submarine: { length: 3 },
+  destroyer: { length: 2 }
+};
+
 // Function to place a ship on the board
 function placeShip(board, x, y, length, orientation) {
   if (orientation === 'horizontal') {
@@ -69,15 +78,33 @@ function aiMove() {
   }
 }
 
-// Place ships for both players
-placeShip(player1Board, 2, 2, 4, 'horizontal');
-placeShip(player1Board, 5, 7, 3, 'vertical');
-// ... (place other ships)
-placeShip(player2Board, 3, 3, 5, 'horizontal');
-// ... (place other ships)
+// Function to handle ship placement
+function placeShip(shipType) {
+  const length = shipTypes[shipType].length;
+  let orientation = Math.random() < 0.5 ? 'horizontal' : 'vertical';
+  let x, y;
 
-// Start the AI player's turn
-aiMove();
+  do {
+    x = Math.floor(Math.random() * 10);
+    y = Math.floor(Math.random() * 10);
+  } while (!placeShip(player1Board, x, y, length, orientation));
+
+  // Remove the button from the menu
+  document.getElementById(shipType).disabled = true;
+
+  if (Object.values(shipTypes).every(ship => ship.placed)) {
+    // All ships are placed, hide the menu and start the game
+    document.getElementById('menu').style.display = 'none';
+    aiMove();
+  }
+}
+
+// Add event listeners to ship placement buttons
+document.getElementById('carrier').addEventListener('click', () => placeShip('carrier'));
+document.getElementById('battleship').addEventListener('click', () => placeShip('battleship'));
+document.getElementById('cruiser').addEventListener('click', () => placeShip('cruiser'));
+document.getElementById('submarine').addEventListener('click', () => placeShip('submarine'));
+document.getElementById('destroyer').addEventListener('click', () => placeShip('destroyer'));
 
 // Add event listeners to both boards
 player1Board.addEventListener('click', handleClick);

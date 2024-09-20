@@ -18,3 +18,23 @@
 .miss {
   background-color: gray;
 }
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+#menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+#menu button {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid black;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
