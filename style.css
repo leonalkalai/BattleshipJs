@@ -6,6 +6,7 @@
   grid-template-columns: repeat(10, 30px);
   grid-template-rows: repeat(10, 30px);
   border-spacing: 1px; /* Add spacing between grid cells */
+  position: relative;
 }
 
 .ship {
@@ -46,4 +47,27 @@
   height: 30px;
   border: 1px solid black;
   background-color: #f0f0f0;
+  position: relative;
 }
+
+
+.grid-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.row-labels {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

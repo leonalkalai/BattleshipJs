@@ -123,14 +123,18 @@ for (let i = 0; i < 10; i++) {
   gridLabels.appendChild(label);
 }
 
-player1Board.appendChild(gridLabels.cloneNode(true));
-player2Board.appendChild(gridLabels.cloneNode(true));
-
 // Create row labels
+const rowLabels = document.createElement('div');
+rowLabels.classList.add('row-labels');
+
 for (let i = 0; i < 10; i++) {
   const label = document.createElement('div');
   label.classList.add('grid-label');
   label.textContent = i + 1;
-  player1Board.querySelector(`[data-x="${i}"][data-y="0"]`).appendChild(label);
-  player2Board.querySelector(`[data-x="${i}"][data-y="0"]`).appendChild(label);
+  rowLabels.appendChild(label);
 }
+
+player1Board.appendChild(gridLabels.cloneNode(true));
+player1Board.appendChild(rowLabels.cloneNode(true));
+player2Board.appendChild(gridLabels.cloneNode(true));
+player2Board.appendChild(rowLabels.cloneNode(true));
