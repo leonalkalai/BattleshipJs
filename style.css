@@ -87,3 +87,49 @@
     box-sizing: border-box;
     flex-wrap: wrap;
 }
+
+#menu {
+  width: 300px;
+  height: 250px;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+#menu li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+#menu li:nth-child(1) {
+  background-color: #FFB6C1; /* Pink */
+}
+
+#menu li:nth-child(2) {
+  background-color: #9370DB; /* Purple */
+}
+
+#menu li:nth-child(3) {
+  background-color: #40E0D0; /* Cyan */
+}
+
+#menu li:nth-child(4) {
+  background-color: #FF8C00; /* Orange */
+}
+
+#menu li:nth-child(5) {
+  background-color: #008000; /* Green */
+}
+
+#menu button {
+  padding: 15px;
+  margin: 0;
+  width: 100%;
+  font-size: 18px;
+}
