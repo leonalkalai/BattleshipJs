@@ -137,3 +137,27 @@
   width: 100%;
   font-size: 18px;
 }
+
+.popup {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 300px; /* Adjust the width */
+  height: 200px; /* Adjust the height */
+}
+
+.popup.show {
+  display: block;
+}
+
+.close-button {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
