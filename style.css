@@ -161,3 +161,11 @@
   border: 1px solid #ccc;
   cursor: pointer;
 }
+
+.rotate-button {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  margin-top: 10px; /* Add a bit of spacing */
+}
