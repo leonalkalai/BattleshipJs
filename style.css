@@ -10,6 +10,10 @@
   margin: 50px auto;
 }
 
+  * {
+      touch-action: manipulation;
+  }
+
 #player1-board > div, #player2-board > div {
   width: 30px;
   height: 30px;
