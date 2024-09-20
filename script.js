@@ -81,7 +81,7 @@ function aiMove() {
 // Function to handle ship placement
 function placeShip(shipType) {
   const length = shipTypes[shipType].length || null;
-  console.log(shipTypes, shipTypes[shipType], shipTypes[shipType].length, length)
+  console.log(shipTypes, shipTypes[shipType], shipTypes[shipType].length, length);
   let orientation = Math.random() < 0.5 ? 'horizontal' : 'vertical';
   let x, y;
 
@@ -98,7 +98,26 @@ function placeShip(shipType) {
     document.getElementById('menu').style.display = 'none';
     aiMove();
   }
+
+  // Create and show the popup
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
+  popup.innerHTML = `
+    <h2>${shipType}</h2>
+    <p>Ship placed successfully.</p>
+    <button class="rotate-button">Rotate</button>
+  `;
+  document.body.appendChild(popup);
+
+  // Add event listener to the rotate button
+  const rotateButton = popup.querySelector('.rotate-button');
+  rotateButton.addEventListener('click', () => {
+    // Implement ship rotation logic here
+    // ...
+    popup.classList.remove('show');
+  });
 }
+
 
 // Add event listeners to ship placement buttons
 document.getElementById('carrier').addEventListener('click', () => placeShip('carrier'));
