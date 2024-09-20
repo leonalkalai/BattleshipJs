@@ -50,29 +50,38 @@
 }
 
 .grid-label {
-  text-align: center;
-  width: 30px;
-  height: 30px;
-  border: 1px solid black;
-  background-color: #f0f0f0;
-  position: relative;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    background-color: #0a68ff;
+    position: relative;
+    color: white;
+    font-weight: bold;
+    font-family: system-ui;
+    box-sizing: border-box;
 }
 
 
 .grid-labels {
-  position: absolute;
-  top: -33px;
-  left: -19px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-wrap: wrap;
 }
 
 .row-labels {
-  position: absolute;
-  bottom: -20px;
-  left: -50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    position: absolute;
+    top: 0;
+    left: -50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
 }
