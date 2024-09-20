@@ -18,6 +18,8 @@
 }
 
 .ship {
+  position: absolute;
+  cursor: move;
   background-color: blue;
 }
 
