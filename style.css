@@ -1,0 +1,20 @@
+#player1-board, #player2-board {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(10, 30px);
+}
+
+.ship {
+  background-color: blue;
+}
+
+.hit {
+  background-color: red;
+}
+
+.miss {
+  background-color: gray;
+}
