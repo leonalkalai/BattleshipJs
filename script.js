@@ -109,3 +109,29 @@ document.getElementById('destroyer').addEventListener('click', () => placeShip('
 // Add event listeners to both boards
 player1Board.addEventListener('click', handleClick);
 player2Board.addEventListener('click', handleClick);
+
+// ... (existing code)
+
+// Create grid labels
+const gridLabels = document.createElement('div');
+gridLabels.classList.add('grid-labels');
+
+for (let i = 0; i < 10; i++) {
+  const label = document.createElement('div');
+  label.classList.add('grid-label');
+  label.textContent = String.fromCharCode(65 + i); // A-J
+  gridLabels.appendChild(label);
+}
+
+player1Board.appendChild(gridLabels.cloneNode(true));
+player2Board.appendChild(gridLabels.cloneNode(true));
+
+// Create row labels
+for (let i = 0; i < 10; i++) {
+  const label = document.createElement('div');
+  label.classList.add('grid-label');
+  label.textContent = i + 1;
+  player1Board.querySelector(`[data-x="${i}"][data-y="0"]`).appendChild(label);
+  player2Board.querySelector(`[data-x="${i}"][data-y="0"]`).appendChild(label);
+}
+
