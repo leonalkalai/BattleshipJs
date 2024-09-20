@@ -80,7 +80,7 @@ function aiMove() {
 
 // Function to handle ship placement
 function placeShip(shipType) {
-  const length = shipTypes[shipType].length;
+  const length = shipTypes[shipType].length || null;
   console.log(shipTypes, shipTypes[shipType], shipTypes[shipType].length, length)
   let orientation = Math.random() < 0.5 ? 'horizontal' : 'vertical';
   let x, y;
