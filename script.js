@@ -134,4 +134,3 @@ for (let i = 0; i < 10; i++) {
   player1Board.querySelector(`[data-x="${i}"][data-y="0"]`).appendChild(label);
   player2Board.querySelector(`[data-x="${i}"][data-y="0"]`).appendChild(label);
 }
-

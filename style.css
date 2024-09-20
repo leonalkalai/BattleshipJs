@@ -20,31 +20,30 @@
   background-color: gray;
 }
 
+.carrier {
+  background-color: pink;
+}
+
+.battleship {
+  background-color: purple;
+}
+
+.cruiser {
+  background-color: cyan;
+}
+
+.submarine {
+  background-color: orange;
+}
+
+.destroyer {
+  background-color: green;
+}
+
 .grid-label {
   text-align: center;
   width: 30px;
   height: 30px;
   border: 1px solid black;
   background-color: #f0f0f0;
-}
-
-
-#menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-#menu ul {
-  list-style: none;
-  padding: 0;
-}
-
-#menu button {
-  padding: 10px;
-  margin: 5px;
-  border: 1px solid black;
-  background-color: #f0f0f0;
-  cursor: pointer;
 }
