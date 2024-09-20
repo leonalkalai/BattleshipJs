@@ -134,6 +134,10 @@ for (let i = 0; i < 10; i++) {
   rowLabels.appendChild(label);
 }
 
+// ... (existing code)
+
+
+// Append labels to boards
 player1Board.appendChild(gridLabels.cloneNode(true));
 player1Board.appendChild(rowLabels.cloneNode(true));
 player2Board.appendChild(gridLabels.cloneNode(true));
