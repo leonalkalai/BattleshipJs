@@ -101,7 +101,7 @@ function placeShip(shipType) {
 
   // Create and show the popup
   const popup = document.createElement('div');
-  popup.classList.add('popup');
+  popup.classList.add('popup', 'show');
   popup.innerHTML = `
     <h2>${shipType}</h2>
     <p>Ship placed successfully.</p>
