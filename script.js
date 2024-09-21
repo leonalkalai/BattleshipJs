@@ -101,12 +101,22 @@ function placeShip(board, x, y, length, orientation) {
   }
 
 // Function to handle player attacks
-function handleClick(event, handleBoardClick) {
-  console.log(event.target)
-  const x = event.target.dataset.x;
-  const y = event.target.dataset.y;
+function handleClick(event) {
+   console.log(event.target); // Log the clicked element for debugging
+
+  // Find the closest element with data-x and data-y attributes
+  const targetElement = event.target.closest('[data-x][data-y]');
+  if (!targetElement) {
+    console.error('Clicked element does not have data-x or data-y attributes');
+    return;
+  }
+
+  const x = targetElement.dataset.x;
+  const y = targetElement.dataset.y;
   console.log('Clicked cell:', x, y);
+
   handleBoardClick(x, y);
+
   const targetBoard = event.target.parentNode;
 
   if (targetBoard.classList.contains('hit') || targetBoard.classList.contains('miss')) {
