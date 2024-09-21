@@ -42,6 +42,7 @@ function placeShip(board, x, y, length, orientation) {
 
 // Function to handle player attacks
 function handleClick(event) {
+  console.log(event)
   const x = event.target.dataset.x;
   const y = event.target.dataset.y;
   const targetBoard = event.target.parentNode;
