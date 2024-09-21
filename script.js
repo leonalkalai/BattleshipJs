@@ -96,7 +96,7 @@ function handleShipPlacement(shipType) {
   shipDiv.style.left = '0px';
   shipDiv.style.top = '0px';
   shipDiv.style.width = `${shipLength * 30}px`; // Adjust multiplier based on grid cell size
-  document.body.appendChild(shipDiv);
+  player1Board.appendChild(shipDiv);
 
   let isDragging = false;
   let initialX, initialY;
