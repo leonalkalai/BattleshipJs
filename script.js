@@ -40,6 +40,66 @@ function placeShip(board, x, y, length, orientation) {
   return true;
 }
 
+  function handleBoardClick(x, y) {
+   // const x = event.target.dataset.x;
+    //const y = event.target.dataset.y;
+
+    // Try to place the ship at the clicked coordinates
+    if (placeShip(player1Board, x, y, length, shipData.orientation)) {
+      // Ship placement successful
+      shipDiv.remove();
+      document.getElementById(shipType).disabled = true;
+
+      // Create and show the popup
+      const popup = document.createElement('div');
+      popup.classList.add('popup', 'show');
+      popup.innerHTML = `
+        <h2>${shipType}</h2>
+        <p>Ship placed successfully.</p>
+        <button class="rotate-button">Rotate</button>
+      `;
+      document.body.appendChild(popup);
+
+      // Add event listener to the rotate button
+      const rotateButton = popup.querySelector('.rotate-button');
+      rotateButton.addEventListener('click', () => {
+        // Rotate the ship by 90 degrees
+        if (shipData.orientation === 'horizontal') {
+          shipData.orientation = 'vertical';
+          shipDiv.style.transform = 'rotate(90deg)';
+        } else {
+          shipData.orientation = 'horizontal';
+          shipDiv.style.transform = 'rotate(0deg)';
+        }
+
+        // Check if the rotated ship still fits within the board
+        if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, length, shipData.orientation)) {
+          // If valid, update the ship's position and show the popup
+          placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, length, shipData.orientation);
+        } else {
+          // If invalid, rotate back to the original orientation and show an error message
+          if (shipData.orientation === 'horizontal') {
+            shipDiv.style.transform = 'rotate(0deg)';
+          } else {
+            shipDiv.style.transform = 'rotate(90deg)';
+          }
+          alert('Rotation not possible due to placement constraints.');
+        }
+
+        popup.classList.remove('show');
+      });
+
+      if (Object.values(shipTypes).every(ship => ship.placed)) {
+        // All ships are placed, hide the menu and start the game
+        document.getElementById('menu').style.display = 'none';
+        aiMove();
+      }
+    } else {
+      // Ship placement failed
+      resetShipPosition(shipDiv);
+    }
+  }
+
 // Function to handle player attacks
 function handleClick(event) {
   console.log(event)
@@ -121,66 +181,6 @@ function handleShipPlacement(shipType, x, y) {
 
 // Add a click event listener to the game board
   player1Board.addEventListener('click', handleBoardClick);
-
-  function handleBoardClick(x, y) {
-   // const x = event.target.dataset.x;
-    //const y = event.target.dataset.y;
-
-    // Try to place the ship at the clicked coordinates
-    if (placeShip(player1Board, x, y, length, shipData.orientation)) {
-      // Ship placement successful
-      shipDiv.remove();
-      document.getElementById(shipType).disabled = true;
-
-      // Create and show the popup
-      const popup = document.createElement('div');
-      popup.classList.add('popup', 'show');
-      popup.innerHTML = `
-        <h2>${shipType}</h2>
-        <p>Ship placed successfully.</p>
-        <button class="rotate-button">Rotate</button>
-      `;
-      document.body.appendChild(popup);
-
-      // Add event listener to the rotate button
-      const rotateButton = popup.querySelector('.rotate-button');
-      rotateButton.addEventListener('click', () => {
-        // Rotate the ship by 90 degrees
-        if (shipData.orientation === 'horizontal') {
-          shipData.orientation = 'vertical';
-          shipDiv.style.transform = 'rotate(90deg)';
-        } else {
-          shipData.orientation = 'horizontal';
-          shipDiv.style.transform = 'rotate(0deg)';
-        }
-
-        // Check if the rotated ship still fits within the board
-        if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, length, shipData.orientation)) {
-          // If valid, update the ship's position and show the popup
-          placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, length, shipData.orientation);
-        } else {
-          // If invalid, rotate back to the original orientation and show an error message
-          if (shipData.orientation === 'horizontal') {
-            shipDiv.style.transform = 'rotate(0deg)';
-          } else {
-            shipDiv.style.transform = 'rotate(90deg)';
-          }
-          alert('Rotation not possible due to placement constraints.');
-        }
-
-        popup.classList.remove('show');
-      });
-
-      if (Object.values(shipTypes).every(ship => ship.placed)) {
-        // All ships are placed, hide the menu and start the game
-        document.getElementById('menu').style.display = 'none';
-        aiMove();
-      }
-    } else {
-      // Ship placement failed
-      resetShipPosition(shipDiv);
-    }
-  }
 
   function resetShipPosition(shipDiv) {
     shipDiv.style.left = '';
