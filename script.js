@@ -101,7 +101,7 @@ function placeShip(board, x, y, length, orientation) {
   }
 
 // Function to handle player attacks
-function handleClick(event) {
+function handleClick(event, handleBoardClick) {
   console.log(event)
   const x = event.target.dataset.x;
   const y = event.target.dataset.y;
@@ -397,8 +397,10 @@ shipButtons.forEach(button => {
 });
 
 // Add event listeners to both boards
-player1Board.addEventListener('click', handleClick);
-player2Board.addEventListener('click', handleClick);
+// player1Board.addEventListener('click', handleClick);
+// player2Board.addEventListener('click', handleClick);
+player1Board.addEventListener('click', handleClick.bind(null, handleBoardClick));
+player2Board.addEventListener('click', handleClick.bind(null, handleBoardClick));
 
 // ... (existing code)
 
