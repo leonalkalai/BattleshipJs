@@ -44,6 +44,7 @@ function placeShip(board, x, y, length, orientation) {
      // const x = event.target.dataset.x;
      // const y = event.target.dataset.y;
     // Try to place the ship at the clicked coordinates
+    console.log(shipData)
     if (placeShip(player1Board, x, y, length, shipData.orientation)) {
       // Ship placement successful
       shipDiv.remove();
