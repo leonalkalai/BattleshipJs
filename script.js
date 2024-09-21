@@ -14,11 +14,11 @@ for (let i = 0; i < 10; i++) {
 
 // Create an object to store ship information
 const shipTypes = {
-  carrier: { length: 5 },
-  battleship: { length: 4 },
-  cruiser: { length: 3 },
-  submarine: { length: 3 },
-  destroyer: { length: 2 }
+  carrier: { length: 5, orientation: 'horizontal', icon: 'carrier.png', color: 'blue', health: 5, isSunk: false },
+  battleship: { length: 4, orientation: 'horizontal', icon: 'battleship.png', color: 'red', health: 4, isSunk: false },
+  cruiser: { length: 3, orientation: 'horizontal', icon: 'cruiser.png', color: 'green', health: 3, isSunk: false },
+  submarine: { length: 3, orientation: 'vertical', icon: 'submarine.png', color: 'yellow', health: 3, isSunk: false },
+  destroyer: { length: 2, orientation: 'horizontal', icon: 'destroyer.png', color: 'orange', health: 2, isSunk: false }
 };
 
 // Function to place a ship on the board
@@ -80,46 +80,136 @@ function aiMove() {
 }
 
 // Function to handle ship placement (triggered by button click)
+
 function handleShipPlacement(shipType) {
   const length = shipTypes[shipType].length || null;
-  console.log(shipType);
+    console.log(shipType);
   console.log(shipTypes[shipType]);
   console.log(shipTypes[shipType].length);
   console.log(length);
-  let orientation = Math.random() < 0.5 ? 'horizontal' : 'vertical';
-  let x, y;
+  let orientation = Math.random() < 0.5 ? 'horizontal' : 'vertical'; // Random orientation for now
 
-  do {
-    x = Math.floor(Math.random() * 10);
-    y = Math.floor(Math.random() * 10);
-  } while (!placeShip(player1Board, x, y, length, orientation));
+  // Create a visual representation of the ship
+  const shipDiv = document.createElement('div');
+  shipDiv.classList.add('ship', shipType);
+  shipDiv.style.position = 'absolute';
+  shipDiv.style.left = '0px';
+  shipDiv.style.top = '0px';
+  document.body.appendChild(shipDiv);
 
-  // Remove the button from the menu
-  document.getElementById(shipType).disabled = true;
+  let isDragging = false;
+  let initialX, initialY;
 
-  if (Object.values(shipTypes).every(ship => ship.placed)) {
-    // All ships are placed, hide the menu and start the game
-    document.getElementById('menu').style.display = 'none';
-    aiMove();
+  // Event listeners for dragging and dropping the ship
+  shipDiv.addEventListener('mousedown', handleMouseDown);
+  shipDiv.addEventListener('touchstart', handleTouchStart);
+  shipDiv.addEventListener('mousemove', handleMouseMove);
+  shipDiv.addEventListener('touchmove', handleTouchMove);
+  shipDiv.addEventListener('mouseup', handleMouseUp);
+  shipDiv.addEventListener('touchend', handleTouchEnd);
+
+  function handleMouseDown(event) {
+    event.preventDefault();
+    isDragging = true;
+    initialX = event.clientX;
+    initialY = event.clientY;
   }
 
-  // Create and show the popup
-  const popup = document.createElement('div');
-  popup.classList.add('popup', 'show');
-  popup.innerHTML = `
-    <h2>${shipType}</h2>
-    <p>Ship placed successfully.</p>
-    <button class="rotate-button">Rotate</button>
-  `;
-  document.body.appendChild(popup);
+  function handleTouchStart(event) {
+    event.preventDefault();
+    isDragging = true;
+    initialX = event.touches[0].clientX;
+    initialY = event.touches[0].clientY;
+  }
 
-  // Add event listener to the rotate button
-  const rotateButton = popup.querySelector('.rotate-button');
-  rotateButton.addEventListener('click', () => {
-    // Implement ship rotation logic here
-    // ...
-    popup.classList.remove('show');
-  });
+  function handleMouseMove(event) {
+    if (isDragging) {
+      event.preventDefault();
+      const currentX = event.clientX || event.touches[0].clientX;
+      const currentY = event.clientY || event.touches[0].clientY;
+      const dx = currentX - initialX;
+      const dy = currentY - initialY;
+
+      shipDiv.style.left = `${shipDiv.offsetLeft + dx}px`;
+      shipDiv.style.top = `${shipDiv.offsetTop + dy}px`;
+    }
+  }
+
+  function handleTouchMove(event) {
+    if (isDragging) {
+      handleMouseMove(event);
+    }
+  }
+
+  function handleMouseUp(event) {
+    isDragging = false;
+
+    // Check if the ship is dropped within the game board
+    if (isShipOverBoard(shipDiv, player1Board)) {
+      // Try to place the ship on the board
+      if (placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation)) {
+        // Ship placement successful
+        shipDiv.remove();
+        document.getElementById(shipType).disabled = true;
+
+        // Create and show the popup
+        const popup = document.createElement('div');
+        popup.classList.add('popup', 'show');
+        popup.innerHTML = `
+          <h2>${shipType}</h2>
+          <p>Ship placed successfully.</p>
+          <button class="rotate-button">Rotate</button>
+        `;
+        document.body.appendChild(popup);
+
+        // Add event listener to the rotate button
+        const rotateButton = popup.querySelector('.rotate-button');
+        rotateButton.addEventListener('click', () => {
+          // Rotate the ship by 90 degrees
+          if (orientation === 'horizontal') {
+            orientation = 'vertical';
+            shipDiv.style.transform = 'rotate(90deg)';
+          } else {
+            orientation = 'horizontal';
+            shipDiv.style.transform = 'rotate(0deg)';
+          }
+
+          // Check if the rotated ship still fits within the board
+          if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation)) {
+            // If valid, update the ship's position and show the popup
+            placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation);
+          } else {
+            // If invalid, rotate back to the original orientation and show an error message
+            if (orientation === 'horizontal') {
+              shipDiv.style.transform = 'rotate(0deg)';
+            } else {
+              shipDiv.style.transform = 'rotate(90deg)';
+            }
+            alert('Rotation not possible due to placement constraints.');
+          }
+
+          popup.classList.remove('show');
+        });
+
+        if (Object.values(shipTypes).every(ship => ship.placed)) {
+          // All ships are placed, hide the menu and start the game
+          document.getElementById('menu').style.display = 'none';
+          aiMove();
+        }
+      } else {
+        // Ship placement failed
+        resetShipPosition(shipDiv);
+      }
+    } else {
+      // Ship dropped outside the board
+      resetShipPosition(shipDiv);
+    }
+  }
+
+  function resetShipPosition(shipDiv) {
+    shipDiv.style.left = '';
+    shipDiv.style.top = '';
+  }
 }
 
 // Add event listeners to ship placement buttons
