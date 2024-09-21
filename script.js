@@ -46,6 +46,7 @@ function handleClick(event) {
   const x = event.target.dataset.x;
   const y = event.target.dataset.y;
   console.log('Clicked cell:', x, y);
+  handleBoardClick(x, y);
   const targetBoard = event.target.parentNode;
 
   if (targetBoard.classList.contains('hit') || targetBoard.classList.contains('miss')) {
@@ -121,9 +122,9 @@ function handleShipPlacement(shipType) {
 // Add a click event listener to the game board
   player1Board.addEventListener('click', handleBoardClick);
 
-  function handleBoardClick(event) {
-    const x = event.target.dataset.x;
-    const y = event.target.dataset.y;
+  function handleBoardClick(x, y) {
+   // const x = event.target.dataset.x;
+    //const y = event.target.dataset.y;
 
     // Try to place the ship at the clicked coordinates
     if (placeShip(player1Board, x, y, length, shipData.orientation)) {
