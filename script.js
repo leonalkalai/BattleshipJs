@@ -41,8 +41,8 @@ function placeShip(board, x, y, length, orientation) {
 }
 
   function handleBoardClick(x, y) {
-     const x = event.target.dataset.x;
-     const y = event.target.dataset.y;
+     // const x = event.target.dataset.x;
+     // const y = event.target.dataset.y;
 
     // Try to place the ship at the clicked coordinates
     if (placeShip(player1Board, x, y, length, shipData.orientation)) {
@@ -102,7 +102,7 @@ function placeShip(board, x, y, length, orientation) {
 
 // Function to handle player attacks
 function handleClick(event, handleBoardClick) {
-  console.log(event)
+  console.log(event.target)
   const x = event.target.dataset.x;
   const y = event.target.dataset.y;
   console.log('Clicked cell:', x, y);
