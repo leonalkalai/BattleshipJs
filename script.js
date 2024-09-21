@@ -83,7 +83,7 @@ function aiMove() {
 
 // Function to handle ship placement (triggered by button click)
 
-function handleShipPlacement(shipType) {
+function handleShipPlacement(shipType, x, y) {
   const shipLength = shipTypes[shipType].length || null;
   console.log(shipType);
   console.log(shipTypes[shipType]);
@@ -362,11 +362,31 @@ function handleShipPlacement(shipType) {
 }
 
 // Add event listeners to ship placement buttons
-document.getElementById('carrier').addEventListener('click', () => handleShipPlacement('carrier'));
-document.getElementById('battleship').addEventListener('click', () => handleShipPlacement('battleship'));
-document.getElementById('cruiser').addEventListener('click', () => handleShipPlacement('cruiser'));
-document.getElementById('submarine').addEventListener('click', () => handleShipPlacement('submarine'));
-document.getElementById('destroyer').addEventListener('click', () => handleShipPlacement('destroyer'));
+// document.getElementById('carrier').addEventListener('click', () => handleShipPlacement('carrier'));
+// document.getElementById('battleship').addEventListener('click', () => handleShipPlacement('battleship'));
+// document.getElementById('cruiser').addEventListener('click', () => handleShipPlacement('cruiser'));
+// document.getElementById('submarine').addEventListener('click', () => handleShipPlacement('submarine'));
+// document.getElementById('destroyer').addEventListener('click', () => handleShipPlacement('destroyer'));
+
+document.getElementById('carrier').addEventListener('click', (event) => {
+  handleShipPlacement('carrier', event.clientX, event.clientY);
+});
+
+document.getElementById('battleship').addEventListener('click', (event) => {
+  handleShipPlacement('battleship', event.clientX, event.clientY);
+});
+
+document.getElementById('cruiser').addEventListener('click', (event) => {
+  handleShipPlacement('cruiser', event.clientX, event.clientY);
+});
+
+document.getElementById('submarine').addEventListener('click', (event) => {
+  handleShipPlacement('submarine', event.clientX, event.clientY);
+});
+
+document.getElementById('destroyer').addEventListener('click', (event) => {
+  handleShipPlacement('destroyer', event.clientX, event.clientY);
+});
 
 // Add event listeners to both boards
 player1Board.addEventListener('click', handleClick);
