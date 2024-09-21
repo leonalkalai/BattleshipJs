@@ -368,24 +368,32 @@ function handleShipPlacement(shipType, x, y) {
 // document.getElementById('submarine').addEventListener('click', () => handleShipPlacement('submarine'));
 // document.getElementById('destroyer').addEventListener('click', () => handleShipPlacement('destroyer'));
 
-document.getElementById('carrier').addEventListener('click', (event) => {
-  handleShipPlacement('carrier', event.clientX, event.clientY);
-});
+// document.getElementById('carrier').addEventListener('click', (event) => {
+//   handleShipPlacement('carrier', event.clientX, event.clientY);
+// });
 
-document.getElementById('battleship').addEventListener('click', (event) => {
-  handleShipPlacement('battleship', event.clientX, event.clientY);
-});
+// document.getElementById('battleship').addEventListener('click', (event) => {
+//   handleShipPlacement('battleship', event.clientX, event.clientY);
+// });
 
-document.getElementById('cruiser').addEventListener('click', (event) => {
-  handleShipPlacement('cruiser', event.clientX, event.clientY);
-});
+// document.getElementById('cruiser').addEventListener('click', (event) => {
+//   handleShipPlacement('cruiser', event.clientX, event.clientY);
+// });
 
-document.getElementById('submarine').addEventListener('click', (event) => {
-  handleShipPlacement('submarine', event.clientX, event.clientY);
-});
+// document.getElementById('submarine').addEventListener('click', (event) => {
+//   handleShipPlacement('submarine', event.clientX, event.clientY);
+// });
 
-document.getElementById('destroyer').addEventListener('click', (event) => {
-  handleShipPlacement('destroyer', event.clientX, event.clientY);
+// document.getElementById('destroyer').addEventListener('click', (event) => {
+//   handleShipPlacement('destroyer', event.clientX, event.clientY);
+// });
+
+const shipButtons = document.querySelectorAll('.ship-button');
+
+shipButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    handleShipPlacement(button.id, event.clientX, event.clientY);
+  });
 });
 
 // Add event listeners to both boards
