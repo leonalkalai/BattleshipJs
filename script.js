@@ -40,10 +40,9 @@ function placeShip(board, x, y, length, orientation) {
   return true;
 }
 
-  function handleBoardClick(x, y) {
+  function handleBoardClick(x, y, shipData) {
      // const x = event.target.dataset.x;
      // const y = event.target.dataset.y;
-
     // Try to place the ship at the clicked coordinates
     if (placeShip(player1Board, x, y, length, shipData.orientation)) {
       // Ship placement successful
@@ -103,7 +102,7 @@ function placeShip(board, x, y, length, orientation) {
 // Function to handle player attacks
 function handleClick(event) {
    console.log(event.target); // Log the clicked element for debugging
-
+   //const shipData = shipTypes[shipType];
   // Find the closest element with data-x and data-y attributes
   const targetElement = event.target.closest('[data-x][data-y]');
   if (!targetElement) {
