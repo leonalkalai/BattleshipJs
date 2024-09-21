@@ -117,16 +117,15 @@ function handleShipPlacement(shipType) {
   shipDiv.removeEventListener('mouseup', handleMouseUp);
   shipDiv.removeEventListener('touchend', handleTouchEnd);
 
-   // Add a click event listener to the ship element
-  shipDiv.addEventListener('click', handleShipClick);
+// Add a click event listener to the game board
+  player1Board.addEventListener('click', handleBoardClick);
 
-  function handleShipClick(event) {
-    // Get the clicked cell's coordinates
+  function handleBoardClick(event) {
     const x = event.target.dataset.x;
     const y = event.target.dataset.y;
 
     // Try to place the ship at the clicked coordinates
-    if (placeShip(player1Board, x, y, shipLength, orientation)) {
+    if (placeShip(player1Board, x, y, length, shipData.orientation)) {
       // Ship placement successful
       shipDiv.remove();
       document.getElementById(shipType).disabled = true;
@@ -145,21 +144,21 @@ function handleShipPlacement(shipType) {
       const rotateButton = popup.querySelector('.rotate-button');
       rotateButton.addEventListener('click', () => {
         // Rotate the ship by 90 degrees
-        if (orientation === 'horizontal') {
-          orientation = 'vertical';
+        if (shipData.orientation === 'horizontal') {
+          shipData.orientation = 'vertical';
           shipDiv.style.transform = 'rotate(90deg)';
         } else {
-          orientation = 'horizontal';
+          shipData.orientation = 'horizontal';
           shipDiv.style.transform = 'rotate(0deg)';
         }
 
         // Check if the rotated ship still fits within the board
-        if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, shipLength, orientation)) {
+        if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, length, shipData.orientation)) {
           // If valid, update the ship's position and show the popup
-          placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, shipLength, orientation);
+          placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, length, shipData.orientation);
         } else {
           // If invalid, rotate back to the original orientation and show an error message
-          if (orientation === 'horizontal') {
+          if (shipData.orientation === 'horizontal') {
             shipDiv.style.transform = 'rotate(0deg)';
           } else {
             shipDiv.style.transform = 'rotate(90deg)';
@@ -179,6 +178,11 @@ function handleShipPlacement(shipType) {
       // Ship placement failed
       resetShipPosition(shipDiv);
     }
+  }
+
+  function resetShipPosition(shipDiv) {
+    shipDiv.style.left = '';
+    shipDiv.style.top = '';
   }
 
   function resetShipPosition(shipDiv) {
