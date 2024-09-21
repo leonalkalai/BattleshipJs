@@ -407,10 +407,10 @@ shipButtons.forEach(button => {
 });
 
 // Add event listeners to both boards
-// player1Board.addEventListener('click', handleClick);
-// player2Board.addEventListener('click', handleClick);
-player1Board.addEventListener('click', handleClick.bind(null, handleBoardClick));
-player2Board.addEventListener('click', handleClick.bind(null, handleBoardClick));
+player1Board.addEventListener('click', handleClick);
+player2Board.addEventListener('click', handleClick);
+// player1Board.addEventListener('click', handleClick.bind(null, handleBoardClick));
+// player2Board.addEventListener('click', handleClick.bind(null, handleBoardClick));
 
 // ... (existing code)
 
