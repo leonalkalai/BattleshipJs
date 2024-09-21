@@ -45,6 +45,7 @@ function handleClick(event) {
   console.log(event)
   const x = event.target.dataset.x;
   const y = event.target.dataset.y;
+  console.log('Clicked cell:', x, y);
   const targetBoard = event.target.parentNode;
 
   if (targetBoard.classList.contains('hit') || targetBoard.classList.contains('miss')) {
@@ -93,8 +94,8 @@ function handleShipPlacement(shipType) {
   const shipDiv = document.createElement('div');
   shipDiv.classList.add('ship', shipType);
   shipDiv.style.position = 'absolute';
-  shipDiv.style.left = '0px';
-  shipDiv.style.top = '0px';
+  shipDiv.style.left = `${x}px`;
+  shipDiv.style.top = `${y}px`;
   shipDiv.style.width = `${shipLength * 30}px`; // Adjust multiplier based on grid cell size
   player1Board.appendChild(shipDiv);
 
