@@ -78,8 +78,8 @@ function aiMove() {
   }
 }
 
-// Function to handle ship placement
-function placeShip(shipType) {
+// Function to handle ship placement (triggered by button click)
+function handleShipPlacement(shipType) {
   const length = shipTypes[shipType].length || null;
   console.log(shipType);
   console.log(shipTypes[shipType]);
@@ -121,13 +121,12 @@ function placeShip(shipType) {
   });
 }
 
-
 // Add event listeners to ship placement buttons
-document.getElementById('carrier').addEventListener('click', () => placeShip('carrier'));
-document.getElementById('battleship').addEventListener('click', () => placeShip('battleship'));
-document.getElementById('cruiser').addEventListener('click', () => placeShip('cruiser'));
-document.getElementById('submarine').addEventListener('click', () => placeShip('submarine'));
-document.getElementById('destroyer').addEventListener('click', () => placeShip('destroyer'));
+document.getElementById('carrier').addEventListener('click', () => handleShipPlacement('carrier'));
+document.getElementById('battleship').addEventListener('click', () => handleShipPlacement('battleship'));
+document.getElementById('cruiser').addEventListener('click', () => handleShipPlacement('cruiser'));
+document.getElementById('submarine').addEventListener('click', () => handleShipPlacement('submarine'));
+document.getElementById('destroyer').addEventListener('click', () => handleShipPlacement('destroyer'));
 
 // Add event listeners to both boards
 player1Board.addEventListener('click', handleClick);
@@ -158,90 +157,6 @@ for (let i = 0; i < 10; i++) {
 }
 
 // ... (existing code)
-// ... (existing code)
-
-// Add event listeners to each ship
-const ships = document.querySelectorAll('.ship');
-ships.forEach(ship => {
-  ship.addEventListener('mousedown', handleMouseDown);
-  ship.addEventListener('touchstart', handleTouchStart);
-  ship.addEventListener('mousemove', handleMouseMove);
-  ship.addEventListener('touchmove', handleTouchMove);
-  ship.addEventListener('mouseup', handleMouseUp);
-  ship.addEventListener('touchend', handleTouchEnd);
-});
-
-let isDragging = false;
-let currentShip;
-let initialX, initialY;
-
-function handleMouseDown(event) {
-  event.preventDefault();
-  isDragging = true;
-  currentShip = event.target;
-  initialX = event.clientX;
-  initialY = event.clientY;
-}
-
-function handleTouchStart(event) {
-  event.preventDefault();
-  isDragging = true;
-  currentShip = event.target;
-  initialX = event.touches[0].clientX;
-  initialY = event.touches[0].clientY;
-}
-
-function handleMouseMove(event) {
-  if (isDragging) {
-    event.preventDefault();
-    const currentX = event.clientX || event.touches[0].clientX;
-    const currentY = event.clientY || event.touches[0].clientY;
-    const dx = currentX - initialX;
-    const dy = currentY - initialY;
-
-    currentShip.style.left = `${currentShip.offsetLeft + dx}px`;
-    currentShip.style.top = `${currentShip.offsetTop + dy}px`;
-  }
-}
-
-function handleTouchMove(event) {
-  if (isDragging) {
-    handleMouseMove(event);
-  }
-}
-
-function handleMouseUp(event) {
-  isDragging = false;
-
-  // Check if the ship is dropped within the game board
-  if (isShipOverBoard(currentShip, player1Board)) {
-    // Try to place the ship on the board
-    if (placeShipOnBoard(shipTypes[currentShip.id], currentShip, player1Board)) {
-      // Ship placement successful
-      currentShip.removeEventListener('mousedown', handleMouseDown);
-      currentShip.removeEventListener('touchstart', handleTouchStart);
-      currentShip.removeEventListener('mousemove', handleMouseMove);
-      currentShip.removeEventListener('touchmove', handleTouchMove);
-      currentShip.removeEventListener('mouseup', handleMouseUp);
-      currentShip.removeEventListener('touchend', handleTouchEnd);
-      currentShip.classList.add('placed'); // Visually indicate placed ship
-      currentShip.style.position = 'static'; // Remove absolute positioning
-
-      // Switch to the next player's turn
-      currentPlayer = currentPlayer === 1 ? 2 : 1;
-      updateTurnDisplay(); // Update UI to show the next player's turn (if applicable)
-    } else {
-      // Ship placement failed (e.g., collision, out of bounds, etc.)
-      resetShipPosition(currentShip);
-    }
-  } else {
-    // Ship dropped outside the board
-    resetShipPosition(currentShip);
-  }
-}
-
-// ... (rest of your code)
-
 
 // Append labels to boards
 player1Board.appendChild(gridLabels.cloneNode(true));
