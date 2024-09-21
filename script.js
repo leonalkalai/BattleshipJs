@@ -141,6 +141,71 @@ function handleShipPlacement(shipType) {
     }
   }
 
+  function handleTouchEnd(event) {
+  isDragging = false;
+
+  // Check if the ship is dropped within the game board
+  if (isShipOverBoard(shipDiv, player1Board)) {
+    // Try to place the ship on the board
+    if (placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation)) {
+      // Ship placement successful
+      shipDiv.remove();
+      document.getElementById(shipType).disabled = true;
+
+      // Create and show the popup
+      const popup = document.createElement('div');
+      popup.classList.add('popup', 'show');
+      popup.innerHTML = `
+        <h2>${shipType}</h2>
+        <p>Ship placed successfully.</p>
+        <button class="rotate-button">Rotate</button>
+      `;
+      document.body.appendChild(popup);
+
+      // Add event listener to the rotate button
+      const rotateButton = popup.querySelector('.rotate-button');
+      rotateButton.addEventListener('click', () => {
+        // Rotate the ship by 90 degrees
+        if (orientation === 'horizontal') {
+          orientation = 'vertical';
+          shipDiv.style.transform = 'rotate(90deg)';
+        } else {
+          orientation = 'horizontal';
+          shipDiv.style.transform = 'rotate(0deg)';
+        }
+
+        // Check if the rotated ship still fits within the board
+        if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation)) {
+          // If valid, update the ship's position and show the popup
+          placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation);
+        } else {
+          // If invalid, rotate back to the original orientation and show an error message
+          if (orientation === 'horizontal') {
+            shipDiv.style.transform = 'rotate(0deg)';
+          } else {
+            shipDiv.style.transform = 'rotate(90deg)';
+          }
+          alert('Rotation not possible due to placement constraints.');
+        }
+
+        popup.classList.remove('show');
+      });
+
+      if (Object.values(shipTypes).every(ship => ship.placed)) {
+        // All ships are placed, hide the menu and start the game
+        document.getElementById('menu').style.display = 'none';
+        aiMove();
+      }
+    } else {
+      // Ship placement failed
+      resetShipPosition(shipDiv);
+    }
+  } else {
+    // Ship dropped outside the board
+    resetShipPosition(shipDiv);
+  }
+}
+
   function handleMouseUp(event) {
     isDragging = false;
 
