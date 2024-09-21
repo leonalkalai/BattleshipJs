@@ -83,7 +83,7 @@ function aiMove() {
 
 function handleShipPlacement(shipType) {
   const length = shipTypes[shipType].length || null;
-    console.log(shipType);
+  console.log(shipType);
   console.log(shipTypes[shipType]);
   console.log(shipTypes[shipType].length);
   console.log(length);
@@ -95,6 +95,7 @@ function handleShipPlacement(shipType) {
   shipDiv.style.position = 'absolute';
   shipDiv.style.left = '0px';
   shipDiv.style.top = '0px';
+  shipDiv.style.width = `${shipLength * 30}px`; // Adjust multiplier based on grid cell size
   document.body.appendChild(shipDiv);
 
   let isDragging = false;
