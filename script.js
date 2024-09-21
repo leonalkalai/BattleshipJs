@@ -82,11 +82,11 @@ function aiMove() {
 // Function to handle ship placement (triggered by button click)
 
 function handleShipPlacement(shipType) {
-  const length = shipTypes[shipType].length || null;
+  const shipLength = shipTypes[shipType].length || null;
   console.log(shipType);
   console.log(shipTypes[shipType]);
   console.log(shipTypes[shipType].length);
-  console.log(length);
+  console.log(shipLength);
   let orientation = Math.random() < 0.5 ? 'horizontal' : 'vertical'; // Random orientation for now
 
   // Create a visual representation of the ship
@@ -126,7 +126,7 @@ function handleShipPlacement(shipType) {
     const y = event.target.dataset.y;
 
     // Try to place the ship at the clicked coordinates
-    if (placeShip(player1Board, x, y, length, orientation)) {
+    if (placeShip(player1Board, x, y, shipLength, orientation)) {
       // Ship placement successful
       shipDiv.remove();
       document.getElementById(shipType).disabled = true;
@@ -154,9 +154,9 @@ function handleShipPlacement(shipType) {
         }
 
         // Check if the rotated ship still fits within the board
-        if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation)) {
+        if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, shipLength, orientation)) {
           // If valid, update the ship's position and show the popup
-          placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation);
+          placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, shipLength, orientation);
         } else {
           // If invalid, rotate back to the original orientation and show an error message
           if (orientation === 'horizontal') {
@@ -225,7 +225,7 @@ function handleShipPlacement(shipType) {
   // Check if the ship is dropped within the game board
   if (isShipOverBoard(shipDiv, player1Board)) {
     // Try to place the ship on the board
-    if (placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation)) {
+    if (placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, shipLength, orientation)) {
       // Ship placement successful
       shipDiv.remove();
       document.getElementById(shipType).disabled = true;
@@ -253,9 +253,9 @@ function handleShipPlacement(shipType) {
         }
 
         // Check if the rotated ship still fits within the board
-        if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation)) {
+        if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, shipLength, orientation)) {
           // If valid, update the ship's position and show the popup
-          placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation);
+          placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, shipLength, orientation);
         } else {
           // If invalid, rotate back to the original orientation and show an error message
           if (orientation === 'horizontal') {
@@ -290,7 +290,7 @@ function handleShipPlacement(shipType) {
     // Check if the ship is dropped within the game board
     if (isShipOverBoard(shipDiv, player1Board)) {
       // Try to place the ship on the board
-      if (placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation)) {
+      if (placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, shipLength, orientation)) {
         // Ship placement successful
         shipDiv.remove();
         document.getElementById(shipType).disabled = true;
@@ -318,9 +318,9 @@ function handleShipPlacement(shipType) {
           }
 
           // Check if the rotated ship still fits within the board
-          if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation)) {
+          if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, shipLength, orientation)) {
             // If valid, update the ship's position and show the popup
-            placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, length, orientation);
+            placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, shipLength, orientation);
           } else {
             // If invalid, rotate back to the original orientation and show an error message
             if (orientation === 'horizontal') {
