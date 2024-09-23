@@ -44,7 +44,7 @@ function placeShip(board, x, y, length, orientation) {
      // const x = event.target.dataset.x;
      // const y = event.target.dataset.y;
     // Try to place the ship at the clicked coordinates
-    console.log(shipData)
+    console.log('handleBoardClick', shipData)
     if (placeShip(player1Board, x, y, length, shipData.orientation)) {
       // Ship placement successful
       shipDiv.remove();
@@ -102,11 +102,12 @@ function placeShip(board, x, y, length, orientation) {
 
 // Function to handle player attacks
 function handleClick(event) {
-   console.log(event.target); // Log the clicked element for debugging
+  // console.log(event.target); // Log the clicked element for debugging
    //const shipData = shipTypes[shipType];
   // Find the closest element with data-x and data-y attributes
   const shipType = event.target.parentElement.id;
   const shipData = shipTypes[shipType];
+  console.log('handleClick(event) shipData:', shipData);
   const targetElement = event.target.closest('[data-x][data-y]');
   if (!targetElement) {
     console.error('Clicked element does not have data-x or data-y attributes');
@@ -115,7 +116,7 @@ function handleClick(event) {
 
   const x = targetElement.dataset.x;
   const y = targetElement.dataset.y;
-  console.log('Clicked cell:', x, y);
+  console.log('handleClick(event) Clicked cell:', x, y);
  
   handleBoardClick(x, y, shipData);
 
@@ -157,10 +158,10 @@ function aiMove() {
 
 function handleShipPlacement(shipType, x, y) {
   const shipLength = shipTypes[shipType].length || null;
-  console.log(shipType);
-  console.log(shipTypes[shipType]);
-  console.log(shipTypes[shipType].length);
-  console.log(shipLength);
+  console.log( 'handleShipPlacement', shipType);
+  console.log( 'handleShipPlacement', shipTypes[shipType]);
+  console.log( 'handleShipPlacement', shipTypes[shipType].length);
+  console.log( 'handleShipPlacement', shipLength);
   let orientation = Math.random() < 0.5 ? 'horizontal' : 'vertical'; // Random orientation for now
 
   // Create a visual representation of the ship
