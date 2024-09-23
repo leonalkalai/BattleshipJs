@@ -102,23 +102,24 @@ function placeShip(board, x, y, length, orientation) {
 
 // Function to handle player attacks
 function handleClick(event) {
-  // console.log(event.target); // Log the clicked element for debugging
-   //const shipData = shipTypes[shipType];
-  // Find the closest element with data-x and data-y attributes
-  const shipType = event.target.parentElement.id;
-  const shipData = shipTypes[shipType];
-  console.log('handleClick(event) shipData:', shipData);
-  const targetElement = event.target.closest('[data-x][data-y]');
-  if (!targetElement) {
-    console.error('Clicked element does not have data-x or data-y attributes');
-    return;
-  }
 
   const x = targetElement.dataset.x;
   const y = targetElement.dataset.y;
   console.log('handleClick(event) Clicked cell:', x, y);
  
   handleBoardClick(x, y, shipData);
+  // console.log(event.target); // Log the clicked element for debugging
+   //const shipData = shipTypes[shipType];
+  // Find the closest element with data-x and data-y attributes
+  const shipType = event.target.parentElement.id;
+  const shipData = shipTypes[shipType];
+  console.log('handleClick(event) shipType:', shipType);
+  console.log('handleClick(event) shipData:', shipData);
+  const targetElement = event.target.closest('[data-x][data-y]');
+  if (!targetElement) {
+    console.error('Clicked element does not have data-x or data-y attributes');
+    return;
+  }
 
   const targetBoard = event.target.parentNode;
 
