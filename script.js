@@ -166,10 +166,10 @@ function aiMove() {
 
 function handleShipPlacement(shipType, x, y) {
   const shipLength = shipTypes[shipType].length || null;
-  console.log( 'handleShipPlacement', shipType);
-  console.log( 'handleShipPlacement', shipTypes[shipType]);
-  console.log( 'handleShipPlacement', shipTypes[shipType].length);
-  console.log( 'handleShipPlacement', shipLength);
+  console.log( 'handleShipPlacement shipType:', shipType);
+  console.log( 'handleShipPlacement shipTypes[shipType]:', shipTypes[shipType]);
+  console.log( 'handleShipPlacement shipTypes[shipType].length:', shipTypes[shipType].length);
+  console.log( 'handleShipPlacement shipLength:', shipLength);
   let orientation = Math.random() < 0.5 ? 'horizontal' : 'vertical'; // Random orientation for now
 
   // Create a visual representation of the ship
