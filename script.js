@@ -107,12 +107,13 @@ function handleClick(event) {
   const y = targetElement.dataset.y;
   console.log('handleClick(event) Clicked cell:', x, y);
  
-  handleBoardClick(x, y, shipData);
+ 
   // console.log(event.target); // Log the clicked element for debugging
    //const shipData = shipTypes[shipType];
   // Find the closest element with data-x and data-y attributes
   const shipType = event.target.parentElement.id;
   const shipData = shipTypes[shipType];
+  handleBoardClick(x, y, shipData);
   console.log('handleClick(event) shipType:', shipType);
   console.log('handleClick(event) shipData:', shipData);
   const targetElement = event.target.closest('[data-x][data-y]');
