@@ -429,7 +429,7 @@ player2Board.addEventListener('click', handleClick);
 // player1Board.addEventListener('click', handleClick.bind(null, handleBoardClick));
 // player2Board.addEventListener('click', handleClick.bind(null, handleBoardClick));
 
-player1Board.addEventListener('click', handleShipPlacementClick);
+//player1Board.addEventListener('click', handleShipPlacement);
 // ... (existing code)
 
 // Create grid labels
