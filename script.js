@@ -102,11 +102,6 @@ function placeShip(board, x, y, length, orientation) {
 
 // Function to handle player attacks
 function handleClick(event) {
-
-  const x = targetElement.dataset.x;
-  const y = targetElement.dataset.y;
-  console.log('handleClick(event) Clicked cell:', x, y);
- 
  
   // console.log(event.target); // Log the clicked element for debugging
    //const shipData = shipTypes[shipType];
@@ -122,6 +117,10 @@ function handleClick(event) {
     return;
   }
 
+  const x = targetElement.dataset.x;
+  const y = targetElement.dataset.y;
+  console.log('handleClick(event) Clicked cell:', x, y);
+ 
   const targetBoard = event.target.parentNode;
 
   if (targetBoard.classList.contains('hit') || targetBoard.classList.contains('miss')) {
