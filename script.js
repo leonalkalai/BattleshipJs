@@ -106,7 +106,7 @@ function handleClick(event) {
   // console.log(event.target); // Log the clicked element for debugging
    //const shipData = shipTypes[shipType];
   // Find the closest element with data-x and data-y attributes
-  const shipType = event.target.parentElement.id;
+  //const shipType = event.target.parentElement.id;
   const shipData = shipTypes[shipType];
   console.log('handleClick(event) shipType:', shipType);
   console.log('handleClick(event) shipData:', shipData);
