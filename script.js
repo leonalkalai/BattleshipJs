@@ -408,12 +408,13 @@ const shipButtons = document.querySelectorAll('.ship-button');
 shipButtons.forEach(button => {
   button.addEventListener('click', (event) => {
     shipType = event.target.id;
-    handleShipPlacement(button.id, event.clientX, event.clientY);
+    handleShipPlacement(button.id, event.clientX, event.clientY, , shipTypes[shipType]);
      // Optionally, highlight the selected ship button
     shipButtons.forEach(btn => btn.classList.remove('selected'));
     event.target.classList.add('selected');
   });
 });
+
 
 // Add event listeners to both boards
 player1Board.addEventListener('click', handleClick);
