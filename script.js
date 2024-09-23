@@ -45,7 +45,7 @@ function placeShip(board, x, y, length, orientation) {
      // const y = event.target.dataset.y;
     // Try to place the ship at the clicked coordinates
     shipData = shipTypes[shipType];
-    
+    handleShipPlacement(shipType, x, y, shipData);
     if (placeShip(player1Board, x, y, length, shipData.orientation)) {
       // Ship placement successful
       shipDiv.remove();
@@ -414,12 +414,13 @@ const shipButtons = document.querySelectorAll('.ship-button');
 shipButtons.forEach(button => {
   button.addEventListener('click', (event) => {
     shipType = event.target.id;
-    handleShipPlacement(button.id, event.clientX, event.clientY, shipTypes[shipType]);
+   // handleShipPlacement(button.id, event.clientX, event.clientY, shipTypes[shipType]);
      // Optionally, highlight the selected ship button
     shipButtons.forEach(btn => btn.classList.remove('selected'));
     event.target.classList.add('selected');
   });
 });
+
 
 
 // Add event listeners to both boards
@@ -428,6 +429,7 @@ player2Board.addEventListener('click', handleClick);
 // player1Board.addEventListener('click', handleClick.bind(null, handleBoardClick));
 // player2Board.addEventListener('click', handleClick.bind(null, handleBoardClick));
 
+player1Board.addEventListener('click', handleShipPlacementClick);
 // ... (existing code)
 
 // Create grid labels
