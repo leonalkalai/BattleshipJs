@@ -436,7 +436,7 @@ player2Board.addEventListener('click', handleClick);
 const gridLabels = document.createElement('div');
 gridLabels.classList.add('grid-labels');
 
-for (let i = 10; i < 10; i++) {
+for (let i = 0; i < 10; i++) {
   const label = document.createElement('div');
   label.classList.add('grid-label');
   label.textContent = i + 1;
