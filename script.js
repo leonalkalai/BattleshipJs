@@ -24,8 +24,8 @@ const shipTypes = {
 // Function to place a ship on the board
 function placeShip(board, x, y, length, orientation) {
   if (orientation === 'horizontal') {
-    for (let i = 0; i < length; i++) {
-      if (x + i >= 10) {
+    for (let i = 1; i < length; i++) {
+      if (x + i >= 11) {
         return false; // Invalid placement
       }
       const div = board.querySelector(`[data-x="${x + i}"][data-y="${y}"]`);
@@ -176,8 +176,8 @@ function handleShipPlacement(shipType, x, y) {
   const shipDiv = document.createElement('div');
   shipDiv.classList.add('ship', shipType);
   shipDiv.style.position = 'absolute';
-  shipDiv.style.left = `${x* 30}px`;
-  shipDiv.style.top = `${y* 30}px`;
+  shipDiv.style.left = `${30 * (x-1)}px`;
+  shipDiv.style.top = `${30 * (y-1)}px`;
   shipDiv.style.width = `${shipLength * 30}px`; // Adjust multiplier based on grid cell size
   player1Board.appendChild(shipDiv);
 
