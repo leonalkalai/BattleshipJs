@@ -5,8 +5,8 @@ const player2Board = document.getElementById('player2-board');
 for (let i = 1; i < 11; i++) {
   for (let j = 1; j < 11; j++) {
     const div = document.createElement('div');
-    div.dataset.x = j;
-    div.dataset.y = i;
+    div.dataset.x = i;
+    div.dataset.y = j;
     player1Board.appendChild(div);
     player2Board.appendChild(div.cloneNode(true));
   }
@@ -436,10 +436,10 @@ player2Board.addEventListener('click', handleClick);
 const gridLabels = document.createElement('div');
 gridLabels.classList.add('grid-labels');
 
-for (let i = 0; i < 10; i++) {
+for (let i = 1; i < 11; i++) {
   const label = document.createElement('div');
   label.classList.add('grid-label');
-  label.textContent = String.fromCharCode(65 + i); // A-J
+  label.textContent = i + 1;
   gridLabels.appendChild(label);
 }
 
@@ -447,10 +447,10 @@ for (let i = 0; i < 10; i++) {
 const rowLabels = document.createElement('div');
 rowLabels.classList.add('row-labels');
 
-for (let i = 0; i < 10; i++) {
+for (let i = 1; i < 11; i++) {
   const label = document.createElement('div');
   label.classList.add('grid-label');
-  label.textContent = i + 1;
+  label.textContent = String.fromCharCode(65 + i); // A-J
   rowLabels.appendChild(label);
 }
 
