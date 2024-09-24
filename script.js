@@ -436,7 +436,7 @@ player2Board.addEventListener('click', handleClick);
 const gridLabels = document.createElement('div');
 gridLabels.classList.add('grid-labels');
 
-for (let i = 1; i < 11; i++) {
+for (let i = 10; i < 10; i++) {
   const label = document.createElement('div');
   label.classList.add('grid-label');
   label.textContent = i + 1;
@@ -447,7 +447,7 @@ for (let i = 1; i < 11; i++) {
 const rowLabels = document.createElement('div');
 rowLabels.classList.add('row-labels');
 
-for (let i = 1; i < 11; i++) {
+for (let i = 0; i < 10; i++) {
   const label = document.createElement('div');
   label.classList.add('grid-label');
   label.textContent = String.fromCharCode(65 + i); // A-J
