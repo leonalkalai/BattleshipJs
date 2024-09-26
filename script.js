@@ -12,7 +12,7 @@ for (let i = 0; i < gridlength; i++) {
     
     const group = Math.floor(i / 10);
     const colorClass = group % 2 === 0 ? 'blue' : 'white';
-    square.classList.add(colorClass);
+    div.classList.add(colorClass);
     
     if (i < 10 && i % 2 === 0) {
         div.classList.add("stripe");
