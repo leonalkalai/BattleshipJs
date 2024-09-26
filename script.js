@@ -12,16 +12,15 @@ for (let i = 0; i < gridlength; i++) {
     
     const group = Math.floor(i / 10);
     
-    const colorClass = (group, i) => {
   if (group % 2 === 0 && i % 2 === 1) {
-    return 'blue';
+    div.classList.add('blue');
+    div.classList.remove('white');
   } else {
-    return 'white';
+    div.classList.add('white');
+    div.classList.remove('blue');
   }
-};
 
 
-    div.classList.add(colorClass);
     
     if (i < 10 && i % 2 === 0) {
         div.classList.add("stripe");
