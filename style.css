@@ -46,11 +46,9 @@ body {
   width: 30px;
   height: 30px;
   background-color: #f0f0f0;
-}
-
-#player1-board > div.grid-label, #player2-board > div.grid-label {
   border: 1px solid black;
 }
+
 .ship {
   position: absolute;
   cursor: move;
@@ -111,6 +109,7 @@ body {
     flex-direction: column;
     flex-grow: 1;
     flex-wrap: wrap;
+    border:none;
 }
 
 .row-labels {
@@ -124,6 +123,7 @@ body {
     height: 30px;
     box-sizing: border-box;
     flex-wrap: wrap;
+    border:none;
 }
 
 #menu {
