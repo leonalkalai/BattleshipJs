@@ -2,15 +2,16 @@ const player1Board = document.getElementById('player1-board');
 const player2Board = document.getElementById('player2-board');
 
 // Create a 10x10 grid for each player
-for (let i = 1; i < 11; i++) {
-  for (let j = 1; j < 11; j++) {
+let gridlength = 10;
+for (let i = 0; i < gridlength; i++) {
+  for (let j = 0; j < gridlength; j++) {
     const div = document.createElement('div');
     div.dataset.x = i;
     div.dataset.y = j;
     div.classList.add("square");
-    if (index < 10 && index % 2 === 0) {
+    if (i < 10 && i % 2 === 0) {
         div.classList.add("stripe");
-    } else if (index >= 11 && index % 2 === 1) {
+    } else if (i >= 11 && i % 2 === 1) {
         div.classList.add("stripe");
     }
     player1Board.appendChild(div);
