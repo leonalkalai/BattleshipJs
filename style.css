@@ -49,6 +49,18 @@ body {
   border: 1px solid black;
 }
 
+.square:nth-child(3n) {
+    background-color: #0e5bcb;
+}
+
+.square:nth-child(3n + 1) {
+    background-color: #86afe1;
+}
+
+.square:nth-child(3n + 2) {
+    background-color: #d4d6dd;
+}
+
 .stripe {
   color: #d4d6dd;
   background: repeating-linear-gradient(
