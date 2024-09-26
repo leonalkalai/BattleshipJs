@@ -11,7 +11,18 @@ for (let i = 0; i < gridlength; i++) {
     div.classList.add("square");
     
     const group = Math.floor(i / 10);
-    const colorClass = group % 2 === 0 ? 'blue' : 'white';
+    let colorClass;
+
+if (group % 2 === 0) {
+  if (index % 2 === 1) {
+    colorClass = 'blue';
+  } else {
+    colorClass = '';
+  }
+} else {
+  colorClass = 'white';
+}
+
     div.classList.add(colorClass);
     
     if (i < 10 && i % 2 === 0) {
