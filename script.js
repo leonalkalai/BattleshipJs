@@ -7,6 +7,7 @@ for (let i = 1; i < 11; i++) {
     const div = document.createElement('div');
     div.dataset.x = i;
     div.dataset.y = j;
+    div.classList.add("square");
     player1Board.appendChild(div);
     player2Board.appendChild(div.cloneNode(true));
   }
