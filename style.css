@@ -49,6 +49,17 @@ body {
   border: 1px solid black;
 }
 
+.stripe {
+  color: #d4d6dd;
+  background: repeating-linear-gradient(
+    -40deg,
+    #0e5bcb,
+    #0e5bcb 4px,
+    #d4d6dd 3px,
+    #d4d6dd 6px
+  );
+}
+
 .ship {
   position: absolute;
   cursor: move;
