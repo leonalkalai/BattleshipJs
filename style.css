@@ -63,13 +63,8 @@ body {
 
 .stripe {
   color: #d4d6dd;
-  background: repeating-linear-gradient(
-    -40deg,
-    #0e5bcb,
-    #0e5bcb 4px,
-    #d4d6dd 3px,
-    #d4d6dd 6px
-  );
+  background-image: linear-gradient(135deg, #d4d6dd 33.33%, #0e5bcb 32.33%, #0e5bcb 51%, #d4d6dd 50%, #d4d6dd 82.33%, #0e5bcb 83.33%, #0e5bcb 100%);
+  background-size: 2px 2px;
 }
 
 .ship {
