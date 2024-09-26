@@ -45,7 +45,7 @@ body {
 #player1-board > div, #player2-board > div {
   width: 30px;
   height: 30px;
-  background-color: #f0f0f0;
+  /*background-color: #f0f0f0;*/
   border: 1px solid black;
 }
 
