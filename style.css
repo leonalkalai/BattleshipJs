@@ -42,13 +42,15 @@ body {
       touch-action: manipulation;
   }
 
-#player1-board > div.grid-label, #player2-board > div.grid-label {
+#player1-board > div, #player2-board > div {
   width: 30px;
   height: 30px;
-  border: 1px solid black;
   background-color: #f0f0f0;
 }
 
+#player1-board > div.grid-label, #player2-board > div.grid-label {
+  border: 1px solid black;
+}
 .ship {
   position: absolute;
   cursor: move;
