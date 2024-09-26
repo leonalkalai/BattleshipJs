@@ -7,8 +7,21 @@ body {
   align-items: center;
   justify-content: center;
   height: auto;   
-
 }
+
+#game-container{
+  width: 100%;
+  min-width: 100%;
+  height: auto;
+  display: flex;
+  gap: 10%;
+  align-items: center;
+  flex-flow: wrap;
+  justify-items: center;
+  justify-content: center;
+  padding: 50px;
+  box-sizing: border-box;
+} 
 
 #player1-board, #player2-board {
   width: 300px;
@@ -19,6 +32,9 @@ body {
   grid-template-rows: repeat(10, 30px);
   border-spacing: 1px; /* Add spacing between grid cells */
   position: relative;
+}
+
+#player1-board{
   margin: 50px auto;
 }
 
