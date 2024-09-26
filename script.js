@@ -432,25 +432,25 @@ player2Board.addEventListener('click', handleClick);
 //player1Board.addEventListener('click', handleShipPlacement);
 // ... (existing code)
 
-// Create grid labels
+// Create grid labels - letters
 const gridLabels = document.createElement('div');
 gridLabels.classList.add('grid-labels');
 
 for (let i = 0; i < 10; i++) {
   const label = document.createElement('div');
   label.classList.add('grid-label');
-  label.textContent = i + 1;
+  label.textContent = String.fromCharCode(65 + i); // A-J
   gridLabels.appendChild(label);
 }
 
-// Create row labels
+// Create row labels - numbers
 const rowLabels = document.createElement('div');
 rowLabels.classList.add('row-labels');
 
 for (let i = 0; i < 10; i++) {
   const label = document.createElement('div');
   label.classList.add('grid-label');
-  label.textContent = String.fromCharCode(65 + i); // A-J
+  label.textContent = i + 1;
   rowLabels.appendChild(label);
 }
 
