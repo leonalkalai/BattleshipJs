@@ -9,11 +9,17 @@ for (let i = 0; i < gridlength; i++) {
     div.dataset.x = i;
     div.dataset.y = j;
     div.classList.add("square");
+    
+    const group = Math.floor(i / 10);
+    const colorClass = group % 2 === 0 ? 'blue' : 'white';
+    square.classList.add(colorClass);
+    
     if (i < 10 && i % 2 === 0) {
         div.classList.add("stripe");
     } else if (i >= 11 && i % 2 === 1) {
         div.classList.add("stripe");
     }
+    
     player1Board.appendChild(div);
     player2Board.appendChild(div.cloneNode(true));
   }
