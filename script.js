@@ -8,6 +8,7 @@ for (let i = 1; i < 11; i++) {
     div.dataset.x = i;
     div.dataset.y = j;
     div.classList.add("square");
+    div.classList.add("stripe");
     player1Board.appendChild(div);
     player2Board.appendChild(div.cloneNode(true));
   }
