@@ -12,7 +12,7 @@ for (let i = 0; i < gridlength; i++) {
     
     const group = Math.floor(i / 10);
     
-If (group % 2 === 0) { // If the group is even
+if (group % 2 === 0) { // If the group is even
   if (i % 2 === 1) { // If the index is odd
     div.classList.add('blue'); // Add the "blue" class
     div.classList.remove('white', 'stripe'); // Remove the "white" and "stripe" classes
