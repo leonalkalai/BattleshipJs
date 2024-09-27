@@ -25,7 +25,7 @@ for (let i = 0; i < gridlength; i++) {
     if (i < 10 && i % 2 === 0) {
         div.classList.add("stripe");
     } else if (i >= 11 && i % 2 === 1) {
-        div.classList.add("stripe");
+        div.classList.remove("stripe");
     }
     
     player1Board.appendChild(div);
