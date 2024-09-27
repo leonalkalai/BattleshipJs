@@ -5,10 +5,10 @@ const player2Board = document.getElementById('player2-board');
 let gridlength = 10;
 for (let i = 0; i < gridlength; i++) {
   console.log(`i : ${i}`)
-  for (let j = 0; j < gridlength; j++) {
-  console.log(`j : ${j}`)
-  const group = Math.floor(j / 10);
+  const group = Math.floor(i / 10);
   console.log(`group : ${group}`)
+  for (let j = 0; j < gridlength; j++) {
+    console.log(`j : ${j}`)
     const div = document.createElement('div');
     div.dataset.x = i;
     div.dataset.y = j;
