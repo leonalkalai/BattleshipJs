@@ -5,8 +5,10 @@ const player2Board = document.getElementById('player2-board');
 let gridlength = 10;
 for (let i = 0; i < gridlength; i++) {
   const group = Math.floor(i / 10);
+  console.log(`i : ${i}`)
   console.log(`group : ${group}`)
   for (let j = 0; j < gridlength; j++) {
+    console.log(`j : ${j}`)
     const div = document.createElement('div');
     div.dataset.x = i;
     div.dataset.y = j;
@@ -15,23 +17,23 @@ for (let i = 0; i < gridlength; i++) {
     
     if (group % 2 === 1) { // If the group is odd
       if (j % 2 === 1) { // If the index is odd
-        console.log(`if the group ${group} is odd and index ${j} is odd`)
+        //console.log(`if the group ${group} is odd and index ${j} is odd`)
         div.classList.add('blue'); // Add the "blue" class
        // div.classList.remove('white', 'stripe'); // Remove the "white" and "stripe" classes
       } else { // If the index is even
-        console.log(`if the group ${group} is odd and index ${j} is even`)
+        //console.log(`if the group ${group} is odd and index ${j} is even`)
         div.classList.add('stripe'); // Add the "stripe" class
         //div.classList.remove('blue', 'white'); // Remove the "blue" and "white" classes
       }
     }  
     else { // If the group is even
         if (j % 2 === 1) { // If the index is odd
-          console.log(`if the group ${group} is even and index ${j} is odd`)
+         // console.log(`if the group ${group} is even and index ${j} is odd`)
           div.classList.add('stripe'); // Add the "stripe" class
           //div.classList.remove('blue', 'white'); // Remove the "blue" and "white" classes
       } else { // If the index is even
           div.classList.add('white'); // Add the "white" class
-          console.log(`if the group ${group} is even and index ${j} is even`)
+          //console.log(`if the group ${group} is even and index ${j} is even`)
          // div.classList.remove('blue', 'stripe'); // Remove the "blue" and "stripe" classes
       }
     } 
