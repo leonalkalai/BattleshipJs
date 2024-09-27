@@ -4,6 +4,7 @@ const player2Board = document.getElementById('player2-board');
 // Create a 10x10 grid for each player
 let gridlength = 10;
 for (let i = 0; i < gridlength; i++) {
+  const group = Math.floor(i / 10);
   console.log(`group : ${group}`)
   for (let j = 0; j < gridlength; j++) {
     const div = document.createElement('div');
@@ -11,7 +12,7 @@ for (let i = 0; i < gridlength; i++) {
     div.dataset.y = j;
     div.classList.add("square");
     
-    let group = Math.floor(i / 10);
+    
     if (group % 2 === 1) { // If the group is odd
       if (j % 2 === 1) { // If the index is odd
         console.log(`if the group ${group} is odd and index ${j} is odd`)
