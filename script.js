@@ -22,7 +22,7 @@ for (let i = 0; i < gridlength; i++) {
         //div.classList.remove('blue', 'white'); // Remove the "blue" and "white" classes
       }
     }  
-    else if (group % 2 === 0) { // If the group is even
+    else { // If the group is even
         if (i % 2 === 1) { // If the index is odd
           console.log(`if the group ${group} is even and index ${i} is odd`)
           div.classList.add('stripe'); // Add the "stripe" class
