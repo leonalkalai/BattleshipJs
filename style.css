@@ -49,15 +49,15 @@ body {
   border: 1px solid black;
 }
 
-.square.blue {
+.blue {
     background-color: #0e5bcb;
 }
 
-.square.lightblue {
+.lightblue {
     background-color: #86afe1;
 }
 
-.square.white{
+.white{
     background-color: #d4d6dd;
 }
 
