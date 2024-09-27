@@ -15,33 +15,20 @@ for (let i = 0; i < gridlength; i++) {
   if (group % 2 === 0) {
   if (i % 2 === 1) {
     div.classList.add('blue');
-    div.classList.remove('white');
+    div.classList.remove('white', 'stripe');
   } else {
     div.classList.add('white');
-    div.classList.remove('blue');
-  }
-
-  if (i < 10) {
-    div.classList.add("stripe");
-  } else {
-    div.classList.remove("stripe");
+    div.classList.remove('blue', 'stripe');
   }
 } else {
   if (i % 2 === 1) {
     div.classList.add('white');
-    div.classList.remove('blue');
+    div.classList.remove('blue', 'stripe');
   } else {
     div.classList.add('blue');
-    div.classList.remove('white');
-  }
-
-  if (i >= 11 && i % 2 === 1) {
-    div.classList.add("stripe");
-  } else {
-    div.classList.remove("stripe");
+    div.classList.remove('white', 'stripe');
   }
 }
-
     
     player1Board.appendChild(div);
     player2Board.appendChild(div.cloneNode(true));
