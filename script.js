@@ -10,7 +10,7 @@ for (let i = 0; i < gridlength; i++) {
     div.dataset.y = j;
     div.classList.add("square");
     
-    let group = Math.floor(i / 10);
+    let group = Math.floor(j / 10);
     if (group % 2 === 1) { // If the group is odd
       if (j % 2 === 1) { // If the index is odd
         console.log(`if the group ${group} is odd and index ${j} is odd`)
