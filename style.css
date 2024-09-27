@@ -49,15 +49,15 @@ body {
   border: 1px solid black;
 }
 
-.square:nth-child(3n) {
+.square.blue {
     background-color: #0e5bcb;
 }
 
-.square:nth-child(3n + 1) {
+.square.lightblue {
     background-color: #86afe1;
 }
 
-.square:nth-child(3n + 2) {
+.square.white{
     background-color: #d4d6dd;
 }
 
