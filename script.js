@@ -12,7 +12,8 @@ for (let i = 0; i < gridlength; i++) {
     
     const group = Math.floor(i / 10);
     
-  if (group % 2 === 0 && i % 2 === 1) {
+  if (group % 2 === 0) {
+  if (i % 2 === 1) {
     div.classList.add('blue');
     div.classList.remove('white');
   } else {
@@ -20,13 +21,27 @@ for (let i = 0; i < gridlength; i++) {
     div.classList.remove('blue');
   }
 
+  if (i < 10) {
+    div.classList.add("stripe");
+  } else {
+    div.classList.remove("stripe");
+  }
+} else {
+  if (i % 2 === 1) {
+    div.classList.add('white');
+    div.classList.remove('blue');
+  } else {
+    div.classList.add('blue');
+    div.classList.remove('white');
+  }
 
-    
-    if (i < 10 && i % 2 === 0) {
-        div.classList.add("stripe");
-    } else if (i >= 11 && i % 2 === 1) {
-        div.classList.remove("stripe");
-    }
+  if (i >= 11 && i % 2 === 1) {
+    div.classList.add("stripe");
+  } else {
+    div.classList.remove("stripe");
+  }
+}
+
     
     player1Board.appendChild(div);
     player2Board.appendChild(div.cloneNode(true));
