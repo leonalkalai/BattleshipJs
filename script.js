@@ -5,7 +5,8 @@ const player2Board = document.getElementById('player2-board');
 let gridlength = 10;
 for (let i = 0; i < gridlength; i++) {
   console.log(`i : ${i}`)
-  const group = Math.floor(i / 10);
+ // const group = Math.floor(i / 10);
+  const group = i;
   console.log(`group : ${group}`)
   for (let j = 0; j < gridlength; j++) {
     console.log(`j : ${j}`)
