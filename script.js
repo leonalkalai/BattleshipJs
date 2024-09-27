@@ -4,11 +4,11 @@ const player2Board = document.getElementById('player2-board');
 // Create a 10x10 grid for each player
 let gridlength = 10;
 for (let i = 0; i < gridlength; i++) {
-  const group = Math.floor(i / 10);
   console.log(`i : ${i}`)
-  console.log(`group : ${group}`)
   for (let j = 0; j < gridlength; j++) {
-    console.log(`j : ${j}`)
+  console.log(`j : ${j}`)
+  const group = Math.floor(j / 10);
+  console.log(`group : ${group}`)
     const div = document.createElement('div');
     div.dataset.x = i;
     div.dataset.y = j;
