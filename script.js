@@ -12,21 +12,21 @@ for (let i = 0; i < gridlength; i++) {
     
     const group = Math.floor(i / 10);
     
-  if (group % 2 === 0) {
-  if (i % 2 === 1) {
-    div.classList.add('blue');
-    div.classList.remove('white', 'stripe');
-  } else {
-    div.classList.add('white');
-    div.classList.remove('blue', 'stripe');
+If (group % 2 === 0) { // If the group is even
+  if (i % 2 === 1) { // If the index is odd
+    div.classList.add('blue'); // Add the "blue" class
+    div.classList.remove('white', 'stripe'); // Remove the "white" and "stripe" classes
+  } else { // If the index is even
+    div.classList.add('stripe'); // Add the "stripe" class
+    div.classList.remove('blue', 'white'); // Remove the "blue" and "white" classes
   }
-} else {
-  if (i % 2 === 1) {
-    div.classList.add('white');
-    div.classList.remove('blue', 'stripe');
-  } else {
-    div.classList.add('blue');
-    div.classList.remove('white', 'stripe');
+} else { // If the group is odd
+  if (i % 2 === 1) { // If the index is odd
+    div.classList.add('stripe'); // Add the "stripe" class
+    div.classList.remove('blue', 'white'); // Remove the "blue" and "white" classes
+  } else { // If the index is even
+    div.classList.add('white'); // Add the "white" class
+    div.classList.remove('blue', 'stripe'); // Remove the "blue" and "stripe" classes
   }
 }
     
