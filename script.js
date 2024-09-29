@@ -198,6 +198,7 @@ function aiMove() {
 
 function handleShipPlacement(shipType, x, y) {
   const shipLength = shipTypes[shipType].length || null;
+  console.log( 'handleShipPlacement xy:', x , y);
   console.log( 'handleShipPlacement shipType:', shipType);
   console.log( 'handleShipPlacement shipTypes[shipType]:', shipTypes[shipType]);
   console.log( 'handleShipPlacement shipTypes[shipType].length:', shipTypes[shipType].length);
