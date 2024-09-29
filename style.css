@@ -72,7 +72,6 @@ body {
   cursor: move;
   background-color: blue;
   height: 30px;
-  border-radius: 5px;
   box-shadow: inset 0 0 2px #000000;
   -webkit-box-shadow: inset 0 0 2px #000000;
 }
@@ -86,23 +85,23 @@ body {
 }
 
 .carrier {
-  background-color: pink;
+  background-color: #fad02a;
 }
 
 .battleship {
-  background-color: purple;
+  background-color: #9b1e63;
 }
 
 .cruiser {
-  background-color: cyan;
+  background-color: #33aee1;
 }
 
 .submarine {
-  background-color: orange;
+  background-color:  #e2741f;
 }
 
 .destroyer {
-  background-color: green;
+  background-color:  #16a168;
 }
 
 .grid-label {
