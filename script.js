@@ -73,8 +73,8 @@ function placeShip(board, x, y, length, orientation) {
 }
 
   function handleBoardClick(x, y, shipData) {
-     // const x = event.target.dataset.x;
-     // const y = event.target.dataset.y;
+     const x = event.target.dataset.x;
+     const y = event.target.dataset.y;
     // Try to place the ship at the clicked coordinates
     shipData = shipTypes[shipType];
     handleShipPlacement(shipType, x, y, shipData);
