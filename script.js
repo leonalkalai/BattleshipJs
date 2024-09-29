@@ -2,7 +2,7 @@ const player1Board = document.getElementById('player1-board');
 const player2Board = document.getElementById('player2-board');
 // Create a 10x10 grid for each player
 let gridlength = 10;
-for (let i = 0; i < gridlength; i++) {
+for (let i = 1; i <= gridlength; i++) {
   console.log(`i : ${i}`)
  // const group = Math.floor(i / 10);
   const group = i;
