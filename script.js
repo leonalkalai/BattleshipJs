@@ -7,7 +7,7 @@ for (let i = 1; i <= gridlength; i++) {
  // const group = Math.floor(i / 10);
   const group = i;
   console.log(`group : ${group}`)
-  for (let j = 0; j < gridlength; j++) {
+  for (let j = 1; j <= gridlength; j++) {
     console.log(`j : ${j}`)
     const div = document.createElement('div');
     div.dataset.x = i;
