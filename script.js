@@ -208,8 +208,8 @@ function handleShipPlacement(shipType, x, y) {
   const shipDiv = document.createElement('div');
   shipDiv.classList.add('ship', shipType);
   shipDiv.style.position = 'absolute';
-  shipDiv.style.left = `${30 * (x+1)}px`;
-  shipDiv.style.top = `${30 * (y+1)}px`;
+  shipDiv.style.left = `${(x+1) * 30}px`;
+  shipDiv.style.top = `${(y+1) * 30}px`;
   shipDiv.style.width = `${shipLength * 30}px`; // Adjust multiplier based on grid cell size
   player1Board.appendChild(shipDiv);
 
