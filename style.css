@@ -72,9 +72,9 @@ body {
   cursor: move;
   background-color: blue;
   height: 30px;
-  border: 2px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 2px #000000;
+  -webkit-box-shadow: inset 0 0 2px #000000;
 }
 
 .hit {
@@ -165,23 +165,23 @@ body {
 }
 
 #menu li:nth-child(1) {
-  background-color: #FFB6C1; /* Pink */
+  background-color: #fad02a; /* yellow */
 }
 
 #menu li:nth-child(2) {
-  background-color: #9370DB; /* Purple */
+  background-color: #9b1e63; /* Purple */
 }
 
 #menu li:nth-child(3) {
-  background-color: #40E0D0; /* Cyan */
+  background-color: #33aee1; /* light blue */
 }
 
 #menu li:nth-child(4) {
-  background-color: #FF8C00; /* Orange */
+  background-color: #e2741f; /* Orange */
 }
 
 #menu li:nth-child(5) {
-  background-color: #008000; /* Green */
+  background-color: #16a168; /* Green */
 }
 
 #menu button {
