@@ -1,5 +1,6 @@
 const player1Board = document.getElementById('player1-board');
 const player2Board = document.getElementById('player2-board');
+const squareSize = 30px;
 // Create a 10x10 grid for each player
 let gridlength = 10;
 for (let i = 1; i <= gridlength; i++) {
@@ -209,9 +210,9 @@ function handleShipPlacement(shipType, x, y) {
   const shipDiv = document.createElement('div');
   shipDiv.classList.add('ship', shipType);
   shipDiv.style.position = 'absolute';
-  shipDiv.style.top = `${((x-1) * 30)}px`;
-  shipDiv.style.left = `${y * 30}px`;
-  shipDiv.style.width = `${shipLength * 30}px`; // Adjust multiplier based on grid cell size
+  shipDiv.style.top = `${(x * squareSize}px`;
+  shipDiv.style.left = `${y * squareSize}px`;
+  shipDiv.style.width = `${shipLength * squareSize}px`; // Adjust multiplier based on grid cell size
   player1Board.appendChild(shipDiv);
 
   let isDragging = false;
