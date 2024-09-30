@@ -75,8 +75,8 @@ function showPopUpError(error) {
         const closePopup = popup.querySelector('.close-popup');
         if (closePopup) {
           closePopup.addEventListener('click', () => {
-            this.remove();
-          });
+           this.remove(); // Remove the popup using this
+          }.bind(popup));
         }
         observer.disconnect(); // Stop observing
       }
