@@ -55,30 +55,36 @@ const shipTypes = {
 };
 
 // Create a popup for the errors
-function showPopUpError(error) {
+async function showPopUpError(error) {
   const popup = document.createElement('div');
   popup.classList.add('popup', 'show');
   popup.innerHTML = `
     <h3>${error}</h3>
-    <p>Please select a ship</p>
+    <p>Please select a ship.</p>
     <a href="#" class="close-popup">X</a>
     <a href="" class="notice">Notice</a>
   `;
 
   document.body.appendChild(popup);
-  
-    // Add a click event listener to the close button
-    // Bind the event listener to the popup element
-  const closePopup = popup.querySelector('.close-popup');
-  if(closePopup){
-      closePopup.querySelector('.close-popup').addEventListener('click', () => {
-        this.remove(); // Remove the popup using this
-      }).bind(popup);
-      // popup.querySelector('.close-popup').addEventListener('click', () => {
-      //   popup.remove(); // Remove the popup from the body
-      // });
-  }
 
+  // Use MutationObserver to wait for the popup to be added to the DOM
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'childList' && mutation.addedNodes.length > 0 && mutation.addedNodes[0] === popup) {
+        // Popup has been added to the DOM, add the event listener
+        const closePopup = popup.querySelector('.close-popup');
+        if (closePopup) {
+          closePopup.addEventListener('click', () => {
+            this.remove();
+          });
+        }
+        observer.disconnect(); // Stop observing
+      }
+    });
+  });
+
+  // Start observing the document body for changes
+  observer.observe(document.body, { childList: true });
 }
 
 // Function to place a ship on the board
