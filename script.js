@@ -55,7 +55,7 @@ const shipTypes = {
 };
 
 // Create a popup for the errors
-async function showPopUpError(error) {
+function showPopUpError(error) {
   const popup = document.createElement('div');
   popup.classList.add('popup', 'show');
   popup.innerHTML = `
