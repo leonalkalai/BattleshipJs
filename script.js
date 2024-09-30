@@ -74,8 +74,8 @@ function showPopUpError(error) {
         // Popup has been added to the DOM, add the event listener
         const closePopup = popup.querySelector('.close-popup');
         if (closePopup) {
-          closePopup.addEventListener('click', () => {
-           event.preventDefault(); // Prevent default link behavior
+          closePopup.addEventListener('click', (e) => {
+           e.preventDefault(); // Prevent default link behavior
            this.remove(); // Remove the popup using this
           }.bind(popup));
         }
