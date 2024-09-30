@@ -146,7 +146,7 @@ function placeShip(board, x, y, length, orientation) {
   }
 
 // Function to handle player attacks
-function handleClick(event) {
+function handleClick(event, shipType) {
  
   // console.log(event.target); // Log the clicked element for debugging
    //const shipData = shipTypes[shipType];
