@@ -141,13 +141,12 @@ function handleClick(event) {
    //const shipData = shipTypes[shipType];
   // Find the closest element with data-x and data-y attributes
   //const shipType = event.target.parentElement.id;
- 
-
-  if (!shipData || !shipData.orientation) {
+  
+  const shipData = shipTypes[shipType];
+  if (!shipData || !shipData.orientation || !shipType) {
     console.error('Invalid shipData or orientation');
     return;
-  }else{
-      const shipData = shipTypes[shipType];+
+  }else{ 
       console.log('handleClick(event) shipData.orientation: ', shipData.orientation)  
       console.log('handleClick(event) shipType:', shipType);
       console.log('handleClick(event) shipData:', shipData);
