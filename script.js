@@ -60,22 +60,25 @@ function showPopUpError(error) {
   popup.classList.add('popup', 'show');
   popup.innerHTML = `
     <h3>${error}</h3>
-    <p>Please select a ship.</p>
-    <button class="close-popup">X</button>
-    <div class="notice">Notice</div>
+    <p>Please select a ship</p>
+    <a href="#" class="close-popup">X</a>
+    <a href="" class="notice">Notice</a>
   `;
 
   document.body.appendChild(popup);
   
     // Add a click event listener to the close button
     // Bind the event listener to the popup element
-  popup.querySelector('.close-popup').addEventListener('click', () => {
-    this.remove(); // Remove the popup using this
-  }).bind(popup);
-  // popup.querySelector('.close-popup').addEventListener('click', () => {
-  //   popup.remove(); // Remove the popup from the body
-  // });
-  
+  const closePopup = popup.querySelector('.close-popup');
+  if(closePopup){
+      closePopup.querySelector('.close-popup').addEventListener('click', () => {
+        this.remove(); // Remove the popup using this
+      }).bind(popup);
+      // popup.querySelector('.close-popup').addEventListener('click', () => {
+      //   popup.remove(); // Remove the popup from the body
+      // });
+  }
+
 }
 
 // Function to place a ship on the board
