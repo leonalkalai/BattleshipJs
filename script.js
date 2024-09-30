@@ -59,9 +59,10 @@ function showPopUpError(error) {
   const popup = document.createElement('div');
   popup.classList.add('popup', 'show');
   popup.innerHTML = `
-    <h2>${error}</h2>
+    <h3>${error}</h3>
     <p>Please select a ship.</p>
     <button class="close-popup">X</button>
+    <div class="notice">Notice</div>
   `;
     // Add a click event listener to the close button
     // Bind the event listener to the popup element
