@@ -61,7 +61,7 @@ function showPopUpError(error) {
   popup.innerHTML = `
     <h3>${error}</h3>
     <p>Please select a ship.</p>
-    <a href="#" class="close-popup">X</a>
+    <a href="" class="close-popup">X</a>
     <a href="" class="notice">Notice</a>
   `;
 
@@ -75,6 +75,7 @@ function showPopUpError(error) {
         const closePopup = popup.querySelector('.close-popup');
         if (closePopup) {
           closePopup.addEventListener('click', () => {
+           event.preventDefault(); // Prevent default link behavior
            this.remove(); // Remove the popup using this
           }.bind(popup));
         }
