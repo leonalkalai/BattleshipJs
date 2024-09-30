@@ -61,7 +61,16 @@ function showPopUpError(error) {
   popup.innerHTML = `
     <h2>${error}</h2>
     <p>Please select a ship.</p>
+    <button class="close-popup">X</button>
   `;
+    // Add a click event listener to the close button
+    // Bind the event listener to the popup element
+  popup.querySelector('.close-popup').addEventListener('click', () => {
+    this.remove(); // Remove the popup using this
+  }.bind(popup));
+  // popup.querySelector('.close-popup').addEventListener('click', () => {
+  //   popup.remove(); // Remove the popup from the body
+  // });
   document.body.appendChild(popup);
 }
 
