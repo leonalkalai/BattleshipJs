@@ -68,7 +68,7 @@ function showPopUpError(error) {
     // Bind the event listener to the popup element
   popup.querySelector('.close-popup').addEventListener('click', () => {
     this.remove(); // Remove the popup using this
-  }.bind(popup));
+  }).bind(popup));
   // popup.querySelector('.close-popup').addEventListener('click', () => {
   //   popup.remove(); // Remove the popup from the body
   // });
