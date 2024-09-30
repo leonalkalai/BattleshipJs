@@ -54,6 +54,17 @@ const shipTypes = {
   destroyer: { length: 2, orientation: 'horizontal', icon: 'destroyer.png', color: 'orange', health: 2, isSunk: false }
 };
 
+// Create a popup for the errors
+function showPopUpError(error) {
+  const popup = document.createElement('div');
+  popup.classList.add('popup', 'show');
+  popup.innerHTML = `
+    <h2>${error}</h2>
+    <p>Please select a ship.</p>
+  `;
+  document.body.appendChild(popup);
+}
+
 // Function to place a ship on the board
 function placeShip(board, x, y, length, orientation) {
   if (orientation === 'horizontal') {
@@ -142,18 +153,21 @@ function handleClick(event) {
   // Find the closest element with data-x and data-y attributes
   //const shipType = event.target.parentElement.id;
   if (!shipType) {
-        console.error('shipType is undefined');
+        console.log('shipType is undefined');
+        // Call the function with an error message
+        showPopUpError('shipType is undefined');
         return;
   }else{
     const shipData = shipTypes[shipType];
         if (!shipData || !shipData.orientation) {
-      console.error('Invalid shipData or orientation');
-      return;
-    }else{ 
-        console.log('handleClick(event) shipData.orientation: ', shipData.orientation)  
-        console.log('handleClick(event) shipType:', shipType);
-        console.log('handleClick(event) shipData:', shipData);
-    } 
+          console.log('Invalid shipData or orientation');
+          showPopUpError('Invalid shipData or orientation');
+          return;
+        }else{ 
+            console.log('handleClick(event) shipData.orientation: ', shipData.orientation)  
+            console.log('handleClick(event) shipType:', shipType);
+            console.log('handleClick(event) shipData:', shipData);
+        } 
   } 
  
  
