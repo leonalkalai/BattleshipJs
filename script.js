@@ -64,6 +64,9 @@ function showPopUpError(error) {
     <button class="close-popup">X</button>
     <div class="notice">Notice</div>
   `;
+
+  document.body.appendChild(popup);
+  
     // Add a click event listener to the close button
     // Bind the event listener to the popup element
   popup.querySelector('.close-popup').addEventListener('click', () => {
@@ -72,7 +75,7 @@ function showPopUpError(error) {
   // popup.querySelector('.close-popup').addEventListener('click', () => {
   //   popup.remove(); // Remove the popup from the body
   // });
-  document.body.appendChild(popup);
+  
 }
 
 // Function to place a ship on the board
