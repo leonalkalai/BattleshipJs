@@ -77,7 +77,7 @@ function showPopUpError(error) {
           closePopup.addEventListener('click', (e) => {
            e.preventDefault(); // Prevent default link behavior
            this.remove(); // Remove the popup using this
-          )}.bind(popup);
+          }).bind(popup);
         }
         observer.disconnect(); // Stop observing
       }
