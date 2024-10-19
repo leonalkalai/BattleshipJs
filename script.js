@@ -183,7 +183,7 @@ function handleClick(event) {
     console.log('handleClick(event) Clicked cell:', x, y);
 
     const shipType = event.target.parentElement.id; // Get the ship type from the parent element
-
+  console.log(shipType);
   if (!shipType) {
         console.log('shipType is undefined');
         showPopUpError('shipType is undefined');
