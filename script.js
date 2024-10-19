@@ -107,119 +107,117 @@ function placeShip(board, x, y, length, orientation) {
   return true;
 }
 
-  function handleBoardClick(x, y, shipType) {
-     // const x = event.target.dataset.x;
-     // const y = event.target.dataset.y;
-    // Try to place the ship at the clicked coordinates
+function handleBoardClick(x, y, shipType) {
     const shipData = shipTypes[shipType];
-    handleShipPlacement(shipType, x-1, y-1, shipData);
-    if (placeShip(player1Board, x, y, length, shipData.orientation)) {
-      // Ship placement successful
-      shipDiv.remove();
-      document.getElementById(shipType).disabled = true;
 
-      // Create and show the popup
-      const popup = document.createElement('div');
-      popup.classList.add('popup', 'show');
-      popup.innerHTML = `
-        <h2>${shipType}</h2>
-        <p>Ship placed successfully.</p>
-        <button class="rotate-button">Rotate</button>
-      `;
-      document.body.appendChild(popup);
+    // Attempt to place the ship at the clicked coordinates
+    // Adjust coordinates for 0-based indexing
+    const adjustedX = x - 1;
+    const adjustedY = y - 1;
 
-      // Add event listener to the rotate button
-      const rotateButton = popup.querySelector('.rotate-button');
-      rotateButton.addEventListener('click', () => {
-        // Rotate the ship by 90 degrees
-        if (shipData.orientation === 'horizontal') {
-          shipData.orientation = 'vertical';
-          shipDiv.style.transform = 'rotate(90deg)';
-        } else {
-          shipData.orientation = 'horizontal';
-          shipDiv.style.transform = 'rotate(0deg)';
+    // Check if ship placement is valid
+    if (placeShip(player1Board, adjustedX, adjustedY, shipData.length, shipData.orientation)) {
+        // Ship placement successful
+        shipDiv.remove();
+        document.getElementById(shipType).disabled = true;
+
+        // Create and show the popup
+        const popup = document.createElement('div');
+        popup.classList.add('popup', 'show');
+        popup.innerHTML = `
+            <h2>${shipType}</h2>
+            <p>Ship placed successfully.</p>
+            <button class="rotate-button">Rotate</button>
+        `;
+        document.body.appendChild(popup);
+
+        // Add event listener to the rotate button
+        const rotateButton = popup.querySelector('.rotate-button');
+        rotateButton.addEventListener('click', () => {
+            // Rotate the ship by 90 degrees
+            shipData.orientation = shipData.orientation === 'horizontal' ? 'vertical' : 'horizontal';
+            shipDiv.style.transform = shipData.orientation === 'vertical' ? 'rotate(90deg)' : 'rotate(0deg)';
+
+            // Check if the rotated ship still fits within the board
+            if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, shipData.length, shipData.orientation)) {
+                // If valid, update the ship's position and show the popup
+                placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, shipData.length, shipData.orientation);
+            } else {
+                // If invalid, revert the rotation and show an error message
+                shipData.orientation = shipData.orientation === 'horizontal' ? 'vertical' : 'horizontal'; // Revert
+                shipDiv.style.transform = shipData.orientation === 'vertical' ? 'rotate(90deg)' : 'rotate(0deg)'; // Revert
+                alert('Rotation not possible due to placement constraints.');
+            }
+
+            popup.classList.remove('show');
+        });
+
+        // Check if all ships have been placed
+        if (Object.values(shipTypes).every(ship => ship.placed)) {
+            // All ships are placed, hide the menu and start the game
+            document.getElementById('menu').style.display = 'none';
+            aiMove();
         }
-
-        // Check if the rotated ship still fits within the board
-        if (isValidPlacement(shipData, shipDiv.offsetLeft, shipDiv.offsetTop, length, shipData.orientation)) {
-          // If valid, update the ship's position and show the popup
-          placeShip(player1Board, shipDiv.offsetLeft, shipDiv.offsetTop, length, shipData.orientation);
-        } else {
-          // If invalid, rotate back to the original orientation and show an error message
-          if (shipData.orientation === 'horizontal') {
-            shipDiv.style.transform = 'rotate(0deg)';
-          } else {
-            shipDiv.style.transform = 'rotate(90deg)';
-          }
-          alert('Rotation not possible due to placement constraints.');
-        }
-
-        popup.classList.remove('show');
-      });
-
-      if (Object.values(shipTypes).every(ship => ship.placed)) {
-        // All ships are placed, hide the menu and start the game
-        document.getElementById('menu').style.display = 'none';
-        aiMove();
-      }
     } else {
-      // Ship placement failed
-      resetShipPosition(shipDiv);
+        // Ship placement failed
+        resetShipPosition(shipDiv);
     }
-  }
+}
 
 // Function to handle player attacks
+// Function to handle player attacks
 function handleClick(event) {
- 
-  // console.log(event.target); // Log the clicked element for debugging
-   //const shipData = shipTypes[shipType];
-  // Find the closest element with data-x and data-y attributes
+    // Log the clicked element for debugging
+    // console.log(event.target); 
 
-  const shipType = event.target.parentElement.id;
-  if (!shipType) {
+    // Find the closest element with data-x and data-y attributes
+    const targetElement = event.target.closest('[data-x][data-y]');
+
+    if (!targetElement) {
+        console.error('Clicked element does not have data-x or data-y attributes');
+        return;
+    }
+
+    const x = targetElement.dataset.x;
+    const y = targetElement.dataset.y;
+    console.log('handleClick(event) Clicked cell:', x, y);
+
+    const shipType = event.target.parentElement.id; // Get the ship type from the parent element
+
+    if (!shipType) {
         console.log('shipType is undefined');
-        // Call the function with an error message
         showPopUpError('shipType is undefined');
         return;
-  }else{
+    }
+
     const shipData = shipTypes[shipType];
-        if (!shipData || !shipData.orientation) {
-          console.log('Invalid shipData or orientation');
-          showPopUpError('Invalid shipData or orientation');
-          return;
-        }else{ 
-            console.log('handleClick(event) shipData.orientation: ', shipData.orientation)  
-            console.log('handleClick(event) shipType:', shipType);
-            console.log('handleClick(event) shipData:', shipData);
-        } 
-  } 
- 
- 
+    if (!shipData || !shipData.orientation) {
+        console.log('Invalid shipData or orientation');
+        showPopUpError('Invalid shipData or orientation');
+        return;
+    } else {
+        console.log('handleClick(event) shipData.orientation:', shipData.orientation);
+        console.log('handleClick(event) shipType:', shipType);
+        console.log('handleClick(event) shipData:', shipData);
+    }
 
-  const targetElement = event.target.closest('[data-x][data-y]');
-  if (!targetElement) {
-    console.error('Clicked element does not have data-x or data-y attributes');
-    return;
-  }
+    const targetBoard = event.target.parentNode;
 
-  const x = targetElement.dataset.x;
-  const y = targetElement.dataset.y;
-  console.log('handleClick(event) Clicked cell:', x, y);
+    // Check if the cell has already been attacked
+    if (targetBoard.classList.contains('hit') || targetBoard.classList.contains('miss')) {
+        return; // Already attacked
+    }
 
-  handleBoardClick(x, y, shipType);
- 
-  const targetBoard = event.target.parentNode;
+    // Check if the clicked cell contains a ship
+    if (targetBoard.querySelector(`[data-x="${x}"][data-y="${y}"]`).classList.contains('ship')) {
+        event.target.classList.add('hit'); // Mark as hit
+        checkWin(targetBoard); // Check for win condition
+    } else {
+        event.target.classList.add('miss'); // Mark as miss
+    }
 
-  if (targetBoard.classList.contains('hit') || targetBoard.classList.contains('miss')) {
-    return; // Already attacked
-  }
-
-  if (targetBoard.querySelector(`[data-x="${x}"][data-y="${y}"]`).classList.contains('ship')) {
-    event.target.classList.add('hit');
-    checkWin(targetBoard);
-  } else {
-    event.target.classList.add('miss');
-  }
+    // Handle board click after determining hit or miss
+    handleBoardClick(x, y, shipType);
 }
 
 // Function to check for a win
