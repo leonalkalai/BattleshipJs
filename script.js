@@ -184,7 +184,7 @@ function handleClick(event) {
 
     const shipType = event.target.parentElement.id; // Get the ship type from the parent element
 
-    if (!shipType) {
+    if (shipType===undefined) {
         console.log('shipType is undefined');
         showPopUpError('shipType is undefined');
         return;
