@@ -184,14 +184,14 @@ function handleClick(event) {
 
     const shipType = event.target.parentElement.id; // Get the ship type from the parent element
 
-    if (shipType === undefined) {
+ /*   if (!shipType) {
         console.log('shipType is undefined');
         showPopUpError('shipType is undefined');
         return;
-    }
+    }*/
 
     const shipData = shipTypes[shipType];
-    if (shipType === undefined || !shipData.orientation) {
+    if (!shipType || !shipData.orientation) {
         console.log('Invalid shipData or orientation');
         showPopUpError('Invalid shipData or orientation');
         return;
