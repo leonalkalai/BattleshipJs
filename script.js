@@ -169,13 +169,13 @@ function placeShip(board, x, y, length, orientation) {
   }
 
 // Function to handle player attacks
-function handleClick(event, shipType) {
+function handleClick(event) {
  
   // console.log(event.target); // Log the clicked element for debugging
    //const shipData = shipTypes[shipType];
   // Find the closest element with data-x and data-y attributes
-const shipType = player1Board.dataset.selectedShipType; // Retrieve the selected shipType
-  //const shipType = event.target.parentElement.id;
+
+  const shipType = event.target.parentElement.id;
   if (!shipType) {
         console.log('shipType is undefined');
         // Call the function with an error message
@@ -499,7 +499,7 @@ shipButtons.forEach(button => {
  //handleShipPlacement(button.id, event.clientX, event.clientY, shipTypes[shipType]);
     
     // Attach shipType as a data attribute to the board or store it within the event
-    player1Board.dataset.selectedShipType = shipType; // Storing selected ship on the board for later access
+    
     // Optionally, highlight the selected ship button
     shipButtons.forEach(btn => btn.classList.remove('selected'));
     event.target.classList.add('selected');
