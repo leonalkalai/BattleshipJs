@@ -493,7 +493,8 @@ const shipButtons = document.querySelectorAll('.ship-button');
 
 shipButtons.forEach(button => {
   button.addEventListener('click', (event) => {
-    shipType = event.target.id;
+    const shipType = event.target.id;
+    console.log(shipType)
    // handleShipPlacement(button.id, event.clientX, event.clientY, shipTypes[shipType]);
      // Optionally, highlight the selected ship button
     shipButtons.forEach(btn => btn.classList.remove('selected'));
