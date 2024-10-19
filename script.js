@@ -174,6 +174,7 @@ function handleClick(event, shipType) {
   // console.log(event.target); // Log the clicked element for debugging
    //const shipData = shipTypes[shipType];
   // Find the closest element with data-x and data-y attributes
+const shipType = player1Board.dataset.selectedShipType; // Retrieve the selected shipType
   //const shipType = event.target.parentElement.id;
   if (!shipType) {
         console.log('shipType is undefined');
@@ -495,8 +496,11 @@ shipButtons.forEach(button => {
   button.addEventListener('click', (event) => {
     const shipType = event.target.id;
     console.log(shipType)
-    handleShipPlacement(button.id, event.clientX, event.clientY, shipTypes[shipType]);
-     // Optionally, highlight the selected ship button
+ //handleShipPlacement(button.id, event.clientX, event.clientY, shipTypes[shipType]);
+    
+    // Attach shipType as a data attribute to the board or store it within the event
+    player1Board.dataset.selectedShipType = shipType; // Storing selected ship on the board for later access
+    // Optionally, highlight the selected ship button
     shipButtons.forEach(btn => btn.classList.remove('selected'));
     event.target.classList.add('selected');
   });
