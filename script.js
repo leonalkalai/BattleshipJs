@@ -107,11 +107,11 @@ function placeShip(board, x, y, length, orientation) {
   return true;
 }
 
-  function handleBoardClick(x, y, shipData) {
+  function handleBoardClick(x, y, shipType) {
      // const x = event.target.dataset.x;
      // const y = event.target.dataset.y;
     // Try to place the ship at the clicked coordinates
-    shipData = shipTypes[shipType];
+    const shipData = shipTypes[shipType];
     handleShipPlacement(shipType, x-1, y-1, shipData);
     if (placeShip(player1Board, x, y, length, shipData.orientation)) {
       // Ship placement successful
@@ -205,7 +205,7 @@ function handleClick(event, shipType) {
   const y = targetElement.dataset.y;
   console.log('handleClick(event) Clicked cell:', x, y);
 
-  handleBoardClick(x, y, shipData);
+  handleBoardClick(x, y, shipType);
  
   const targetBoard = event.target.parentNode;
 
