@@ -492,19 +492,30 @@ const shipButtons = document.querySelectorAll('.ship-button');
 
 shipButtons.forEach(button => {
   button.addEventListener('click', (event) => {
-    const shipType = event.target.id;
-    console.log(shipType)
- //handleShipPlacement(button.id, event.clientX, event.clientY, shipTypes[shipType]);
-    
-    // Attach shipType as a data attribute to the board or store it within the event
-    
+    const shipType = event.target.id;  // Get the ship type from the button's id
+
+      // Store the selected ship type in a data attribute on the game container
+      const gameContainer = document.getElementById('game-container');
+      gameContainer.setAttribute('data-selected-ship', shipType);
+      console.log('Selected ship:', shipType);
+ 
     // Optionally, highlight the selected ship button
     shipButtons.forEach(btn => btn.classList.remove('selected'));
     event.target.classList.add('selected');
   });
 });
 
+document.getElementById('game-container').addEventListener('click', function(event) {
+    const gameContainer = event.currentTarget;
 
+    // Get the selected ship type from the data attribute
+    const selectedShipType = gameContainer.getAttribute('data-selected-ship');
+    
+    // Ensure the clicked element is part of the board
+    if (event.target.id === 'player1-board' || event.target.id === 'player2-board') {
+      handleBoardClick(event, selectedShipType);  // Pass the selected ship type to the function
+    }
+  });
 
 // Add event listeners to both boards
 player1Board.addEventListener('click', handleClick);
