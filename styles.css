@@ -1,0 +1,747 @@
+:root {
+  --color1: #cff5f7;
+  --color2: #f5edb2;
+  --color3: #cfeec4;
+  --color4: #f9c7c9;
+  --color5: #7e57c2;
+  --color6: #5c6bc0;
+  --color7: #ef5350;
+  --color8: #ffa726;
+  --color9: #66bb6a;
+  --color10: #ff2400;
+}
+
+body {
+  font-family: "Proda Sans", sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 50px; /* Space around body content */
+  background-image: url(images/shipwreck.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header, #buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+header{
+  flex-direction: row;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#buttons{
+  flex-direction: column;
+  width: 20%;
+}
+
+h1 {
+  margin-top: 20px;
+  width: 25%;
+}
+
+.gridh2container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+  gap: 15px;
+  background-color: #0c0a0a66;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.gridh2image {
+  max-width: 50%;
+  padding: 14px;
+  width: 50%;
+  min-width: 50%;
+  height: 16vh;
+  border-radius: 25px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+h2 {
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 2px;
+  height: 16vh;
+  background-position: center center;
+  margin: 0 auto;
+  width: 50%;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  font-size: clamp(10px, 2vw, 25px);
+}
+
+h2.human {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h2.ai {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center align items vertically */
+  flex-direction: row; /* Keep grids in a row for larger screens */
+  margin: 20px auto; /* Added top/bottom margin and auto for left/right centering */
+  max-width: 800px; /* Optional: Set a maximum width for larger screens */
+  width: 59%; /* Optional: Set a width for smaller screens */
+  gap: 10%;
+}
+.row {
+  display: flex; /* Use flexbox for row layout */
+  justify-content: space-between; /* Space out elements */
+  width: 100%; /* Full width for each row */
+  margin-bottom: 20px;
+  flex-direction: column; /* Space between rows */
+}
+
+.column-container {
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: -10%;
+  margin: 0;
+}
+
+.grid-container {
+  text-align: center; /* Center titles above grids */
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* Maintain 10 columns */
+  margin: 10px 0 10px 0;
+}
+
+.grid div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1; /* Maintain square shape */
+}
+
+.grid-container .grid-label,
+.container .grid-label {
+  text-align: center;
+  border: 1px solid black;
+  background-color: #603913;
+  color: white;
+  font-size: 1.5vw;
+  font-weight: 900;
+  font-family: system-ui;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3vw;
+  height: 3vw;
+}
+
+.grid-container .grid-labels {
+  display: grid;
+  width: 30vw;
+  max-width: 30vw;
+  height: auto;
+  margin: 0 auto;
+  border: none;
+  aspect-ratio: auto;
+}
+
+.container .row-labels {
+  display: flex;
+  width: 3vw;
+  height: auto;
+  border: none;
+  aspect-ratio: 1 / 1;
+  flex-direction: column;
+  line-height: 3vw;
+}
+.container .row-labels .grid-label:first-child {
+  border: none;
+  background: transparent;
+}
+
+.ship {
+  background-color: navy;
+}
+
+.hit {
+  background-color: red;
+  background-image: url("images/skull-and-crossbones.svg"); /* Path to your SVG file */
+  background-size: 80%; /* Ensure the skull SVG fills the space */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.miss {
+  background-color: gray;
+  background-image: url("images/miss.svg"); /* Path to your SVG file */
+  background-size: 80%; /* Ensure the skull SVG fills the space */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.blue {
+  background-color: #0e5bcb;
+}
+
+.lightblue {
+  background-color: #86afe1;
+}
+
+.white {
+  background-color: #d4d6dd;
+}
+
+.stripe {
+  color: #d4d6dd;
+  background-image: linear-gradient(
+    135deg,
+    #d4d6dd 33.33%,
+    #0e5bcb 32.33%,
+    #0e5bcb 51%,
+    #d4d6dd 50%,
+    #d4d6dd 82.33%,
+    #0e5bcb 83.33%,
+    #0e5bcb 100%
+  );
+  background-size: 2px 2px;
+}
+
+button {
+  padding: 10px 5px;
+  font-size: 1.2vw;
+  background-color: #bfffed;
+  font-weight: 900;
+  letter-spacing: 2px;
+  border-radius: 15px;
+  margin: 10px auto;
+  color: #04007e;
+  background-image: linear-gradient(90deg, #bfffed 0%, #70ffd6 100%);
+  text-transform: uppercase;
+}
+
+
+#buttons button#start-button, #buttons button#restart-button{
+  display: none;
+}
+
+#buttons button#start-button.ready, #buttons button#restart-button.ready{
+  display: flex;
+}
+
+
+#message {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+#message.alarm{
+  color: var(--color10);
+}
+
+/* General grid styles */
+#player-grid,
+#computer-grid {
+  display: grid;
+  width: 30vw; /* Set width to 40% of the viewport width */
+  max-width: 30vw; /* Maintain maximum width */
+  height: auto; /* Allow height to adjust dynamically */
+  margin: 0 auto; /* Center the grids horizontally */
+  position: relative;
+}
+#player-grid.waiting:after,
+#computer-grid.waiting:after{
+  content: 'waiting...';
+  position: absolute;
+  top: 33%;
+  left: 0%;
+  width: 100%;
+  font-size: 4rem;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#message.win{
+  background-image: url(images/page-background.svg);
+  background-color: transparent;
+  color: white;
+}
+
+#player-grid.pending *, #computer-grid.pending *{
+  background-color: #ec0c39;
+}
+/* Update grid cell styles */
+#player-grid div,
+#computer-grid div {
+  aspect-ratio: 1 / 1; /* Keep squares perfectly square */
+}
+
+/* Specific ship colors with more specific selectors */
+
+#player-grid div.carrier {
+  background-color: #ff6347;
+  background-image: none;
+}
+
+#player-grid div.battleship {
+  background-color: #4682b4;
+  background-image: none;
+}
+
+#player-grid div.cruiser {
+  background-color: #32cd32;
+  background-image: none;
+}
+
+#player-grid div.submarine {
+  background-color: #ffd700;
+  background-image: url("images/submarine.svg");
+  background-size: 80%;
+}
+
+#player-grid div.submarine {
+  background-color: #ffd700;
+}
+
+#player-grid div.destroyer {
+  background-color: #8a2be2;
+  background-image: none;
+}
+
+.horizontal {
+  transform: rotate(90deg);
+}
+
+.vertical {
+  transform: rotate(180deg);
+}
+
+/*submarine*/
+
+#player-grid div.submarine {
+  background-image: url(images/submarine.svg);
+  background-repeat: no-repeat;
+  -o-background-size: 75% auto;
+  -webkit-background-size: 75% auto;
+  background-size: 75% auto;
+}
+
+#player-grid div.submarine:nth-child(1 of div.submarine):not(.hit) {
+  background-position: calc(70%) calc(130%);
+}
+
+#player-grid div.submarine:nth-child(2 of div.submarine):not(.hit) {
+  background-position: calc(70%) calc(53%);
+  background-color: navy;
+}
+
+#player-grid div.submarine:nth-child(3 of div.submarine):not(.hit) {
+  background-position: calc(70%) calc(-36%);
+}
+
+/*cruiser*/
+
+#player-grid div.cruiser {
+  background-image: url(images/cruiser.svg);
+  background-repeat: no-repeat;
+  -o-background-size: 100% auto;
+  -webkit-background-size: 100% auto;
+  background-size: 100% auto;
+}
+
+#player-grid div.cruiser:nth-child(1 of div.cruiser):not(.hit) {
+  background-position: calc(70%) calc(100%);
+}
+
+#player-grid div.cruiser:nth-child(2 of div.cruiser):not(.hit) {
+  background-position: calc(70%) calc(45%);
+  background-color: navy;
+}
+
+#player-grid div.cruiser:nth-child(3 of div.cruiser):not(.hit) {
+  background-position: calc(70%) calc(-12%);
+}
+
+/*carrier*/
+
+#player-grid div.carrier {
+  background-image: url(images/carrier.svg);
+  background-repeat: no-repeat;
+  -o-background-size: 100% auto;
+  -webkit-background-size: 100% auto;
+  background-size: 100% auto;
+}
+
+#player-grid div.carrier:nth-child(1 of div.carrier):not(.hit) {
+  background-position: calc(70%) calc(104%);
+}
+
+#player-grid div.carrier:nth-child(2 of div.carrier):not(.hit) {
+  background-position: calc(70%) calc(82%);
+  background-color: navy;
+}
+
+#player-grid div.carrier:nth-child(3 of div.carrier):not(.hit) {
+  background-position: calc(70%) calc(82%);
+  background-color: navy;
+}
+
+#player-grid div.carrier:nth-child(4 of div.carrier):not(.hit) {
+  background-position: calc(70%) calc(80%);
+  background-color: navy;
+}
+
+#player-grid div.carrier:nth-child(5 of div.carrier):not(.hit) {
+  background-position: calc(70%) calc(0%);
+}
+
+/*battleship*/
+
+#player-grid div.battleship {
+  background-image: url(images/battleship.svg);
+  background-repeat: no-repeat;
+  -o-background-size: 100% auto;
+  -webkit-background-size: 100% auto;
+  background-size: 100% auto;
+}
+
+#player-grid div.battleship:nth-child(1 of div.battleship):not(.hit) {
+  background-position: calc(80%) calc(104%);
+}
+
+#player-grid div.battleship:nth-child(2 of div.battleship):not(.hit) {
+  background-position: calc(80%) calc(69%);
+  background-color: navy;
+}
+
+#player-grid div.battleship:nth-child(3 of div.battleship):not(.hit) {
+  background-position: calc(80%) calc(66%);
+  background-color: navy;
+}
+
+#player-grid div.battleship:nth-child(4 of div.battleship):not(.hit) {
+  background-position: calc(80%) calc(0%);
+  background-color: navy;
+}
+
+/*destroyer*/
+
+#player-grid div.destroyer {
+  background-image: url(images/destroyer.svg);
+  background-repeat: no-repeat;
+  -o-background-size: 100% auto;
+  -webkit-background-size: 100% auto;
+  background-size: 100% auto;
+}
+
+#player-grid div.destroyer:nth-child(1 of div.destroyer):not(.hit) {
+  background-position: calc(70%) calc(135%);
+}
+
+#player-grid div.destroyer:nth-child(2 of div.destroyer):not(.hit) {
+  background-position: calc(70%) calc(0%);
+  background-color: navy;
+}
+
+/* Hit and miss styles */
+#player-grid .ship.hit,
+#computer-grid .ship.hit {
+  background-color: #dc143c; /* Crimson */
+  background-image: url("images/skull-and-crossbones.svg"); /* Path to your SVG file */
+  background-size: 80%; /* Ensure the skull SVG fills the space */
+  transform: rotate(0deg);
+  background-position: center;
+}
+
+#player-grid div.miss,
+#computer-grid div.miss {
+  background-color: #87ceeb; /* SkyBlue */
+  background-image: url("images/miss.svg"); /* Path to your SVG file */
+  background-size: 80%; /* Ensure the skull SVG fills the space */
+}
+
+/* Messages */
+
+#message{
+  display: flex;
+  width: 35%;
+  max-width: 35%;
+}
+
+#turn-indicator, #toggle-rotate{
+  display: none; 
+} 
+
+#turn-indicator.ready, #toggle-rotate.ready{
+  display: flex;
+}
+
+#turn-indicator.ready{
+  width: 100%;
+  max-width: 30%;
+}
+
+
+#message,
+#turn-indicator {
+  font-size:  1.5vw;
+  font-weight: bold;
+  color: #3c2415;
+  height: auto;
+  min-height: 100px;
+  background-color: #603913;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  padding: 2vw;
+  box-sizing: content-box;
+}
+
+#message {
+  background-image: url(images/papyrus-message.svg);
+}
+
+.player-ships-list img.checkmark{
+  filter: brightness(0) saturate(100%) invert(66%) sepia(35%) saturate(689%) hue-rotate(123deg) brightness(92%) contrast(92%);
+  background-color: unset;
+}
+
+#player-ships-list td.flames::after, #enemy-ships-list td.flames::after{
+  content: "x";
+  background-image: url(images/flames.svg);
+  background-repeat: repeat-x;
+  -o-background-size: 100% auto;
+  -webkit-background-size: 100% auto;
+  background-size: 32% auto;
+  z-index: 0;
+  position: absolute;
+  right: 18px;
+  bottom: -21px;
+  height: 50px;
+  width: 34%;
+  background-position: center top;
+  color: transparent;
+  border-radius: 50%;
+}
+
+#turn-indicator {
+  background-image: url(images/papyrus-turn.svg);
+}
+
+#ships-table-container {
+  display: flex;
+  flex-direction: row; /* Default to row layout */
+  justify-content: space-around; /* Space between tables */
+  margin-top: 20px; /* Space above tables */
+  margin: 20px auto;
+  max-width: 800px;
+  width: 90%;
+  gap: 3vw;
+  background-image: url(images/table_background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0 5%;
+}
+
+#ships-table-container td {
+  color: #afab98;
+  font-weight: 700;
+}
+
+#player-ships-list,
+#enemy-ships-list {
+  margin-top: 20px; /* Space above each table */
+  width: 100%; /* Set width to 100% for responsiveness */
+  border-collapse: collapse; /* Collapse borders */
+  flex-grow: 1;
+}
+
+.player-ships-header h2,
+.enemy-ships-header h2{
+  height: 8vh;
+  margin-top: 22px;
+  color: #795548;
+}
+
+th {
+  background-color: #f2f2f2; /* Light grey background for headers */
+}
+
+#player-ships-list td,
+#enemy-ships-list td {
+  padding: 5px;
+  position: relative;
+}
+
+#player-ships-list td:first-child,
+#enemy-ships-list td:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 5px;
+}
+
+
+#player-ships-list td img,
+#enemy-ships-list td img{
+  max-height: 50px;
+}
+
+tr td:nth-child(2) img{
+  background-color: #301016;
+    width: 33px;
+    display: inline-block;
+    justify-items: center;
+    height: auto;
+    border-radius: 25px;
+}
+
+tr td:nth-child(2) img,
+tr td:nth-child(2) span{
+  vertical-align: middle;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+
+.strikethrough {
+  text-decoration: line-through; /* Strikethrough effect */
+}
+
+#player-ships-list .placed {
+  color: gray; /* Optional: Change color */
+}
+
+/* Mark destroyed ships with X */
+#player-grid div.destroyed,
+#computer-grid div.destroyed {
+  background-color: transparent;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack grids vertically on smaller screens */
+  }
+
+  #player-grid,
+  #computer-grid {
+    width: 50vw; /* 50% of the viewport width when in column */
+    max-width: 70vw; /* Set the maximum width to 70% of the viewport width */
+    height: auto; /* Auto height for dynamic size */
+  }
+
+  #player-grid div,
+  #computer-grid div {
+    aspect-ratio: 1 / 1; /* Keep squares perfectly square */
+  }
+
+  .grid-container .grid-label,
+  .container .grid-label {
+    width: 5vw;
+    height: 5vw;
+  }
+
+  .grid-container .grid-labels {
+    width: 50vw;
+    max-width: 50vw;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 1.2vw;
+    margin: 25px auto;
+  }
+
+  #message,
+  #turn-indicator {
+    font-size: 1.5vw; /* Slightly bigger font for messages */
+  }
+
+  #player-ships-list {
+    font-size: 14px; /* Smaller font for ship list */
+  }
+  #ships-table-container {
+    flex-direction: column; /* Switch to column layout */
+    align-items: center; /* Center align tables */
+  }
+
+  #player-ships-list,
+  #enemy-ships-list {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+
+  h2{
+    font-size: revert;
+  }
+  #player-grid,
+  #computer-grid {
+    width: 90vw; /* Maintain square shape */
+    height: auto; /* Auto height for dynamic size */
+  }
+
+  #player-grid div,
+  #computer-grid div {
+    aspect-ratio: 1 / 1; /* Keep squares perfectly square */
+  }
+  .grid-container .grid-label,
+  .container .grid-label {
+    width: 7vw;
+    height: 7vw;
+  }
+
+  .grid-container .grid-labels {
+    width: 70vw;
+    max-width: 70vw;
+  }
+
+  #ships-table-container {
+    flex-direction: column; /* Switch to column layout */
+    align-items: center; /* Center align tables */
+  }
+
+  #player-ships-list,
+  #enemy-ships-list {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+
+  button {
+    font-size: 1.5vw; /* Smaller font size for buttons */
+  }
+}

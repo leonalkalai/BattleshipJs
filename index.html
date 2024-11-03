@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="fonts/font-styles.css">
+	<title>Battleship Game</title>
+</head>
+
+<body>
+	<header>
+		<h1><img src="./images/logo.svg" alt="logo"></h1>
+		<div id="message"></div>
+		<div id="buttons">
+			<button id="toggle-rotate">Rotate Ship</button>
+			<button id="start-button" disabled>Start Game</button>
+			<button id="restart-button">Restart Game</button>
+		</div>
+	</header>
+	<div class="container">
+		<div class="grid-container">
+			<div id="player-grid" class="grid"></div>
+		</div>
+		<div class="grid-container">
+			<div id="computer-grid" class="grid"></div>
+		</div>
+	</div>
+	<div id="turn-indicator"></div>
+	<div id="ships-table-container"></div>
+	<script src="game.js"></script>
+</body>
+
+</html>
