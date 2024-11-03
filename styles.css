@@ -274,7 +274,7 @@ button {
 }
 #player-grid.waiting:after,
 #computer-grid.waiting:after{
-  content: 'waiting...';
+  content: 'waiting for players \n  to place ships';
   position: absolute;
   top: 33%;
   left: 0%;
@@ -296,6 +296,7 @@ button {
 /* Update grid cell styles */
 #player-grid div,
 #computer-grid div {
+  cursor: pointer;
   aspect-ratio: 1 / 1; /* Keep squares perfectly square */
 }
 
@@ -684,6 +685,7 @@ tr td:nth-child(2) span{
     padding: 12px;
     font-size: 1.2vw;
     margin: 25px auto;
+    cursor: pointer;
   }
 
   #message,
