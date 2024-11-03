@@ -546,7 +546,6 @@ function attack(cell, index, ships, grid, attacker) {
 
 // Computer's turn to attack
 function computerTurn() {
-  checkShipDestroyed(playerShips);
   let move;
   do {
     move = Math.floor(Math.random() * gridSize * gridSize);
@@ -565,7 +564,7 @@ function computerTurn() {
     targetCell.classList.add("miss");
     message.textContent = "Computer missed!";
   }
-  
+  checkShipDestroyed(playerShips);
   playerTurn = true; // Pass the turn back to the player
   updateTurnIndicator();
 }

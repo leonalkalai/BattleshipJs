@@ -16,13 +16,13 @@ body {
   text-align: center;
   background-color: #f0f0f0;
   margin: 0;
-  padding: 50px; /* Space around body content */
+  padding: 25px 50px 50px 50px;
   background-image: url(images/shipwreck.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-header, #buttons{
+header, #buttons, #interface{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,19 +30,24 @@ header, #buttons{
 }
 
 header{
-  flex-direction: row;
+  flex-direction: column;
   margin-left: 10%;
   margin-right: 10%;
 }
 
 #buttons{
   flex-direction: column;
-  width: 20%;
+  width: 50%;
+}
+
+#interface{
+  flex-direction: row;
+  width: 100%;
 }
 
 h1 {
-  margin-top: 20px;
-  width: 25%;
+  margin: 0 auto;
+  width: 30%;
 }
 
 .gridh2container {
@@ -274,14 +279,20 @@ button {
 }
 #player-grid.waiting:after,
 #computer-grid.waiting:after{
-  content: 'waiting for players \n  to place ships';
+  content: 'waiting for players to place ships';
   position: absolute;
-  top: 33%;
-  left: 0%;
-  width: 100%;
-  font-size: 4rem;
+  top: 25%;
+  left: 12%;
+  width: 70%;
+  font-size: 2rem;
   z-index: 0;
   pointer-events: none;
+  background-color: #00000054;
+  color: white;
+  padding: 5px;
+  box-sizing: border-box;
+  cursor: none;
+  height: auto;
 }
 
 #message.win{
@@ -488,8 +499,8 @@ button {
 
 #message{
   display: flex;
-  width: 35%;
-  max-width: 35%;
+  width: 50%;
+  max-width: 50%;
 }
 
 #turn-indicator, #toggle-rotate{
@@ -508,7 +519,7 @@ button {
 
 #message,
 #turn-indicator {
-  font-size:  1.5vw;
+  font-size:  1.7vw;
   font-weight: bold;
   color: #3c2415;
   height: auto;
@@ -653,7 +664,12 @@ tr td:nth-child(2) span{
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (max-width: 768px){
+  h1 {
+    width: 50%;
+    min-width: 150px;
+}
+
   .container {
     flex-direction: column; /* Stack grids vertically on smaller screens */
   }
@@ -683,14 +699,14 @@ tr td:nth-child(2) span{
 
   button {
     padding: 12px;
-    font-size: 1.2vw;
+    font-size:  1.7vw;
     margin: 25px auto;
     cursor: pointer;
   }
 
   #message,
   #turn-indicator {
-    font-size: 1.5vw; /* Slightly bigger font for messages */
+    font-size:2vw; /* Slightly bigger font for messages */
   }
 
   #player-ships-list {
@@ -707,11 +723,18 @@ tr td:nth-child(2) span{
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px){
 
   h2{
     font-size: revert;
   }
+
+  h1 {
+    width: 50%;
+    min-width: 150px;
+}
+
+
   #player-grid,
   #computer-grid {
     width: 90vw; /* Maintain square shape */
@@ -744,6 +767,6 @@ tr td:nth-child(2) span{
   }
 
   button {
-    font-size: 1.5vw; /* Smaller font size for buttons */
+    font-size:  1.7vw; /* Smaller font size for buttons */
   }
 }
