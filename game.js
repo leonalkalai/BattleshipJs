@@ -1,6 +1,7 @@
 const playerGrid = document.getElementById("player-grid");
 const computerGrid = document.getElementById("computer-grid");
 const shipsTableContainer = document.querySelector('#ships-table-container');
+const buttonsContainer = document.getElementById("buttons");
 const startButton = document.getElementById("start-button");
 const restartButton =document.getElementById("restart-button");
 const message = document.getElementById("message");
@@ -30,6 +31,20 @@ let playerGuesses = [];
 
 restartButton.addEventListener("click", restartGame);
 
+
+// helper functions
+
+function toggleClassWithTimeout(element, className, timeout) {
+  // Add the class
+  element.classList.add(className);
+  
+  // Remove the class after the specified timeout
+  setTimeout(() => {
+    element.classList.remove(className);
+  }, timeout);
+}
+
+
 function clearGrid(gridElement) {
   gridElement.innerHTML='';
 }
@@ -46,6 +61,8 @@ function createGame(){
   createGrid(computerGrid);
   playerGrid.classList.add("pending");
   computerGrid.classList.add("pending");
+  playerGrid.classList.remove("outline");
+  computerGrid.classList.remove("outline");
   playerGrid.classList.add("waiting");
   computerGrid.classList.add("waiting");
   createGridTitles();
@@ -56,6 +73,7 @@ function createGame(){
 function init() {
   placePlayerShips();
   startButton.addEventListener("click", startGame);
+  interface.classList.add('wrap');
   toggleRotateButton.classList.add("ready");
   toggleRotateButton.addEventListener("click", toggleShipRotation);
 }
@@ -225,19 +243,62 @@ function checkShipDestroyed(shipsArray) {
 
 // Generate grid titles
 function createGridTitles() {
-  const grids = document.querySelectorAll(".grid-container");
+  const grids = document.querySelectorAll(".gridh2container");
   grids.forEach((grid, index) => {
+    gridType = grid.querySelector("p");
     gridTitle = grid.querySelector("h2");
-    gridTitle.textContent = `Player ${index + 1} (${
-      index === 1 ? "AI" : "human"
-    })`;
+    gridType .textContent = `${index === 1 ? "AI" : "human"}`;
+    gridTitle.textContent = `Player ${index + 1}`;
     gridTitle.classList.add(`${index === 1 ? "ai" : "human"}`);
   });
 }
 
+
+function createPattern(cell,row,column){
+
+  //cell.classList.add("blue");
+  
+  if (cell.dataset.index.length === 1) {
+    if (row % 2 === 1) {
+      cell.classList.add("stripe");
+    } else {
+      cell.classList.add("white");
+    }
+  } else if (row % 2 === 1) {
+    // If the group is odd
+    if (column % 2 === 1) {
+      // If the index is odd
+      //console.log(`if the group ${group} is odd and index ${j} is odd`)
+      cell.classList.add("blue"); // Add the "blue" class
+      // div.classList.remove('white', 'stripe'); // Remove the "white" and "stripe" classes
+    } else {
+      // If the index is even
+      //console.log(`if the group ${group} is odd and index ${j} is even`)
+      cell.classList.add("stripe"); // Add the "stripe" class
+      //div.classList.remove('blue', 'white'); // Remove the "blue" and "white" classes
+    }
+  } else {
+    // If the group is even
+    if (column % 2 === 1) {
+      // If the index is odd
+      // console.log(`if the group ${group} is even and index ${j} is odd`)
+      cell.classList.add("stripe"); // Add the "stripe" class
+      //div.classList.remove('blue', 'white'); // Remove the "blue" and "white" classes
+    } else {
+      // If the index is even
+      cell.classList.add("white"); // Add the "white" class
+      //console.log(`if the group ${group} is even and index ${j} is even`)
+      // div.classList.remove('blue', 'stripe'); // Remove the "blue" and "stripe" classes
+    }
+  }
+}
+
+
 // Generate a grid for players
 function createGrid(gridElement) {
+
   for (let index = 0; index < gridSize * gridSize; index++) {
+
     const cell = document.createElement("div");
     cell.dataset.index = index; // Store the index for reference
 
@@ -247,42 +308,20 @@ function createGrid(gridElement) {
       cell.dataset.index < 10 ? cell.dataset.index[0] : cell.dataset.index[1];
     //console.log(row, column);
 
-    if (cell.dataset.index.length === 1) {
-      if (row % 2 === 1) {
-        cell.classList.add("stripe");
-      } else {
-        cell.classList.add("white");
-      }
-    } else if (row % 2 === 1) {
-      // If the group is odd
-      if (column % 2 === 1) {
-        // If the index is odd
-        //console.log(`if the group ${group} is odd and index ${j} is odd`)
-        cell.classList.add("blue"); // Add the "blue" class
-        // div.classList.remove('white', 'stripe'); // Remove the "white" and "stripe" classes
-      } else {
-        // If the index is even
-        //console.log(`if the group ${group} is odd and index ${j} is even`)
-        cell.classList.add("stripe"); // Add the "stripe" class
-        //div.classList.remove('blue', 'white'); // Remove the "blue" and "white" classes
-      }
-    } else {
-      // If the group is even
-      if (column % 2 === 1) {
-        // If the index is odd
-        // console.log(`if the group ${group} is even and index ${j} is odd`)
-        cell.classList.add("stripe"); // Add the "stripe" class
-        //div.classList.remove('blue', 'white'); // Remove the "blue" and "white" classes
-      } else {
-        // If the index is even
-        cell.classList.add("white"); // Add the "white" class
-        //console.log(`if the group ${group} is even and index ${j} is even`)
-        // div.classList.remove('blue', 'stripe'); // Remove the "blue" and "stripe" classes
-      }
-    }
+
+    // start applying pattern
+ 
+    createPattern(cell,row,column)
+
+    // end applying pattern
 
     gridElement.appendChild(cell);
   }
+
+  const gameBoardContainer = document.createElement('div');
+  gameBoardContainer.classList.add('game-board-container');
+  gameBoardContainer.classList.add('grid-container');
+  gridElement.parentElement.prepend(gameBoardContainer);
 
   // Create grid labels - letters
   const gridLabels = document.createElement("div");
@@ -310,22 +349,39 @@ function createGrid(gridElement) {
   const columnContainer = document.createElement("div");
   columnContainer.classList.add("column-container");
   columnContainer.classList.add("container");
-  gridElement.parentElement.insertBefore(columnContainer, gridElement);
-
+  
   gridElement.parentElement.prepend(gridLabels);
-  gridElement.previousSibling.appendChild(rowLabels);
+  //gridElement.parentElement.insertBefore(columnContainer, gridElement);
+  gameBoardContainer.appendChild(columnContainer);
+  gameBoardContainer.appendChild(gridElement);
+ 
+  // gridElement.previousSibling.appendChild(rowLabels);
+  columnContainer.appendChild(rowLabels);
+  
 
   // Create board title
   const gridh2container = document.createElement("div");
   gridh2container.classList.add("gridh2container");
+
+  const playerType =  document.createElement("p");
+
   const gridh2image = document.createElement("img");
   gridh2image.src = `./images/${gridElement.id}.svg`;
   gridh2image.classList.add("gridh2image");
+  
   const gridTitle = document.createElement("h2");
+  gridh2container.appendChild(playerType);
   gridh2container.appendChild(gridh2image);
   gridh2container.appendChild(gridTitle);
-  gridElement.parentElement.appendChild(gridh2container);
+  //gridElement.parentElement.appendChild(gridh2container);
+  if(gridElement===playerGrid){
+    gameBoardContainer.prepend(gridh2container);
+  }else{
+    gameBoardContainer.appendChild(gridh2container);
+  }
+  
   //gridElement.parentElement.appendChild(gridTitle);
+  
 }
 
 // Toggle ship rotation
@@ -356,6 +412,7 @@ function handleGridClick(event) {
 
     if (canPlaceShip(index, size, playerGrid)) {
       playerGrid.classList.remove("pending");
+      playerGrid.classList.add("outline");
       playerGrid.classList.remove("waiting");
       placeShip(index, size, shipClass, playerGrid);
       message.classList.remove("alarm");
@@ -384,6 +441,7 @@ function handleGridClick(event) {
 
       // Remove the rotate button after placing all ships
      // toggleRotateButton.style.display = "none"; // Hide the rotate button
+      
       toggleRotateButton.classList.remove('ready');
     }, 1500); // 1500 milliseconds (1.5 seconds) delay
   }
@@ -458,14 +516,15 @@ function updateShipStatus(shipIndex) {
 // Start the game
 function startGame() {
   playerGrid.classList.remove("pending");
+  playerGrid.classList.add("outline");
+  computerGrid.classList.add("outline");
   computerGrid.classList.remove("pending");
   if (currentShipIndex === shipSizes.length) {
     // Check if all ships are placed
     gameStarted = true;
     playerTurn = true; // Player starts
     message.innerHTML = `
-    "Game started!"</br> 
-    your turn!'
+     Game started!
      `;
     turnIndicator.classList.add("ready");
     updateTurnIndicator();
@@ -475,7 +534,7 @@ function startGame() {
     // Disable start button after game starts
     startButton.classList.remove("ready");
     //startButton.style.display = "none";
-
+    interface.classList.add('wrap');
     // Enable player to attack computer's grid
     computerGrid.childNodes.forEach((cell, index) => {
       cell.addEventListener("click", () => {
@@ -534,6 +593,7 @@ function placeComputerShips() {
 
 // Attack function
 function attack(cell, index, ships, grid, attacker) {
+  toggleClassWithTimeout(cell, 'highlight', 1000);
   if (cell.classList.contains("ship")) {
     cell.classList.add("hit");
     message.textContent = "Its a Hit!";
@@ -556,12 +616,14 @@ function computerTurn() {
 
   if (targetCell.classList.contains("ship")) {
     targetCell.classList.add("hit");
+    toggleClassWithTimeout(targetCell, 'highlight', 1000);
     message.innerHTML = `
    Computer hit</br> 
    your ship!'
     `;
   } else {
     targetCell.classList.add("miss");
+    toggleClassWithTimeout(targetCell, 'highlight', 1000);
     message.textContent = "Computer missed!";
   }
   checkShipDestroyed(playerShips);
@@ -576,6 +638,7 @@ function checkWin(ships, player) {
     message.classList.add("win");
     message.textContent = `${player} wins!`;
     restartButton.classList.add('ready');
+    interface.classList.remove('wrap');
     gameStarted = false;
     return true;
   }

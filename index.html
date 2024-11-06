@@ -12,15 +12,16 @@
 <body>
 	<header>
 		<h1><img src="./images/logo.svg" alt="logo"></h1>
-		<div id="interface">
+		<div id="interface" class="wrap">
+			<div id="turn-indicator"></div>
 			<div id="message"></div>
-			<div id="buttons">
-				<button id="toggle-rotate">Rotate Ship</button>
-				<button id="start-button" disabled>Start Game</button>
-				<button id="restart-button">Restart Game</button>
-			</div>
 		</div>
 	</header>
+	<div id="buttons">
+		<button id="start-button" disabled>Start Game</button>
+		<button id="restart-button">Restart Game</button>
+		<button id="toggle-rotate">Rotate Ship</button>
+	</div>
 	<div class="container">
 		<div class="grid-container">
 			<div id="player-grid" class="grid"></div>
@@ -29,7 +30,6 @@
 			<div id="computer-grid" class="grid"></div>
 		</div>
 	</div>
-	<div id="turn-indicator"></div>
 	<div id="ships-table-container"></div>
 	<script src="game.js"></script>
 </body>
