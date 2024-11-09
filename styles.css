@@ -20,48 +20,60 @@ body {
   background-image: url(images/shipwreck.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  cursor: url("images/wood-cursor.png"), auto;
 }
 
-header, #buttons, #interface{
+.aim {
+  cursor: url('images/aim.svg'), auto;
+}
+
+header,
+#buttons-container,
+#interface-container {
   display: flex;
   align-items: center;
   justify-content: center;
   justify-items: center;
 }
 
-.wrap{
+main {
+  width: 100%;
+  height: auto;
+}
+
+.wrap {
   align-content: space-evenly;
   flex-wrap: wrap;
 }
 
-header{
+header {
   flex-direction: row;
   width: 100%;
   min-width: 100%;
   margin: 0 auto;
 }
 
-#buttons{
+#buttons-container {
   flex-direction: column;
   width: 100%;
 }
 
-#interface{
+#interface-container {
   position: relative;
   flex-direction: row;
-  width: 50%;
+  width: 75%;
   background-image: url(images/papyrus-message.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
   height: auto;
-  min-height: 13vh;
+  min-height: 15vh;
   max-height: 120px;
   align-content: center;
 }
 
-#interface:after{
-  content: 's';
+#interface-container:after {
+  content: "s";
   /* background-color: #603913c2; */
   top: 0px;
   width: 130%;
@@ -74,25 +86,25 @@ header{
 
 h1 {
   margin: 0 auto;
-  width: 100%;
+  width: 35%;
   display: flex;
   margin-bottom: 5px;
   align-items: center;
   justify-content: center;
 }
 
-h1 img{
+h1 img {
   max-height: 10rem;
   width: 15rem;
   max-width: 100%;
 }
 
-.game-board-container{
+.game-board-container {
   display: flex;
   flex-direction: row;
 }
 
-.gridh2container {
+.boardh2container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,25 +115,23 @@ h1 img{
   background-color: #0c0a0a66;
   margin: 0 auto;
   box-sizing: border-box;
-  /* position: absolute;
-  top: 0%; */
   height: auto;
   max-height: 100%;
   padding: 0 10px;
 }
 
-.game-board-container > .gridh2container > h2{
+.game-board-container > .boardh2container > h2 {
   line-height: 30px;
   color: white;
   text-decoration: none;
   font-weight: 600;
 }
 
-.game-board-container > .gridh2container{
+.game-board-container > .boardh2container {
   justify-content: space-around;
 }
 
-.game-board-container > .gridh2container > p{
+.game-board-container > .boardh2container > p {
   color: #ffffff;
   font-weight: 600;
   letter-spacing: 2px;
@@ -139,7 +149,7 @@ h1 img{
   text-transform: capitalize;
 }
 
-.gridh2image {
+.boardh2image {
   max-width: 100%;
   width: 80%;
   min-width: 8vw;
@@ -178,7 +188,7 @@ h2.ai {
   display: flex;
   justify-content: center;
   align-items: center; /* Center align items vertically */
-  flex-direction: row; /* Keep grids in a row for larger screens */
+  flex-direction: row; /* Keep boards in a row for larger screens */
   margin: 25px auto; /* Added top/bottom margin and auto for left/right centering */
   max-width: 800px; /* Optional: Set a maximum width for larger screens */
   width: 100%; /* Optional: Set a width for smaller screens */
@@ -202,42 +212,41 @@ h2.ai {
   width: 10%;
 }
 
-.grid-container {
-  text-align: center; /* Center titles above grids */
+.board-container {
+  text-align: center; /* Center titles above boards */
   position: relative;
 }
 
-.container > .grid-container{
+.container > .board-container {
   margin: 5% auto;
   display: inline-flex;
   flex-direction: column;
 }
 
-.grid-container:last-child .grid-labels{
+.board-container:last-child .board-labels {
   justify-content: start;
   margin-left: 3vw;
 }
 
-
-.grid {
+.board {
   display: grid;
   grid-template-columns: repeat(10, 1fr); /* Maintain 10 columns */
   margin: 10px 0 10px 0;
 }
 
-.grid div {
+.board div {
   display: flex;
   justify-content: center;
   align-items: center;
   aspect-ratio: 1 / 1; /* Maintain square shape */
 }
 
-.outline div{
+.outline div {
   outline: 2px solid blue;
 }
 
-.grid-container .grid-label,
-.container .grid-label {
+.board-container .board-label,
+.container .board-label {
   text-align: center;
   outline: 1px solid black;
   background-color: #603913;
@@ -253,11 +262,11 @@ h2.ai {
   height: auto;
 }
 
-.column-container .row-labels .grid-label{
+.column-container .row-labels .board-label {
   width: auto;
 }
 
-.grid-container .grid-labels {
+.board-container .board-labels {
   display: flex;
   width: 100%;
   height: auto;
@@ -277,7 +286,7 @@ h2.ai {
   flex-direction: column;
   line-height: 3vw;
 }
-.container .row-labels .grid-label:first-child {
+.container .row-labels .board-label:first-child {
   border: none;
   background: transparent;
 }
@@ -343,39 +352,42 @@ button {
   cursor: pointer;
 }
 
-
-#buttons button#start-button, #buttons button#restart-button{
+#buttons-container button#start-button,
+#buttons-container button#restart-button {
   display: none;
 }
 
-#buttons button#start-button.ready, #buttons button#restart-button.ready{
+#buttons-container button#start-button.ready,
+#buttons-container button#restart-button.ready {
   display: flex;
+  margin: 5px auto;
+  margin-bottom: 10px;
 }
-
 
 #message {
   margin-top: 20px;
   font-size: 18px;
 }
 
-#message.alarm{
+#message.alarm {
   color: var(--color10);
+  max-width: 120px;
 }
 
-/* General grid styles */
-#player-grid,
-#computer-grid {
-  display: grid;
+/* General board styles */
+#human-board,
+#enemy-board {
+  display: board;
   width: 30vw; /* Set width to 40% of the viewport width */
   max-width: 30vw; /* Maintain maximum width */
   height: auto; /* Allow height to adjust dynamically */
-  margin: 0 auto; /* Center the grids horizontally */
+  margin: 0 auto; /* Center the boards horizontally */
   position: relative;
   margin-left: 0;
 }
-#player-grid.waiting:after,
-#computer-grid.waiting:after{
-  content: 'waiting for players to place ships';
+#human-board.waiting:after,
+#enemy-board.waiting:after {
+  content: "waiting for humans to place ships";
   position: absolute;
   top: 25%;
   left: 12%;
@@ -391,66 +403,79 @@ button {
   height: auto;
 }
 
-#message.win{
+#message.win {
   background-image: url(images/page-background.svg);
   background-color: transparent;
   color: white;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background-repeat: no-repeat;
+  height: 100%;
+  background-size: cover;
+  min-height: 10vh;
+  max-height: 10rem;
+  width: 15rem;
+  max-width: 100%;
+  margin: 5px auto;
+  font-size: 2vw;
 }
 
-#player-grid.pending *, #computer-grid.pending *{
+#human-board.pending *,
+#enemy-board.pending * {
   background-color: #ec0c39;
 }
-/* Update grid cell styles */
-#player-grid div,
-#computer-grid div {
-  cursor: pointer;
+/* Update board cell styles */
+#human-board div,
+#enemy-board div {
+  cursor: url("images/wood-pointer.png"), auto;
   aspect-ratio: 1 / 1; /* Keep squares perfectly square */
   width: 3vw;
 }
 
 /* Specific ship colors with more specific selectors */
 
-#player-grid div.carrier {
+#human-board div.carrier {
   background-color: #ff6347;
   background-image: none;
 }
 
-#player-grid div.battleship {
+#human-board div.battleship {
   background-color: #4682b4;
   background-image: none;
 }
 
-#player-grid div.cruiser {
+#human-board div.cruiser {
   background-color: #32cd32;
   background-image: none;
 }
 
-#player-grid div.submarine {
+#human-board div.submarine {
   background-color: #ffd700;
   background-image: url("images/submarine.svg");
   background-size: 80%;
 }
 
-#player-grid div.submarine {
+#human-board div.submarine {
   background-color: #ffd700;
 }
 
-#player-grid div.destroyer {
+#human-board div.destroyer {
   background-color: #8a2be2;
   background-image: none;
 }
 
-#player-grid .horizontal {
+#human-board .horizontal {
   transform: rotate(90deg);
 }
 
-#player-grid .vertical {
+#human-board .vertical {
   transform: rotate(180deg);
 }
 
 /*submarine*/
 
-#player-grid div.submarine {
+#human-board div.submarine {
   background-image: url(images/submarine.svg);
   background-repeat: no-repeat;
   -o-background-size: 75% auto;
@@ -458,22 +483,22 @@ button {
   background-size: 75% auto;
 }
 
-#player-grid div.submarine:nth-child(1 of div.submarine):not(.hit) {
+#human-board div.submarine:nth-child(1 of div.submarine):not(.hit) {
   background-position: calc(70%) calc(130%);
 }
 
-#player-grid div.submarine:nth-child(2 of div.submarine):not(.hit) {
+#human-board div.submarine:nth-child(2 of div.submarine):not(.hit) {
   background-position: calc(70%) calc(53%);
   background-color: navy;
 }
 
-#player-grid div.submarine:nth-child(3 of div.submarine):not(.hit) {
+#human-board div.submarine:nth-child(3 of div.submarine):not(.hit) {
   background-position: calc(70%) calc(-36%);
 }
 
 /*cruiser*/
 
-#player-grid div.cruiser {
+#human-board div.cruiser {
   background-image: url(images/cruiser.svg);
   background-repeat: no-repeat;
   -o-background-size: 100% auto;
@@ -481,22 +506,22 @@ button {
   background-size: 100% auto;
 }
 
-#player-grid div.cruiser:nth-child(1 of div.cruiser):not(.hit) {
+#human-board div.cruiser:nth-child(1 of div.cruiser):not(.hit) {
   background-position: calc(70%) calc(100%);
 }
 
-#player-grid div.cruiser:nth-child(2 of div.cruiser):not(.hit) {
+#human-board div.cruiser:nth-child(2 of div.cruiser):not(.hit) {
   background-position: calc(70%) calc(45%);
   background-color: navy;
 }
 
-#player-grid div.cruiser:nth-child(3 of div.cruiser):not(.hit) {
+#human-board div.cruiser:nth-child(3 of div.cruiser):not(.hit) {
   background-position: calc(70%) calc(-12%);
 }
 
 /*carrier*/
 
-#player-grid div.carrier {
+#human-board div.carrier {
   background-image: url(images/carrier.svg);
   background-repeat: no-repeat;
   -o-background-size: 100% auto;
@@ -504,32 +529,32 @@ button {
   background-size: 100% auto;
 }
 
-#player-grid div.carrier:nth-child(1 of div.carrier):not(.hit) {
+#human-board div.carrier:nth-child(1 of div.carrier):not(.hit) {
   background-position: calc(70%) calc(104%);
 }
 
-#player-grid div.carrier:nth-child(2 of div.carrier):not(.hit) {
+#human-board div.carrier:nth-child(2 of div.carrier):not(.hit) {
   background-position: calc(70%) calc(82%);
   background-color: navy;
 }
 
-#player-grid div.carrier:nth-child(3 of div.carrier):not(.hit) {
+#human-board div.carrier:nth-child(3 of div.carrier):not(.hit) {
   background-position: calc(70%) calc(82%);
   background-color: navy;
 }
 
-#player-grid div.carrier:nth-child(4 of div.carrier):not(.hit) {
+#human-board div.carrier:nth-child(4 of div.carrier):not(.hit) {
   background-position: calc(70%) calc(80%);
   background-color: navy;
 }
 
-#player-grid div.carrier:nth-child(5 of div.carrier):not(.hit) {
+#human-board div.carrier:nth-child(5 of div.carrier):not(.hit) {
   background-position: calc(70%) calc(0%);
 }
 
 /*battleship*/
 
-#player-grid div.battleship {
+#human-board div.battleship {
   background-image: url(images/battleship.svg);
   background-repeat: no-repeat;
   -o-background-size: 100% auto;
@@ -537,28 +562,28 @@ button {
   background-size: 100% auto;
 }
 
-#player-grid div.battleship:nth-child(1 of div.battleship):not(.hit) {
+#human-board div.battleship:nth-child(1 of div.battleship):not(.hit) {
   background-position: calc(80%) calc(104%);
 }
 
-#player-grid div.battleship:nth-child(2 of div.battleship):not(.hit) {
+#human-board div.battleship:nth-child(2 of div.battleship):not(.hit) {
   background-position: calc(80%) calc(69%);
   background-color: navy;
 }
 
-#player-grid div.battleship:nth-child(3 of div.battleship):not(.hit) {
+#human-board div.battleship:nth-child(3 of div.battleship):not(.hit) {
   background-position: calc(80%) calc(66%);
   background-color: navy;
 }
 
-#player-grid div.battleship:nth-child(4 of div.battleship):not(.hit) {
+#human-board div.battleship:nth-child(4 of div.battleship):not(.hit) {
   background-position: calc(80%) calc(0%);
   background-color: navy;
 }
 
 /*destroyer*/
 
-#player-grid div.destroyer {
+#human-board div.destroyer {
   background-image: url(images/destroyer.svg);
   background-repeat: no-repeat;
   -o-background-size: 100% auto;
@@ -566,18 +591,18 @@ button {
   background-size: 100% auto;
 }
 
-#player-grid div.destroyer:nth-child(1 of div.destroyer):not(.hit) {
+#human-board div.destroyer:nth-child(1 of div.destroyer):not(.hit) {
   background-position: calc(70%) calc(135%);
 }
 
-#player-grid div.destroyer:nth-child(2 of div.destroyer):not(.hit) {
+#human-board div.destroyer:nth-child(2 of div.destroyer):not(.hit) {
   background-position: calc(70%) calc(0%);
   background-color: navy;
 }
 
 /* Hit and miss styles */
-#player-grid .ship.hit,
-#computer-grid .ship.hit {
+#human-board .ship.hit,
+#enemy-board .ship.hit {
   background-color: #dc143c; /* Crimson */
   background-image: url("images/skull-and-crossbones.svg"); /* Path to your SVG file */
   background-size: 80%; /* Ensure the skull SVG fills the space */
@@ -586,8 +611,8 @@ button {
   background-position: center;
 }
 
-#player-grid div.miss,
-#computer-grid div.miss {
+#human-board div.miss,
+#enemy-board div.miss {
   background-color: #87ceeb; /* SkyBlue */
   background-image: url("images/miss.svg"); /* Path to your SVG file */
   background-size: 80%; /* Ensure the skull SVG fills the space */
@@ -595,33 +620,34 @@ button {
 
 /* Messages */
 
-#message{
+#message {
   display: flex;
-  width: 44%;
+  width: 50%;
   max-width: 50%;
 }
 
-#turn-indicator, #toggle-rotate{
-  display: none; 
-} 
+#turn-indicator,
+#rotate-button {
+  display: none;
+}
 
-#turn-indicator.ready, #toggle-rotate.ready{
+#turn-indicator.ready,
+#rotate-button.ready {
   display: flex;
 }
 
-#toggle-rotate.ready{
+#rotate-button.ready {
   align-self: flex-start;
   margin-bottom: 10px;
 }
 
-#turn-indicator.ready{
+#turn-indicator.ready {
   width: 100%;
 }
 
-
 #message,
 #turn-indicator {
-  font-size:  1.2vw;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #3c2415;
   height: auto;
@@ -633,12 +659,14 @@ button {
   box-sizing: content-box;
 }
 
-.player-ships-list img.checkmark{
-  filter: brightness(0) saturate(100%) invert(66%) sepia(35%) saturate(689%) hue-rotate(123deg) brightness(92%) contrast(92%);
+.player-ships-list img.checkmark {
+  filter: brightness(0) saturate(100%) invert(66%) sepia(35%) saturate(689%)
+    hue-rotate(123deg) brightness(92%) contrast(92%);
   background-color: unset;
 }
 
-#player-ships-list td.flames::after, #enemy-ships-list td.flames::after{
+#human-ships-list td.flames::after,
+#enemy-ships-list td.flames::after {
   content: "x";
   background-image: url(images/flames.svg);
   background-repeat: repeat-x;
@@ -676,7 +704,7 @@ button {
   font-weight: 700;
 }
 
-#player-ships-list,
+#human-ships-list,
 #enemy-ships-list {
   margin-top: 20px; /* Space above each table */
   width: 100%; /* Set width to 100% for responsiveness */
@@ -684,8 +712,8 @@ button {
   flex-grow: 1;
 }
 
-.player-ships-header h2,
-.enemy-ships-header h2{
+.human-ships-header h2,
+.enemy-ships-header h2 {
   height: 8vh;
   margin-top: 22px;
   color: #795548;
@@ -695,13 +723,13 @@ th {
   background-color: #f2f2f2; /* Light grey background for headers */
 }
 
-#player-ships-list td,
+#human-ships-list td,
 #enemy-ships-list td {
   padding: 5px;
   position: relative;
 }
 
-#player-ships-list td:first-child,
+#human-ships-list td:first-child,
 #enemy-ships-list td:first-child {
   display: flex;
   align-items: center;
@@ -710,34 +738,33 @@ th {
   gap: 5px;
 }
 
-
-#player-ships-list td img,
-#enemy-ships-list td img{
+#human-ships-list td img,
+#enemy-ships-list td img {
   max-height: 50px;
 }
 
-tr td:nth-child(2) img{
+tr td:nth-child(2) img {
   background-color: #301016;
-    width: 33px;
-    display: inline-block;
-    justify-items: center;
-    height: auto;
-    border-radius: 25px;
+  width: 33px;
+  display: inline-block;
+  justify-items: center;
+  height: auto;
+  border-radius: 25px;
 }
 
 tr td:nth-child(2) img,
-tr td:nth-child(2) span{
+tr td:nth-child(2) span {
   vertical-align: middle;
   padding: 5px;
   box-sizing: border-box;
 }
 
-.outline div.hit.highlight{
+.outline div.hit.highlight {
   outline: 2px solid white;
   outline-offset: -3px;
 }
 
-.outline div.miss.highlight{
+.outline div.miss.highlight {
   outline: 4px solid white;
   outline-offset: -4px;
   outline-style: ridge;
@@ -747,13 +774,13 @@ tr td:nth-child(2) span{
   text-decoration: line-through; /* Strikethrough effect */
 }
 
-#player-ships-list .placed {
+#human-ships-list .placed {
   color: gray; /* Optional: Change color */
 }
 
 /* Mark destroyed ships with X */
-#player-grid div.destroyed,
-#computer-grid div.destroyed {
+#human-board div.destroyed,
+#enemy-board div.destroyed {
   background-color: transparent;
   color: black;
   font-size: 20px;
@@ -762,13 +789,12 @@ tr td:nth-child(2) span{
 }
 
 /* Responsive styles */
-@media (max-width: 768px){
+@media (max-width: 768px) {
+  .board-container:last-child .board-labels {
+    margin-left: 5vw;
+  }
 
-  .grid-container:last-child .grid-labels {
-    margin-left: 5vw; 
-}
-
-  .gridh2container {
+  .boardh2container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -781,54 +807,53 @@ tr td:nth-child(2) span{
     margin: 0 auto;
     box-sizing: border-box;
     min-width: 80px;
-}
+  }
 
-.gridh2image {
-  max-width: 100%;
-  padding: 0px; 
-  width: 100%;
-  min-width: 80px;
-  height: 10vh;
-  border-radius: 25px;
-  box-sizing: border-box;
-  margin: 0 auto;
-}
+  .boardh2image {
+    max-width: 100%;
+    padding: 0px;
+    width: 100%;
+    min-width: 80px;
+    height: 10vh;
+    border-radius: 25px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
 
-h2 {
-  color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 2px;
-  height: 10vh;
-  background-position: center center;
-  margin: 0 auto;
-  width: 39%;
-  max-width: 50%;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  font-size: clamp(10px, 2vw, 25px);
-}
-
+  h2 {
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 2px;
+    height: 10vh;
+    background-position: center center;
+    margin: 0 auto;
+    width: 39%;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    font-size: clamp(10px, 2vw, 25px);
+  }
 
   h1 {
     width: 50%;
     min-width: 150px;
-}
-
-  .container {
-    flex-direction: column; /* Stack grids vertically on smaller screens */
   }
 
-.container > .grid-container:first-child {
-    margin: 5% auto 5% 2%;
-}
-.container > .grid-container:last-child {
-  margin: 15% 5% 5% auto;
-}
+  .container {
+    flex-direction: column; /* Stack boards vertically on smaller screens */
+  }
 
-  #player-grid,
-  #computer-grid {
+  .container > .board-container:first-child {
+    margin: 5% auto 5% 2%;
+  }
+  .container > .board-container:last-child {
+    margin: 15% 5% 5% auto;
+  }
+
+  #human-board,
+  #enemy-board {
     width: 100%;
     max-width: 100%;
     height: auto;
@@ -837,38 +862,39 @@ h2 {
   .container .row-labels {
     width: 5vw;
     line-height: 5vw;
-}
+  }
 
-  #player-grid div,
-  #computer-grid div {
+  #human-board div,
+  #enemy-board div {
     width: 5vw;
     aspect-ratio: 1 / 1; /* Keep squares perfectly square */
   }
 
-  .grid-container .grid-label,
-  .container .grid-label {
+  .board-container .board-label,
+  .container .board-label {
     width: 5vw;
     height: auto;
   }
 
-
   button {
     padding: 12px;
-    font-size:  1.7vw;
+    font-size: 1.7vw;
     margin: 25px auto;
     cursor: pointer;
   }
 
-  #message,
   #turn-indicator {
-    font-size:2vw; /* Slightly bigger font for messages */
+    font-size: 2vw; /* Slightly bigger font for messages */
+  }
+  #message {
+    font-size: 3vw;
   }
 
-  #toggle-rotate{
+  #rotate-button {
     margin: 5px auto;
   }
 
-  #player-ships-list {
+  #human-ships-list {
     font-size: 14px; /* Smaller font for ship list */
   }
   #ships-table-container {
@@ -876,132 +902,132 @@ h2 {
     align-items: center; /* Center align tables */
   }
 
-  #player-ships-list,
+  #human-ships-list,
   #enemy-ships-list {
     width: 90%; /* Adjust width for smaller screens */
   }
 }
 
-@media (max-width: 480px){
-
-  body{
+@media (max-width: 480px) {
+  body {
     padding: 10px;
   }
-  
 
-  body > .container{
+  body > .container {
     width: 100%;
   }
 
   h1 {
     width: 50%;
     min-width: 150px;
-}
+  }
 
-.container .row-labels {
-  width: 8vw;
-  line-height: 8vw;
-}
-.gridh2container{
-  width: 5%;
-  min-width: auto;
-}
+  .container .row-labels {
+    width: 8vw;
+    line-height: 8vw;
+  }
+  .boardh2container {
+    width: 5%;
+    min-width: auto;
+  }
 
-.column-container {
-  width: 10%;
-}
-.game-board-container > .gridh2container > p {
-  color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 2px;
-  height: auto;
-  background-position: center center;
-  margin: 0 auto;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  font-size: clamp(10px, 2vw, 14px);
-  margin-top: 0;
-  text-transform: capitalize;
-}
-.game-board-container > .gridh2container > h2 {
-  line-height: 30px;
-  height: 2vh;
-}
+  .column-container {
+    width: 10%;
+  }
 
-.grid-container:first-child .game-board-container > .gridh2container,
-.grid-container:last-child .game-board-container > .gridh2container{
-  left: 0;
-  position: absolute;
-  top: -26%;
-  width: 100%;
-  margin: 0 auto;
-  flex-direction: row;
-  max-height: 16%;
-  height: 16%;
-}
+  #message {
+    font-size: 4vw;
+  }
 
+  .game-board-container > .boardh2container > p {
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 2px;
+    height: auto;
+    background-position: center center;
+    margin: 0 auto;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    font-size: clamp(10px, 2vw, 14px);
+    margin-top: 0;
+    text-transform: capitalize;
+  }
+  .game-board-container > .boardh2container > h2 {
+    line-height: 30px;
+    height: 2vh;
+  }
 
+  .board-container:first-child .game-board-container > .boardh2container,
+  .board-container:last-child .game-board-container > .boardh2container {
+    left: 0;
+    position: absolute;
+    top: -26%;
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: row;
+    max-height: 16%;
+    height: 16%;
+  }
 
-.gridh2image {
-  max-width: 100%;
-  padding: 0px;
-  width: 35%;
-  min-width: 60px;
-  height: 5vh;
-  border-radius: 25px;
-  box-sizing: border-box;
-  margin: 0 auto;
-}
-.container > .grid-container {
-  width: 100%;
-  margin: 10% auto;
-}
+  .boardh2image {
+    max-width: 100%;
+    padding: 0px;
+    width: 35%;
+    min-width: 60px;
+    height: 5vh;
+    border-radius: 25px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  .container > .board-container {
+    width: 100%;
+    margin: 10% auto;
+  }
 
-  #player-grid,
-  #computer-grid {
+  #human-board,
+  #enemy-board {
     width: 88%; /* Maintain square shape */
     height: auto; /* Auto height for dynamic size */
   }
 
-  #player-grid div,
-  #computer-grid div {
+  #human-board div,
+  #enemy-board div {
     aspect-ratio: 1 / 1; /* Keep squares perfectly square */
     width: 8vw;
-
   }
-  .grid-container .grid-label,
-  .container .grid-label {
-    width:8vw;
+  .board-container .board-label,
+  .container .board-label {
+    width: 8vw;
     height: auto;
     font-size: 2.5vw;
   }
 
-  .grid-container .grid-labels {
-    display: inline-grid;
+  .board-container .board-labels {
+    display: inline-board;
     width: 88%;
     max-width: 100%;
     margin-left: 10%;
     min-width: 88%;
   }
 
-  .grid-container:last-child .grid-labels {
+  .board-container:last-child .board-labels {
     margin-left: 10%;
-}
+  }
 
   #ships-table-container {
     flex-direction: column; /* Switch to column layout */
     align-items: center; /* Center align tables */
   }
 
-  #player-ships-list,
+  #human-ships-list,
   #enemy-ships-list {
     width: 90%; /* Adjust width for smaller screens */
   }
 
   button {
-    font-size:  1.7vw; /* Smaller font size for buttons */
+    font-size: 2.7vw; /* Smaller font size for buttons */
   }
 }
