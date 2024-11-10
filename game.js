@@ -225,22 +225,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function restartGame(elements) {
     await init();
-//     if (elements && Object.values(elements).every((el) => el !== null)) {
-//   // check if elements are in the DOM
-//   elements.restartButton.classList.remove("ready");
-//   elements.startButton.classList.remove("ready");
+    //     if (elements && Object.values(elements).every((el) => el !== null)) {
+    //   // check if elements are in the DOM
+    //   elements.restartButton.classList.remove("ready");
+    //   elements.startButton.classList.remove("ready");
 
-//   elements.message.textContent = "Place your ships";
-//   elements.message.className = "";
-//   // Clear the game Boards for player and enemy
-//   clearBoard(boards.humanBoard);
-//   clearBoard(boards.enemyBoard);
-//   shipsTableContainer.innerHTML = "";
-//   removeElements(".board-labels");
-//   removeElements(".column-container");
-//   removeElements(".boardh2container");
- 
-// }
+    //   elements.message.textContent = "Place your ships";
+    //   elements.message.className = "";
+    //   // Clear the game Boards for player and enemy
+    //   clearBoard(boards.humanBoard);
+    //   clearBoard(boards.enemyBoard);
+    //   shipsTableContainer.innerHTML = "";
+    //   removeElements(".board-labels");
+    //   removeElements(".column-container");
+    //   removeElements(".boardh2container");
+
+    // }
   }
 
   function createShipsTables() {
@@ -426,20 +426,40 @@ document.addEventListener("DOMContentLoaded", () => {
     message.textContent = `orientation: ${orientationMessage}`;
   }
 
+  // prevent click human board when game starts
+  function preventClickHumanBoard(elements) {
+    boards.humanBoard.childNodes.forEach((cell) => {
+      // Remove the event listeners using the stored handler functions
+      if (cell.clickHandler) {
+        cell.removeEventListener("click", cell.clickHandler, false);
+        delete cell.clickHandler; // Clean up reference
+      }
+      if (cell.touchHandler) {
+        cell.removeEventListener("touchstart", cell.touchHandler, false);
+        delete cell.touchHandler; // Clean up reference
+      }
+
+      cell.classList.add('nocursor');
+    });
+    boards.humanBoard.classList.add('nocursor');
+  }
+
   // Allow Player to place ships
   function placeHumanShips(elements) {
     boards.humanBoard.childNodes.forEach((cell) => {
-      cell.addEventListener("click", (event) =>
-        handleShipPlacement(event, elements)
-      );
-      cell.addEventListener("touchstart", (event) =>
-        handleShipPlacement(event, elements)
-      );
+      // Store the handler functions on each cell for later removal
+      cell.clickHandler = (event) => handleShipPlacement(event, elements);
+      cell.touchHandler = (event) => handleShipPlacement(event, elements);
+
+      // Add event listeners using the stored handler functions
+      cell.addEventListener("click", cell.clickHandler, false);
+      cell.addEventListener("touchstart", cell.touchHandler, false);
     });
   }
 
   // Handle Board click/touch for player ship placement
   function handleShipPlacement(event, elements) {
+    event.preventDefault();
     elements = initializeHtmlElements();
     if (elements) {
       // check if html elements are rendered
@@ -565,6 +585,8 @@ document.addEventListener("DOMContentLoaded", () => {
     boards.humanBoard.classList.add("outline");
     boards.enemyBoard.classList.add("outline");
     boards.enemyBoard.classList.remove("pending");
+    boards.enemyBoard.classList.add("aim");
+    preventClickHumanBoard(boards.humanBoard);
     if (currentShipIndex === shipSizes.length) {
       // Check if all ships are placed
       gameStarted = true;
@@ -583,6 +605,7 @@ document.addEventListener("DOMContentLoaded", () => {
       htmlElements.interfaceContainer.classList.add("wrap");
       // Enable player to attack enemy's Board
       boards.enemyBoard.childNodes.forEach((cell, index) => {
+        cell.classList.add("aim");
         cell.addEventListener("click", () => {
           if (
             playerTurn &&
@@ -721,7 +744,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const htmlElements = initializeHtmlElements();
 
     if (htmlElements.turnIndicator)
-    await htmlElements.turnIndicator.classList.remove("ready");
+      await htmlElements.turnIndicator.classList.remove("ready");
     await boards.humanBoard.classList.add("pending");
     await boards.enemyBoard.classList.add("pending");
     await boards.humanBoard.classList.remove("outline");
@@ -738,7 +761,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function init() {
     await resetVariables(); // Reset all variables at the beginning of a new game
     const htmlElements = await initializeHtmlElements();
-    htmlElements.body.innerHTML= await '';
+    htmlElements.body.innerHTML = await "";
     await createGame(htmlElements); // Create the game elements and set up the game
     await initGame(); // Initialize the game (placing ships, event listeners)
   }

@@ -21,10 +21,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   cursor: url("images/wood-cursor.png"), auto;
-}
-
-.aim {
-  cursor: url('images/aim.svg'), auto;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 header,
@@ -377,7 +377,7 @@ button {
 /* General board styles */
 #human-board,
 #enemy-board {
-  display: board;
+  display: grid;
   width: 30vw; /* Set width to 40% of the viewport width */
   max-width: 30vw; /* Maintain maximum width */
   height: auto; /* Allow height to adjust dynamically */
@@ -385,6 +385,11 @@ button {
   position: relative;
   margin-left: 0;
 }
+
+#enemy-board.aim, #enemy-board.aim:hover {
+  cursor: url('images/aim.svg'), auto;
+}
+
 #human-board.waiting:after,
 #enemy-board.waiting:after {
   content: "waiting for humans to place ships";
@@ -402,6 +407,18 @@ button {
   cursor: none;
   height: auto;
 }
+
+#human-board.nocursor,
+#enemy-board.nocursor,
+#human-board.nocursor:hover,
+#enemy-board.nocursor:hover{
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: none!important;
+  pointer-events: none!important;
+} 
 
 #message.win {
   background-image: url(images/page-background.svg);
@@ -431,6 +448,31 @@ button {
   cursor: url("images/wood-pointer.png"), auto;
   aspect-ratio: 1 / 1; /* Keep squares perfectly square */
   width: 3vw;
+}
+
+#human-board div.aim,
+#enemy-board div.aim,
+#human-board div.aim:hover,
+#enemy-board div.aim:hover{
+  cursor: url('images/aim.svg'), auto;
+}
+
+#human-board div.aim:hover,
+#enemy-board div.aim:hover{
+  background-color: #3ac1b0;
+}
+
+#human-board div.nocursor,
+#enemy-board div.nocursor,
+#human-board div.nocursor:hover,
+#enemy-board div.nocursor:hover{
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: none!important;
+  cursor: url("images/no-pointer.png"), auto!important;
+  pointer-events: none!important;
 }
 
 /* Specific ship colors with more specific selectors */
