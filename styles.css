@@ -386,8 +386,9 @@ button {
   margin-left: 0;
 }
 
-#enemy-board.aim, #enemy-board.aim:hover {
-  cursor: url('images/aim.svg'), auto;
+#enemy-board.aim,
+#enemy-board.aim:hover {
+  cursor: url("images/aim.svg"), auto;
 }
 
 #human-board.waiting:after,
@@ -411,14 +412,14 @@ button {
 #human-board.nocursor,
 #enemy-board.nocursor,
 #human-board.nocursor:hover,
-#enemy-board.nocursor:hover{
+#enemy-board.nocursor:hover {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor: none!important;
-  pointer-events: none!important;
-} 
+  cursor: none !important;
+  pointer-events: none !important;
+}
 
 #message.win {
   background-image: url(images/page-background.svg);
@@ -453,26 +454,26 @@ button {
 #human-board div.aim,
 #enemy-board div.aim,
 #human-board div.aim:hover,
-#enemy-board div.aim:hover{
-  cursor: url('images/aim.svg'), auto;
+#enemy-board div.aim:hover {
+  cursor: url("images/aim.svg"), auto;
 }
 
 #human-board div.aim:hover,
-#enemy-board div.aim:hover{
+#enemy-board div.aim:hover {
   background-color: #3ac1b0;
 }
 
 #human-board div.nocursor,
 #enemy-board div.nocursor,
 #human-board div.nocursor:hover,
-#enemy-board div.nocursor:hover{
+#enemy-board div.nocursor:hover {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor: none!important;
-  cursor: url("images/no-pointer.png"), auto!important;
-  pointer-events: none!important;
+  cursor: none !important;
+  cursor: url("images/no-pointer.png"), auto !important;
+  pointer-events: none !important;
 }
 
 /* Specific ship colors with more specific selectors */
