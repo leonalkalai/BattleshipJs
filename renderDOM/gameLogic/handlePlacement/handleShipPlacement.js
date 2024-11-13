@@ -1,8 +1,10 @@
-const { gameState } = await import ('./gameState.js');
-const { canPlaceShip } = await import("./handlePlacement/canPlaceShip.js");
-const { placeShip } = await import("./handlePlacement/placeShip.js");
-const { updateShipStatus } = await import("./gameLogic/updateShipStatus.js");
-const { startGame } = await import("./gameLogic/startGame.js");
+//const { gameState } = await import ('../gameState.js');
+import { helperFunctionsClass } from '../../helperFunctions/helperFunctionsClass.js';
+import { gameState } from '../../gameLogic/GameState.js';
+const { canPlaceShip } = await import("./canPlaceShip.js");
+const { placeShip } = await import("./placeShip.js");
+const { updateShipStatus } = await import("../updateShipStatus.js");
+const { startGame } = await import("../startGame.js");
 
   // Handle Board click/touch for player ship placement
   export function handleShipPlacement(event, elements) {

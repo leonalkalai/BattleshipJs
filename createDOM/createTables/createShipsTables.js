@@ -1,5 +1,6 @@
   
-  const { gameState } = await import ('./gameState.js');
+  //const { gameState } = await import ('./gameState.js');
+  import { gameState } from '../../renderDOM/gameLogic/GameState.js';
 
   export function createShipsTables() {
     const shipsTableContainer = document.querySelector(

@@ -1,12 +1,14 @@
-import { initializeHtmlElements } from "./htmlElements.js";
-const { gameState } = await import ('./gameState.js');
+//import { initializeHtmlElements } from "./htmlElements.js";
+import { helperFunctionsClass } from '../renderDOM/helperFunctions/helperFunctionsClass.js';
+//const { gameState } = await import ('./gameState.js');
+import { gameState } from '../renderDOM/gameLogic/GameState.js';
 const { createHeader } = await import("./createHeader.js");
 const { createMain } = await import("./createMain.js");
 const { createShipsTableContainer } = await import(
-  "./createShipsTableContainer.js"
+  "./createTables/createShipsTableContainer.js"
 );
-const { createBoardTitles } = await import("./createBoardTitles.js");
-const { createShipsTables } = await import("./createShipsTables.js");
+const { createBoardTitles } = await import("./createBoard/createBoardTitles.js");
+const { createShipsTables } = await import("./createTables/createShipsTables.js");
 
 export async function createGame(elements) {
   await createHeader();
@@ -15,7 +17,8 @@ export async function createGame(elements) {
   await createBoardTitles();
   await createShipsTables();
 
-  const htmlElements = initializeHtmlElements();
+  //const htmlElements = initializeHtmlElements();
+  const htmlElements = await helperFunctionsClass.initializeHtmlElements();
 
   if (htmlElements.turnIndicator) {
     await htmlElements.turnIndicator.classList.remove("ready");

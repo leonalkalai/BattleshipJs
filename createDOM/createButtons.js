@@ -1,8 +1,11 @@
-import { initializeHtmlElements } from "./htmlElements.js";
-import { toggleShipRotation } from "./toggleShipRotation.js";
+//import { initializeHtmlElements } from "./htmlElements.js";
+import { helperFunctionsClass } from '../renderDOM/helperFunctions/helperFunctionsClass.js';
+import { toggleShipRotation } from "../renderDOM/gameLogic/handlePlacement/toggleShipRotation.js";
+import { restartGame } from "../renderDOM/gameLogic/restartGame.js";
 
 export function createButtons(mainElement, elements) {
-    const htmlElements = initializeHtmlElements();
+    //const htmlElements = initializeHtmlElements();
+    const htmlElements = helperFunctionsClass.initializeHtmlElements();
     const buttonNames = ["Start", "Restart", "Rotate"];
     const buttonsContainer = document.createElement("div");
     buttonsContainer.id = "buttons-container";

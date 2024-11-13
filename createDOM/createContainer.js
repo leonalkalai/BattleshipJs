@@ -1,4 +1,5 @@
-const { gameState } = await import ('./gameState.js');
+//const { gameState } = await import ('./gameState.js');
+import { gameState } from '../renderDOM/gameLogic/GameState.js';
 
 export function createContainer(mainElement) {
     const container = document.createElement("div");

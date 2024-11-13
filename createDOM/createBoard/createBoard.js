@@ -1,4 +1,5 @@
-const { gameState } = await import ('./gameState.js');
+//const { gameState } = await import ('./gameState.js');
+import { gameState } from '../../renderDOM/gameLogic/GameState.js';
 const { createBoardPattern } = await import ("./createBoardPattern.js");
 
   // Generate a Board for players

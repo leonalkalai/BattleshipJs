@@ -1,4 +1,5 @@
-const { gameState } = await import ('../gameState.js');
+//const { gameState } = await import ('../gameState.js');
+import { gameState } from './GameState.js';
 
 // Update the ship status and strike-through ship name
   export function updateShipStatus(shipIndex) {

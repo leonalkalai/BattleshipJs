@@ -1,10 +1,14 @@
 
-const { gameState } = await import ('../gameState.js');
-import { initializeHtmlElements } from "../htmlElements.js";
-const { preventClickHumanBoard } = await import ('../handlePlacement/preventClickHumanBoard.js');
+const { gameState } = await import ('./GameState.js');
+//import { initializeHtmlElements } from "../htmlElements.js";
+import { helperFunctionsClass } from '../helperFunctions/helperFunctionsClass.js';
+const { preventClickHumanBoard } = await import ('./handlePlacement/preventClickHumanBoard.js');
 const { attack } = await import ('./attack.js');
 const { checkWin } = await import ('./checkWin.js');
 const { updateTurnIndicator } = await import ('./updateTurnIndicator.js');
+const { placeEnemyShips } = await import ('./handlePlacement/placeEnemyShips.js');
+const { enemyTurn } = await import ('./enemyTurn.js');
+const { checkShipDestroyed } = await import("./checkShipDestroyed.js");
 
   // Start the game
   export function startGame() {
@@ -15,13 +19,7 @@ const { updateTurnIndicator } = await import ('./updateTurnIndicator.js');
       shipNames,
     } = gameState;
 
-    let {
-      enemyShips,
-      gameStarted,
-      playerTurn,
-    } = gameState;
-
-    const htmlElements = initializeHtmlElements();
+    const htmlElements = helperFunctionsClass.initializeHtmlElements();
     boards.humanBoard.classList.remove("pending");
     boards.humanBoard.classList.add("outline");
     boards.enemyBoard.classList.add("outline");
@@ -29,9 +27,10 @@ const { updateTurnIndicator } = await import ('./updateTurnIndicator.js');
     boards.enemyBoard.classList.add("aim");
     preventClickHumanBoard(boards.humanBoard);
     if (gameState.currentShipIndex === shipSizes.length) {
+  
       // Check if all ships are placed
-      gameStarted = true;
-      playerTurn = true; // Player starts
+      gameState.gameStarted = true;
+      gameState.playerTurn = true; // Player starts
       htmlElements.message.innerHTML = `
      Game started!
      `;
@@ -49,25 +48,25 @@ const { updateTurnIndicator } = await import ('./updateTurnIndicator.js');
         cell.classList.add("aim");
         cell.addEventListener("click", () => {
           if (
-            playerTurn &&
-            gameStarted &&
+            gameState.playerTurn &&
+            gameState.gameStarted &&
             !cell.classList.contains("hit") &&
             !cell.classList.contains("miss")
           ) {
             attack(
               cell,
               index,
-              enemyShips,
+              gameState.enemyShips,
               boards.enemyBoard,
               "human",
               htmlElements
             );
-            if (!checkWin(enemyShips, "human", htmlElements)) {
-              playerTurn = false;
+            if (!checkWin(gameState.enemyShips, "human", htmlElements)) {
+              gameState.playerTurn = false;
               updateTurnIndicator();
               setTimeout(enemyTurn(htmlElements), 1000); // enemy moves after a delay
             }
-            const checkEnemyShipsDestroyed = checkShipDestroyed(enemyShips);
+            const checkEnemyShipsDestroyed = checkShipDestroyed(gameState.enemyShips);
             let checkEnemyShipsDestroyedStatus = checkEnemyShipsDestroyed[0];
             let checkEnemyShipsDestroyedResult =
               checkEnemyShipsDestroyed[1].enemy;

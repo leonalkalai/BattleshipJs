@@ -1,11 +1,13 @@
-import { initializeHtmlElements } from "./htmlElements.js"; // Importing the function from htmlElements.js
+//import { initializeHtmlElements } from "./htmlElements.js"; // Importing the function from htmlElements.js
+import { helperFunctionsClass } from '../renderDOM/helperFunctions/helperFunctionsClass.js';
 
 export function createHeader() {
-    const htmlElements = initializeHtmlElements();
+   // const htmlElements = initializeHtmlElements();
+   const htmlElements = helperFunctionsClass.initializeHtmlElements();
     const headerElement = document.createElement("header");
     const h1Element = document.createElement("h1");
     const imageElement = document.createElement("img");
-    imageElement.src = "./images/logo.svg";
+    imageElement.src = "./../assets/images/logo.svg";
     imageElement.alt = "logo";
     h1Element.appendChild(imageElement);
     const interfaceContainerElement = document.createElement("div");

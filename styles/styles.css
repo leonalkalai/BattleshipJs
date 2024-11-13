@@ -9,6 +9,40 @@
   --color8: #ffa726;
   --color9: #66bb6a;
   --color10: #ff2400;
+  --images: "../assets/images";
+  --shipwreck: "/shipwreck.jpg";
+  --woodcursor: "/wood-cursor.png";
+  --woodpointer: "/wood-pointer.png";
+  --nopointer: "/no-pointer.png";
+  --papyrus: "/papyrus.svg";
+  --flames:"/flames.svg";
+  --tablebackground: "/table-background.svg";
+  --pagebackground: "/page-background.svg";
+  --hit: "/hit.svg";
+  --miss: "/miss.svg";
+  --aim:   "/aim.svg";
+  --carrier: "/carrier.svg";
+  --battleship: "/battleship.svg";
+  --cruiser:   "/cruiser.svg";
+  --submarine: "/submarine.svg";
+  --destroyer: "/destroyer.svg";
+
+  --shipwreckimagepath:  url( var(--images) var(--shipwreck) );
+  --woodcursorimagepath:  url( var(--images) var(--woodcursor));
+  --woodpointerimagepath: var(--images) var(--woodpointer);
+  --nopointerimagepath: var(--images) var(--nopointer);
+  --papyrusimagepath: var(--images) var(--papyrus);
+  --flamesimagepath: var(--images) var(--flames);
+  --tablebackgroundimagepath: var(--images) var(--tablebackground);
+  --pagebackgroundimagepath: var(--images) var(--pagebackground);
+  --hitimagepath: var(--images) var(--hit);
+  --missimagepath: var(--images) var(--miss);
+  --aimimagepath: var(--images) var(--aim);
+  --carrierimagepath: var(--images) var(--carrier);
+  --battleshipimagepath: var(--images) var(--battleship);
+  --cruiserimagepath: var(--images) var(--cruiser);
+  --submarineimagepath: var(--images) var(--submarine);
+  --destroyerimagepath: var(--images) var(--destroyer);
 }
 
 body {
@@ -17,10 +51,10 @@ body {
   background-color: #f0f0f0;
   margin: 0;
   padding: 5px 50px 50px 50px;
-  background-image: url(images/shipwreck.jpg);
+  background-image: var(--shipwreckimagepath);
   background-repeat: no-repeat;
   background-size: cover;
-  cursor: url("images/wood-cursor.png"), auto;
+  cursor: var(--woodcursorimagepath), auto;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -62,7 +96,7 @@ header {
   position: relative;
   flex-direction: row;
   width: 75%;
-  background-image: url(images/papyrus-message.svg);
+  background-image: url(papyrusimagepath);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -297,7 +331,7 @@ h2.ai {
 
 .hit {
   background-color: red;
-  background-image: url("images/skull-and-crossbones.svg"); /* Path to your SVG file */
+  background-image: url(hitimagepath); /* Path to your SVG file */
   background-size: 80%; /* Ensure the skull SVG fills the space */
   background-position: center;
   background-repeat: no-repeat;
@@ -305,7 +339,7 @@ h2.ai {
 
 .miss {
   background-color: gray;
-  background-image: url("images/miss.svg"); /* Path to your SVG file */
+  background-image: url(missimagepath); /* Path to your SVG file */
   background-size: 80%; /* Ensure the skull SVG fills the space */
   background-position: center;
   background-repeat: no-repeat;
@@ -388,7 +422,7 @@ button {
 
 #enemy-board.aim,
 #enemy-board.aim:hover {
-  cursor: url("images/aim.svg"), auto;
+  cursor: url(aimimagepath), auto;
 }
 
 #human-board.waiting:after,
@@ -422,7 +456,7 @@ button {
 }
 
 #message.win {
-  background-image: url(images/page-background.svg);
+  background-image: url(pagebackgroundimagepath);
   background-color: transparent;
   color: white;
   width: 100%;
@@ -446,7 +480,7 @@ button {
 /* Update board cell styles */
 #human-board div,
 #enemy-board div {
-  cursor: url("images/wood-pointer.png"), auto;
+  cursor: url(woodpointerimagepath), auto;
   aspect-ratio: 1 / 1; /* Keep squares perfectly square */
   width: 3vw;
 }
@@ -455,7 +489,7 @@ button {
 #enemy-board div.aim,
 #human-board div.aim:hover,
 #enemy-board div.aim:hover {
-  cursor: url("images/aim.svg"), auto;
+  cursor: url(aimimagepath), auto;
 }
 
 #human-board div.aim:hover,
@@ -472,7 +506,7 @@ button {
   -ms-user-select: none;
   user-select: none;
   cursor: none !important;
-  cursor: url("images/no-pointer.png"), auto !important;
+  cursor: url(nopointerimagepath), auto !important;
   pointer-events: none !important;
 }
 
@@ -495,7 +529,7 @@ button {
 
 #human-board div.submarine {
   background-color: #ffd700;
-  background-image: url("images/submarine.svg");
+  background-image: url(submarineimagepath);
   background-size: 80%;
 }
 
@@ -519,7 +553,7 @@ button {
 /*submarine*/
 
 #human-board div.submarine {
-  background-image: url(images/submarine.svg);
+  background-image: url(submarineimagepath);
   background-repeat: no-repeat;
   -o-background-size: 75% auto;
   -webkit-background-size: 75% auto;
@@ -542,7 +576,7 @@ button {
 /*cruiser*/
 
 #human-board div.cruiser {
-  background-image: url(images/cruiser.svg);
+  background-image: url(cruiserimagepath);
   background-repeat: no-repeat;
   -o-background-size: 100% auto;
   -webkit-background-size: 100% auto;
@@ -565,7 +599,7 @@ button {
 /*carrier*/
 
 #human-board div.carrier {
-  background-image: url(images/carrier.svg);
+  background-image: url(carrierimagepath);
   background-repeat: no-repeat;
   -o-background-size: 100% auto;
   -webkit-background-size: 100% auto;
@@ -598,7 +632,7 @@ button {
 /*battleship*/
 
 #human-board div.battleship {
-  background-image: url(images/battleship.svg);
+  background-image: url(battleshipimagepath);
   background-repeat: no-repeat;
   -o-background-size: 100% auto;
   -webkit-background-size: 100% auto;
@@ -627,7 +661,7 @@ button {
 /*destroyer*/
 
 #human-board div.destroyer {
-  background-image: url(images/destroyer.svg);
+  background-image: url(destroyerimagepath);
   background-repeat: no-repeat;
   -o-background-size: 100% auto;
   -webkit-background-size: 100% auto;
@@ -647,7 +681,7 @@ button {
 #human-board .ship.hit,
 #enemy-board .ship.hit {
   background-color: #dc143c; /* Crimson */
-  background-image: url("images/skull-and-crossbones.svg"); /* Path to your SVG file */
+  background-image: url(hitimagepath); /* Path to your SVG file */
   background-size: 80%; /* Ensure the skull SVG fills the space */
   /* transform: rotate(0deg); */
   transform: unset;
@@ -657,7 +691,7 @@ button {
 #human-board div.miss,
 #enemy-board div.miss {
   background-color: #87ceeb; /* SkyBlue */
-  background-image: url("images/miss.svg"); /* Path to your SVG file */
+  background-image: url(missimagepath); /* Path to your SVG file */
   background-size: 80%; /* Ensure the skull SVG fills the space */
 }
 
@@ -711,7 +745,7 @@ button {
 #human-ships-list td.flames::after,
 #enemy-ships-list td.flames::after {
   content: "x";
-  background-image: url(images/flames.svg);
+  background-image: url(flamesimagepath);
   background-repeat: repeat-x;
   -o-background-size: 100% auto;
   -webkit-background-size: 100% auto;
@@ -736,11 +770,12 @@ button {
   max-width: 800px;
   width: 90%;
   gap: 3vw;
-  background-image: url(images/table_background.svg);
+  background-image: url(tablebackgroundimagepath);
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0 5%;
 }
+
 
 #ships-table-container td {
   color: #afab98;
