@@ -29,20 +29,20 @@
 
   --shipwreckimagepath:  url( var(--images) var(--shipwreck) );
   --woodcursorimagepath:  url( var(--images) var(--woodcursor));
-  --woodpointerimagepath: var(--images) var(--woodpointer);
-  --nopointerimagepath: var(--images) var(--nopointer);
-  --papyrusimagepath: var(--images) var(--papyrus);
-  --flamesimagepath: var(--images) var(--flames);
-  --tablebackgroundimagepath: var(--images) var(--tablebackground);
-  --pagebackgroundimagepath: var(--images) var(--pagebackground);
-  --hitimagepath: var(--images) var(--hit);
-  --missimagepath: var(--images) var(--miss);
-  --aimimagepath: var(--images) var(--aim);
-  --carrierimagepath: var(--images) var(--carrier);
-  --battleshipimagepath: var(--images) var(--battleship);
-  --cruiserimagepath: var(--images) var(--cruiser);
-  --submarineimagepath: var(--images) var(--submarine);
-  --destroyerimagepath: var(--images) var(--destroyer);
+  --woodpointerimagepath: url( var(--images) var(--woodpointer) );
+  --nopointerimagepath: url( var(--images) var(--nopointer) );
+  --papyrusimagepath: url( var(--images) var(--papyrus) );
+  --flamesimagepath: url( var(--images) var(--flames) );
+  --tablebackgroundimagepath: url( var(--images) var(--tablebackground) );
+  --pagebackgroundimagepath: url( var(--images) var(--pagebackground) );
+  --hitimagepath: url( var(--images) var(--hit) );
+  --missimagepath: url( var(--images) var(--miss) );
+  --aimimagepath: url( var(--images) var(--aim) );
+  --carrierimagepath: url( var(--images) var(--carrier) );
+  --battleshipimagepath: url( var(--images) var(--battleship) );
+  --cruiserimagepath: url( var(--images) var(--cruiser) );
+  --submarineimagepath: url( var(--images) var(--submarine) );
+  --destroyerimagepath: url( var(--images) var(--destroyer) );
 }
 
 body {

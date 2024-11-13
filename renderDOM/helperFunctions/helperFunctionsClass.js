@@ -27,9 +27,9 @@ export class helperFunctionsClass{
         });
       }
 
-      // static selectBoardSelector(player) {
-      //   gameState.boards[`${player}Board`] = document.getElementById(`${player}-board`);
-      // }
+      static selectBoardSelector(player) {
+        gameState.boards[`${player}Board`] = document.getElementById(`${player}-board`);
+      }
 
       static initializeHtmlElements() {
         return {

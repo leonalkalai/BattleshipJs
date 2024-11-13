@@ -1,4 +1,4 @@
-const { gameState } = await import ('../gameState.js');
+import { gameState } from '../../gameLogic/GameState.js';
 const { handleShipPlacement } = await import ('./handleShipPlacement.js');
 
 // Allow Player to place ships

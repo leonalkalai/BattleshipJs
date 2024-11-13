@@ -1,12 +1,12 @@
 import { helperFunctionsClass } from './helperFunctions/helperFunctionsClass.js';
 import { gameState } from '../renderDOM/gameLogic/GameState.js';
-
+const { init } = await import("./initGame/init.js");
 document.addEventListener("DOMContentLoaded", async () => {
   const htmlElements = await helperFunctionsClass.initializeHtmlElements();
-  const { init } = await import("./initGame/init.js");
+
   
   // Start the game
-  init();
+  
 
 
   //const { initializeHtmlElements } = await import("./htmlElements.js"); // Importing the function from htmlElements.js
@@ -42,3 +42,4 @@ document.addEventListener("DOMContentLoaded", async () => {
   // const { resetVariables } = await import("./resetVariables.js");
 
 });
+init();
