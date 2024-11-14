@@ -9,9 +9,12 @@ const { updateTurnIndicator } = await import ('./updateTurnIndicator.js');
 const { placeEnemyShips } = await import ('./handlePlacement/placeEnemyShips.js');
 const { enemyTurn } = await import ('./enemyTurn.js');
 const { checkShipDestroyed } = await import("./checkShipDestroyed.js");
+import { playSoundEffects } from "./playSoundEffects.js";
 
   // Start the game
   export function startGame() {
+
+    playSoundEffects("start");
 
     const {
       boards,

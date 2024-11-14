@@ -1,5 +1,5 @@
-const { gameState } = await import ('../gameState.js');
-
+//const { gameState } = await import ('../gameState.js');
+import { gameState } from '../../gameLogic/GameState.js';
   // prevent click human board when game starts
   export function preventClickHumanBoard(elements) {
     const boards = gameState.boards;

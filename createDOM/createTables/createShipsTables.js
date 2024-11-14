@@ -44,7 +44,7 @@
 
         // Add the icon to the status cell
         const img = document.createElement("img");
-        img.src = `./images/icons/${name}.svg`;
+        img.src = `./../assets/images/icons/${name}.svg`;
         img.alt = name;
 
         const td1 = document.createElement("td");

@@ -1,4 +1,7 @@
-  // Check if all ships are destroyed
+import { gameState } from './GameState.js';
+
+
+// Check if all ships are destroyed
   export function checkWin(ships, player, elements) {
     const allShipsHit = ships.every((cell) => cell.classList.contains("hit"));
     if (allShipsHit) {
@@ -9,7 +12,7 @@
       elements.turnIndicator.classList.remove("ready");
       elements.restartButton.classList.add("ready");
       elements.interfaceContainer.classList.remove("wrap");
-      gameStarted = false;
+      gameState.gameStarted = false;
       return true;
     }
     return false;

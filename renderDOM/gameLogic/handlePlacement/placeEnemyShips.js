@@ -1,4 +1,5 @@
-const { gameState } = await import ('../gameState.js');
+//const { gameState } = await import ('../gameState.js');
+import { gameState } from '../../gameLogic/GameState.js';
 const { canPlaceShip } = await import ('./canPlaceShip.js');
 const { placeShip } = await import ('./placeShip.js');
 
@@ -32,7 +33,7 @@ const { placeShip } = await import ('./placeShip.js');
 
           // Add the checkmark icon to the placed ship
           const img = document.createElement("img");
-          img.src = `./images/checkmark-icon.svg`;
+          img.src = `../../assets/images/checkmark-icon.svg`;
           img.alt = "checkmark";
           img.classList.add("checkmark");
 

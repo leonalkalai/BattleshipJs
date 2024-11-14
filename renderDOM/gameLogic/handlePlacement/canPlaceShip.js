@@ -1,4 +1,5 @@
-const { gameState } = await import ('../gameState.js');
+//const { gameState } = await import ('../gameState.js');
+import { gameState } from '../../gameLogic/GameState.js';
 
   // Check if a ship can be placed at the given index
   export function canPlaceShip(startIndex, size, board) {

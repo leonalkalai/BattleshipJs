@@ -1,5 +1,5 @@
-const { gameState } = await import ('../gameState.js');
-
+//const { gameState } = await import ('../gameState.js');
+import { gameState } from '../../gameLogic/GameState.js';
 // Place the ship on the Board and track the ship's cells
   export function placeShip(startIndex, size, shipClass, board) {
     const {

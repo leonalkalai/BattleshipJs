@@ -5,6 +5,7 @@ const { canPlaceShip } = await import("./canPlaceShip.js");
 const { placeShip } = await import("./placeShip.js");
 const { updateShipStatus } = await import("../updateShipStatus.js");
 const { startGame } = await import("../startGame.js");
+import { playSoundEffects } from "../playSoundEffects.js";
 
   // Handle Board click/touch for player ship placement
   export function handleShipPlacement(event, elements) {
@@ -30,6 +31,7 @@ const { startGame } = await import("../startGame.js");
           boards.humanBoard.classList.add("outline");
           boards.humanBoard.classList.remove("waiting");
           placeShip(index, size, shipClass, boards.humanBoard);
+          playSoundEffects("placeship");
           elements.message.classList.remove("alarm");
           elements.message.innerHTML = `${shipClass} added`;
           updateShipStatus(gameState.currentShipIndex);

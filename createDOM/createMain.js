@@ -9,7 +9,7 @@ const { createBoard } = await import ("./createBoard/createBoard.js");
 
 export async function createMain(elements) {
   const mainElement = document.createElement("main");
-  await createButtons(mainElement, elements);
+  await createButtons(mainElement);
   await createContainer(mainElement);
   elements.body.appendChild(mainElement);
 

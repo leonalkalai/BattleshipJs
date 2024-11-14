@@ -3,7 +3,7 @@ import { helperFunctionsClass } from '../renderDOM/helperFunctions/helperFunctio
 import { toggleShipRotation } from "../renderDOM/gameLogic/handlePlacement/toggleShipRotation.js";
 import { restartGame } from "../renderDOM/gameLogic/restartGame.js";
 
-export function createButtons(mainElement, elements) {
+export function createButtons(mainElement) {
     //const htmlElements = initializeHtmlElements();
     const htmlElements = helperFunctionsClass.initializeHtmlElements();
     const buttonNames = ["Start", "Restart", "Rotate"];
@@ -16,7 +16,7 @@ export function createButtons(mainElement, elements) {
         button.disabled = true;
       }
       if (buttonName === "Restart") {
-        button.addEventListener("click", () => restartGame(elements));
+        button.addEventListener("click", () => restartGame());
       }
       if (buttonName === "Rotate") {
         button.classList.add("ready");
