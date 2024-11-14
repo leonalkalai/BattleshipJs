@@ -21,7 +21,6 @@ export function createButtons(mainElement) {
       if (buttonName === "Rotate") {
         button.classList.add("ready");
         button.addEventListener("click", toggleShipRotation);
-        button.addEventListener("touchstart", () => toggleShipRotation());
       }
       button.id = `${buttonName.toLowerCase()}${buttonPrefix}`;
       button.textContent = buttonName;
