@@ -1,2 +1,16 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["shared/battleship_game/renderDOM/helperFunctions/helperFunctionsClass.js","fallback.js","shared/battleship_game/renderDOM/initGame/init.js"])))=>i.map(i=>d[i]);
-import{_ as s}from"../../../fallback.js";(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))r(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const n of t.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&r(n)}).observe(document,{childList:!0,subtree:!0});function o(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function r(e){if(e.ep)return;e.ep=!0;const t=o(e);fetch(e.href,t)}})();document.addEventListener("DOMContentLoaded",async()=>{const{helperFunctionsClass:a}=await s(async()=>{const{helperFunctionsClass:r}=await import("../renderDOM/helperFunctions/helperFunctionsClass.js");return{helperFunctionsClass:r}},__vite__mapDeps([0,1])),{gameState:i}=await s(async()=>{const{gameState:r}=await import("../renderDOM/gameLogic/GameState.js");return{gameState:r}},[]),{init:o}=await s(async()=>{const{init:r}=await import("../renderDOM/initGame/init.js");return{init:r}},__vite__mapDeps([2,1,0]));await a.initializeHtmlElements(),await o(),console.log("Game initialized and DOM rendered!")});
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Battleship Js</title>
+  <script type="module" crossorigin src="/BattleshipJs/shared/battleship_game/public/index.html"></script>
+  <link rel="modulepreload" crossorigin href="/BattleshipJs/fallback.js">
+  <link rel="stylesheet" crossorigin href="/BattleshipJs/assets/index.css">
+</head>
+
+<body>
+</body>
+
+</html>
