@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/placeHumanShips-CnIKTFBT.js","assets/index-BT-ou97J.js","assets/index-D_MdDroH.css","assets/GameState-COIyZKUR.js"])))=>i.map(i=>d[i]);
+import{h as a,_ as i}from"./index-BT-ou97J.js";const{placeHumanShips:n}=await i(async()=>{const{placeHumanShips:t}=await import("./placeHumanShips-CnIKTFBT.js");return{placeHumanShips:t}},__vite__mapDeps([0,1,2,3]));async function s(){const t=await a.initializeHtmlElements();await n(t)}export{s as initGame};

@@ -1,0 +1,1 @@
+function a(s,t,i){s.dataset.index.length===1?t%2===1?s.classList.add("stripe"):s.classList.add("white"):t%2===1?i%2===1?s.classList.add("blue"):s.classList.add("stripe"):i%2===1?s.classList.add("stripe"):s.classList.add("white")}export{a as createBoardPattern};

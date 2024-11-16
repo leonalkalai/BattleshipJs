@@ -1,0 +1,1 @@
+class e{boards={};playersList=["human","enemy"];boardSize=10;shipSizes=[5,4,3,3,2];shipNames=["carrier","battleship","cruiser","submarine","destroyer"];humanShips=[];enemyShips=[];enemyMoves=[];gameStarted=!1;currentShipIndex=0;playerTurn=!0;isHorizontal=!0;enemyGuesses=[];humanGuesses=[]}const a=new e;export{a as gameState};
