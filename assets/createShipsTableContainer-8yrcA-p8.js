@@ -1,0 +1,1 @@
+import{h as n}from"./index-DQO1eqjj.js";function s(){const t=n.initializeHtmlElements(),e=document.createElement("div");e.id="ships-table-container",t.body.appendChild(e)}export{s as createShipsTableContainer};

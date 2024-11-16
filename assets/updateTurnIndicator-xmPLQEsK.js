@@ -1,1 +1,0 @@
-import{h as n,_ as e}from"./index-BT-ou97J.js";const{gameState:r}=await e(()=>import("./GameState-COIyZKUR.js"),[]);function a(){const t=n.initializeHtmlElements();t.turnIndicator.textContent=r.playerTurn?"Your turn":"AI's turn"}export{a as updateTurnIndicator};
