@@ -1,1 +1,0 @@
-import{_ as n}from"./index-CUCayo57.js";import{helperFunctionsClass as r}from"./helperFunctionsClass-BMCfCdaJ.js";const{gameState:e}=await n(()=>import("./GameState-COIyZKUR.js"),[]);function a(){const t=r.initializeHtmlElements();t.turnIndicator.textContent=e.playerTurn?"Your turn":"AI's turn"}export{a as updateTurnIndicator};
