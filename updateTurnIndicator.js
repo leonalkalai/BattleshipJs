@@ -1,1 +1,0 @@
-import{_ as n}from"./index.js";import{helperFunctionsClass as r}from"./helperFunctionsClass.js";const{gameState:e}=await n(()=>import("./GameState.js"),[]);function a(){const t=r.initializeHtmlElements();t.turnIndicator.textContent=e.playerTurn?"Your turn":"AI's turn"}export{a as updateTurnIndicator};

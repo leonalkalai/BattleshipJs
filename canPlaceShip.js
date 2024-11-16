@@ -1,1 +1,0 @@
-import{gameState as c}from"./GameState.js";function f(e,r,a){const{boardSize:i,isHorizontal:t}=c;for(let o=0;o<r;o++){const n=t?e+o:e+o*i;if(n>=i*i||a.childNodes[n].classList.contains("ship")||t&&e%i+r>i)return!1}return!0}export{f as canPlaceShip};
