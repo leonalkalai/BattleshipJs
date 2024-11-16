@@ -1,0 +1,1 @@
+import{helperFunctionsClass as n}from"./helperFunctionsClass-BMCfCdaJ.js";import"./index-CUCayo57.js";function l(){const t=n.initializeHtmlElements(),e=document.createElement("div");e.id="ships-table-container",t.body.appendChild(e)}export{l as createShipsTableContainer};
