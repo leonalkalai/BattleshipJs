@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["js/renderDOM/initGame/init.js","fallback.js","js/renderDOM/helperFunctions/helperFunctionsClass.js"])))=>i.map(i=>d[i]);
+import{_ as i}from"../../../fallback.js";import"../helperFunctions/helperFunctionsClass.js";async function n(){const{init:t}=await i(async()=>{const{init:a}=await import("../initGame/init.js");return{init:a}},__vite__mapDeps([0,1,2]));await t()}export{n as r};
