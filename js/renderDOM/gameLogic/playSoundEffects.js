@@ -1,1 +1,1 @@
-function n(o){const e=new Audio(`../../../../assets/sounds/${o}.mp3`);e.loop=!1,e.type="audio/mpeg",e.addEventListener("canplaythrough",a=>{e.play()})}export{n as p};
+import{helperFunctionsClass as a}from"../helperFunctions/helperFunctionsClass.js";import"../../../fallback.js";async function p(o){await a.preloadImages("soundss");const s=new Audio(`../../../../assets/sounds/${o}.mp3`);s.loop=!1,s.type="audio/mpeg",s.addEventListener("canplaythrough",e=>{s.play()})}export{p};
