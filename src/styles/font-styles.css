@@ -1,0 +1,234 @@
+@font-face {
+    font-family: 'Proda Sans';
+    src: url('../assets/fonts/ProdaSans-BlackItalic.eot');
+    src: local('Proda Sans Black Italic'), local('ProdaSans-BlackItalic'),
+        url('../assets/fonts/ProdaSans-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-BlackItalic.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-BlackItalic.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans';
+    src: url('../assets/fonts/ProdaSans-BoldItalic.eot');
+    src: local('Proda Sans Bold Italic'), local('ProdaSans-BoldItalic'),
+        url('../assets/fonts/ProdaSans-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-BoldItalic.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-BoldItalic.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans Extra';
+    src: url('../assets/fonts/ProdaSans-ExtraBoldItalic.eot');
+    src: local('Proda Sans Extra Bold Italic'), local('ProdaSans-ExtraBoldItalic'),
+        url('../assets/fonts/ProdaSans-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-ExtraBoldItalic.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-ExtraBoldItalic.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans';
+    src: url('../assets/fonts/ProdaSans-Black.eot');
+    src: local('Proda Sans Black'), local('ProdaSans-Black'),
+        url('../assets/fonts/ProdaSans-Black.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-Black.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-Black.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans';
+    src: url('../assets/fonts/ProdaSans-LightItalic.eot');
+    src: local('Proda Sans Light Italic'), local('ProdaSans-LightItalic'),
+        url('../assets/fonts/ProdaSans-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-LightItalic.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-LightItalic.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans Extra';
+    src: url('../assets/fonts/ProdaSans-ExtraBold.eot');
+    src: local('Proda Sans Extra Bold'), local('ProdaSans-ExtraBold'),
+        url('../assets/fonts/ProdaSans-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-ExtraBold.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-ExtraBold.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans';
+    src: url('../assets/fonts/ProdaSans-Light.eot');
+    src: local('Proda Sans Light'), local('ProdaSans-Light'),
+        url('../assets/fonts/ProdaSans-Light.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-Light.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-Light.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans';
+    src: url('../assets/fonts/ProdaSans-Bold.eot');
+    src: local('Proda Sans Bold'), local('ProdaSans-Bold'),
+        url('../assets/fonts/ProdaSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-Bold.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-Bold.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans';
+    src: url('../assets/fonts/ProdaSans-MediumItalic.eot');
+    src: local('Proda Sans Medium Italic'), local('ProdaSans-MediumItalic'),
+        url('../assets/fonts/ProdaSans-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-MediumItalic.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-MediumItalic.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans';
+    src: url('../assets/fonts/ProdaSans-Italic.eot');
+    src: local('Proda Sans Italic'), local('ProdaSans-Italic'),
+        url('../assets/fonts/ProdaSans-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-Italic.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-Italic.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans Book';
+    src: url('../assets/fonts/ProdaSans-BookItalic.eot');
+    src: local('Proda Sans Book Italic'), local('ProdaSans-BookItalic'),
+        url('../assets/fonts/ProdaSans-BookItalic.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-BookItalic.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-BookItalic.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-BookItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans Book';
+    src: url('../assets/fonts/ProdaSans-Book.eot');
+    src: local('Proda Sans Book'), local('ProdaSans-Book'),
+        url('../assets/fonts/ProdaSans-Book.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-Book.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-Book.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans';
+    src: url('../assets/fonts/ProdaSans-ThinItalic.eot');
+    src: local('Proda Sans Thin Italic'), local('ProdaSans-ThinItalic'),
+        url('../assets/fonts/ProdaSans-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-ThinItalic.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-ThinItalic.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans Semi';
+    src: url('../assets/fonts/ProdaSans-SemiBold.eot');
+    src: local('Proda Sans Semi Bold'), local('ProdaSans-SemiBold'),
+        url('../assets/fonts/ProdaSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-SemiBold.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-SemiBold.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans';
+    src: url('../assets/fonts/ProdaSans-Thin.eot');
+    src: local('Proda Sans Thin'), local('ProdaSans-Thin'),
+        url('../assets/fonts/ProdaSans-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-Thin.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-Thin.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans';
+    src: url('../assets/fonts/ProdaSans-Medium.eot');
+    src: local('Proda Sans Medium'), local('ProdaSans-Medium'),
+        url('../assets/fonts/ProdaSans-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-Medium.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-Medium.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans Semi';
+    src: url('../assets/fonts/ProdaSans-SemiBoldItalic.eot');
+    src: local('Proda Sans Semi Bold Italic'), local('ProdaSans-SemiBoldItalic'),
+        url('../assets/fonts/ProdaSans-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-SemiBoldItalic.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-SemiBoldItalic.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proda Sans';
+    src: url('../assets/fonts/ProdaSans-Regular.eot');
+    src: local('Proda Sans'), local('ProdaSans-Regular'),
+        url('../assets/fonts/ProdaSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/ProdaSans-Regular.woff2') format('woff2'),
+        url('../assets/fonts/ProdaSans-Regular.woff') format('woff'),
+        url('../assets/fonts/ProdaSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

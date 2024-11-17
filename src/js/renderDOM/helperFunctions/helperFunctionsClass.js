@@ -4,7 +4,55 @@
 // you can remove the static keyword and call the methods on an instance of the class:
 // consthelperFunctionsClass = new helperFunctionsClass();
 // helperFunctionsClass.clearBoard(boardElement);
+
 const { gameState } = await import("../gameLogic/GameState.js");
+
+const images = [
+  "aim.svg",
+  "backgroundimage.svg",
+  "battleship-icon.svg",
+  "battleship.svg",
+  "carrier-icon.svg",
+  "carrier.svg",
+  "checkmark-icon.svg",
+  "cruiser-icon.svg",
+  "cruiser.svg",
+  "destroyer-icon.svg",
+  "destroyer.svg",
+  "enemy-board.svg",
+  "flames.svg",
+  "hit.svg",
+  "human-board.svg",
+  "logo.svg",
+  "miss.svg",
+  "no-pointer.png",
+  "page-background.svg",
+  "papyrus-turn.svg",
+  "papyrus.svg",
+  "rotate.png",
+  "shipwreck.jpg",
+  "submarine-icon.svg",
+  "submarine.svg",
+  "sunken-shipwreck-ocean-depths.jpg",
+  "sunken-shipwreck.jpg",
+  "table-background.svg",
+  "wood-cursor.png",
+  "wood-pointer.png",
+];
+
+const sounds = [
+  "hit.mp3",
+  "miss.mp3",
+  "placeship.mp3",
+  "rotate.mp3",
+  "shot.mp3",
+  "start.mp3",
+];
+
+// Map for storing pre-imported image URLs
+// const imageMap = {};
+// const audioMap = {};
+const fileMap = {};
 
 export class helperFunctionsClass {
   static toggleClassWithTimeout(element, className, timeout) {
@@ -57,5 +105,21 @@ export class helperFunctionsClass {
     gameState.isHorizontal = true;
     gameState.enemyGuesses = [];
     gameState.humanGuesses = [];
+  }
+
+  // Preload all images dynamically
+  static async preloadFiles(fileType) {
+    const files = fileType === 'images' ? images : sounds;
+    const fileMap = {};
+
+    for (const fileName of files) {
+      const fileUrl = new URL(
+        `../../../assets/${fileType}/${fileName}`,
+        import.meta.url
+      ).href;
+      fileMap[fileName] = fileUrl; // Store the resolved URL
+    }
+
+    return fileMap; // Return the preloaded file map
   }
 }

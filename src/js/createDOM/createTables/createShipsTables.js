@@ -1,8 +1,12 @@
   
   //const { gameState } = await import ('./gameState.js');
   import { gameState } from '../../renderDOM/gameLogic/GameState.js';
+  import { helperFunctionsClass } from '../../renderDOM/helperFunctions/helperFunctionsClass.js';
+  
+  export async function createShipsTables() {
 
-  export function createShipsTables() {
+    await helperFunctionsClass.preloadFiles('images'); // Ensure images are preloaded before DOM manipulation
+
     const shipsTableContainer = document.querySelector(
       "#ships-table-container"
     );
@@ -44,7 +48,9 @@
 
         // Add the icon to the status cell
         const img = document.createElement("img");
-        img.src = `./../assets/images/icons/${name}.svg`;
+        const imagePath = `./assets/images/${name}-icon.svg`;
+        //const imagePath = new URL(`./assets/images/${name}-icon.svg`, import.meta.url).href;
+        img.src = imagePath;
         img.alt = name;
 
         const td1 = document.createElement("td");

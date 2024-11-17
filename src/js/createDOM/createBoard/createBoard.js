@@ -63,7 +63,7 @@ const { createBoardPattern } = await import ("./createBoardPattern.js");
     const playerType = document.createElement("p");
 
     const boardh2image = document.createElement("img");
-    boardh2image.src = `./../assets/images/${boardElement.id}.svg`;
+    boardh2image.src = `./assets/images/${boardElement.id}.svg`;
     boardh2image.classList.add("boardh2image");
 
     const boardTitle = document.createElement("h2");
