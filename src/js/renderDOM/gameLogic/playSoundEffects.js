@@ -1,7 +1,7 @@
 import { helperFunctionsClass } from '../../renderDOM/helperFunctions/helperFunctionsClass.js';
 
 export async function playSoundEffects(soundname){
-    await helperFunctionsClass.preloadImages('sounds'); 
+    await helperFunctionsClass.preloadFiles('sounds'); 
     const audio = new Audio(`./assets/sounds/${soundname}.mp3`);
     audio.loop = false;
     audio.type = 'audio/mpeg';

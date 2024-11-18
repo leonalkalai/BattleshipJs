@@ -41,7 +41,6 @@ export default defineConfig({
         updateTurnIndicator: "./src/js/renderDOM/gameLogic/updateTurnIndicator.js",
         // helper functions
         helperFunctionsClass: "./src/js/renderDOM/helperFunctions/helperFunctionsClass.js",
-        selectBoardSelector: "./src/js/renderDOM/helperFunctions/selectBoardSelector.js",
         // initGame
         init: "./src/js/renderDOM/initGame/init.js",
         initGame: "./src/js/renderDOM/initGame/initGame.js",
@@ -51,8 +50,6 @@ export default defineConfig({
           if (chunkInfo && chunkInfo.facadeModuleId) {
             const path = chunkInfo.facadeModuleId.split('/').slice(1).join('/').replace("shared/battleship_game/src/", "");
             
-          //  console.log(path.replace("shared/battleship_game/src/", ""));
-
              // Prevent .html from being processed as a JS chunk
              if (path.endsWith('.html')) {
 
@@ -70,22 +67,33 @@ export default defineConfig({
           }
           return 'fallback.js'; // Fallback if the path is not found
         },
+        // assetFileNames: ({ names = [] }) => {
+        //   const [name = ''] = names;
+        //   if (/\.(eot|ttf|woff|woff2)$/i.test(name)) {
+        //     return 'assets/fonts/[name][extname]';
+        //   } else if (/\.(png|jpe?g|svg|gif|tiff|bmp|ico)$/i.test(name)) {
+        //     return 'assets/images/[name][extname]';
+        //   }else if (/\.(mp3)$/i.test(name)) {
+        //     return 'assets/sounds/[name][extname]';
+        //   }
+          
+        //   return '[name]-[hash][extname]';
+        // },
         assetFileNames: (assetInfo) => {
           if (!assetInfo || !assetInfo.name) {
             return 'assets/fallback'; // Fallback if the asset name is missing
           }
 
           const extType = assetInfo.name.split('.').pop(); // Get file extension
-
+          
           if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
-           
+
             return `assets/images/${assetInfo.name}`;
           }
           if (/mp3/i.test(extType)) {
             return `assets/sounds/${assetInfo.name}`;
           }
           if (/eot|ttf|woff|woff2/i.test(extType)) {
-            console.log(`${assetInfo.name}`);
             return `assets/fonts/${assetInfo.name}`;
           }
           return `assets/${assetInfo.name}`;

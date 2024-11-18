@@ -50,8 +50,6 @@ const sounds = [
 ];
 
 // Map for storing pre-imported image URLs
-// const imageMap = {};
-// const audioMap = {};
 const fileMap = {};
 
 export class helperFunctionsClass {
@@ -112,14 +110,17 @@ export class helperFunctionsClass {
     const files = fileType === 'images' ? images : sounds;
     const fileMap = {};
 
-    for (const fileName of files) {
+    const promises = files.map(fileName => {
+    //for (const fileName of files) {
       const fileUrl = new URL(
         `../../../assets/${fileType}/${fileName}`,
         import.meta.url
       ).href;
       fileMap[fileName] = fileUrl; // Store the resolved URL
-    }
+    //}
 
+     });
+    await Promise.all(promises);
     return fileMap; // Return the preloaded file map
   }
 }
