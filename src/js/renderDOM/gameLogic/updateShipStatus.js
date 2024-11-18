@@ -14,7 +14,7 @@ import { gameState } from './GameState.js';
 
     // Add the checkmark icon to the placed ship
     const img = document.createElement("img");
-    img.src = `../../../../assets/images/checkmark-icon.svg`;
+    img.src = `./assets/images/checkmark-icon.svg`;
     img.alt = "checkmark";
     img.classList.add("checkmark");
 
