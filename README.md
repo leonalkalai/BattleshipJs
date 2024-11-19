@@ -33,10 +33,12 @@ Check out the live version of the game *[here](https://leonalkalai.github.io/Bat
 ## 📂 Project Structure
 
 📁 battleship_game
-    The root directory of the project, containing all files and folders necessary to run and maintain the Battleship game application.
+    The root directory of the project, containing all files and folders necessary 
+    to run and maintain the Battleship game application.
 
     ├── 📁 public
-        Contains static resources served directly to the browser, including images, fonts, and sound effects.
+        Contains static resources served directly to the browser, 
+        including images, fonts, and sound effects.
 
         │   └── 📁 assets
         │       All public assets required for the game's visuals and sound.
@@ -51,7 +53,8 @@ Check out the live version of the game *[here](https://leonalkalai.github.io/Bat
         │           Sound effects like explosions, hits, and victory or defeat notifications.
 
     ├── 📁 src
-        The source folder, containing all core files, scripts, and styles needed for the development and functionality of the game.
+        The source folder, containing all core files, scripts, and styles needed for the development 
+        and functionality of the game.
 
         │   ├── 📁 assets
         │       Development-specific assets, including raw images, fonts, and sounds.
@@ -66,7 +69,8 @@ Check out the live version of the game *[here](https://leonalkalai.github.io/Bat
         │           Development sound files for testing or processing.
 
         │   ├── 📁 js
-        │       The main folder for JavaScript files, divided into modules for easier management and scalability.
+        │       The main folder for JavaScript files, divided into modules for easier 
+                management and scalability.
         │       
         │       ├── 📁 createDOM
         │           Handles dynamic creation of DOM elements for the game.
@@ -132,7 +136,7 @@ Check out the live version of the game *[here](https://leonalkalai.github.io/Bat
         The main HTML file and entry point for the application, defining the structure and linking resources.
 
     └── README.md
-        The project's documentation file, containing instructions, descriptions, and contributor information.
+        The project's documentation file, containing instructions and descriptions information.
 
 
 ## 📖 How to Play
