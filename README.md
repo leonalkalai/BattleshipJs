@@ -12,18 +12,18 @@
 
 ## 🚀 Live Demo
 
-Check out the live version of the game [here](#). *![game URL](https://leonalkalai.github.io/BattleshipJs/)*
+Check out the live version of the game *[here](https://leonalkalai.github.io/BattleshipJs/)*.
 
 ## 📸 Screenshots
 
-[Game Start] 
-<img src="screenshots/BattleshipJs-startgame.png" alt="start game" width="550">
+**Game Start**
+<img src="screenshots/BattleshipJs-startgame.png" alt="start game" width="650">
 
-[Gameplay] 
-<img src="screenshots/BattleshipJs-inprogressgame.png" alt="in progress game" width="550">
+**Gameplay**
+<img src="screenshots/BattleshipJs-inprogressgame.png" alt="in progress game" width="650">
 
-[Game Over]
-<img src="screenshots/BattleshipJs-endgame.png" alt="end game" width="550">
+**Game Over**
+<img src="screenshots/BattleshipJs-endgame.png" alt="end game" width="650">
 
 ## 🛠️ Technologies Used
 
@@ -138,7 +138,7 @@ Check out the live version of the game [here](#). *![game URL](https://leonalkal
 
 ## 📖 How to Play
 
- Check out the live version of the game *![here](https://leonalkalai.github.io/BattleshipJs/)*. 
+ Check out the live version of the game *[here](https://leonalkalai.github.io/BattleshipJs/)*. 
 
 **Instructions**
 ├── Place your ships on the board by clicking on the human board.
