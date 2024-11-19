@@ -1,7 +1,6 @@
 # 🛡️ Battlefield Game
 
-**Battlefield<img src="screenshots/js.png" alt="JavaScript Logo" width="30" style="max-width: 100%;margin-bottom: -8px;border-radius: 5px;padding: 5px 3px 6px 0px;">**
- is a classic game of strategy and fun, inspired by the timeless **Battleship** game. Play against an intelligent computer opponent and test your tactical skills in an exciting battle!
+**Battlefield <img src="screenshots/js.png" alt="JavaScript Logo" width="30" style="vertical-align: middle; border-radius: 5px; margin-bottom: -5px;">** is a classic game of strategy and fun, inspired by the timeless **Battleship** game. Play against an intelligent computer opponent and test your tactical skills in an exciting battle!
 
 ## 🎮 Features
 
