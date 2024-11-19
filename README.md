@@ -59,11 +59,12 @@ Check out the live version of the game *[here](https://leonalkalai.github.io/Bat
         │           Static images such as icons, backgrounds, and visual assets.
         │       
         │       └── 📁 sounds
-        │           Sound effects like explosions, hits, and victory or defeat notifications.
+        │           Sound effects like explosions, hits, 
+                    and victory or defeat notifications.
 
     ├── 📁 src
-        The source folder, containing all core files, scripts, and styles needed for the development 
-        and functionality of the game.
+        The source folder, containing all core files, scripts, and styles
+        needed for the development and functionality of the game.
 
         │   ├── 📁 assets
         │       Development-specific assets, including raw images, fonts, and sounds.
@@ -106,7 +107,8 @@ Check out the live version of the game *[here](https://leonalkalai.github.io/Bat
         │                   Dynamically generates the ship tables for both players.
         │           
         │           ├── createButtons.js
-        │               Creates and manages all interactive buttons in the game (e.g., "Start Game").
+        │               Creates and manages all interactive buttons in the game 
+                        (e.g., "Start Game").
         │           
         │           ├── createContainer.js
         │               Dynamically generates generic containers for layout and grouping.
@@ -121,7 +123,8 @@ Check out the live version of the game *[here](https://leonalkalai.github.io/Bat
         │               Builds the primary layout and sections of the game interface.
 
         │       ├── 📁 renderDOM
-        │           Focuses on updating and managing DOM elements dynamically during gameplay.
+        │           Focuses on updating and managing DOM elements 
+                    dynamically during gameplay.
         │           
         │           ├── 📁 gameLogic
         │               Contains logic and mechanics for gameplay.
@@ -133,19 +136,24 @@ Check out the live version of the game *[here](https://leonalkalai.github.io/Bat
         │               Utility functions to simplify and reuse common operations.
         │           
         │           └── 📁 initGame
-        │               Handles game initialization, resetting states, and preparing the game boards.
+        │               Handles game initialization, resetting states
+                        and preparing the game boards.
 
         │   ├── 📁 styles
-        │       Contains CSS files for styling the game, including layouts, themes, and responsive design.
+        │       Contains CSS files for styling the game, 
+                including layouts, themes, and responsive design.
 
         │   └── main.js
-        │       The main JavaScript entry point, combining modules and initializing the game.
+        │       The main JavaScript entry point, combining modules 
+                and initializing the game.
 
     ├── index.html
-        The main HTML file and entry point for the application, defining the structure and linking resources.
+        The main HTML file and entry point for the application, 
+        defining the structure and linking resources.
 
     └── README.md
-        The project's documentation file, containing instructions and descriptions information.
+        The project's documentation file, 
+        containing instructions and descriptions information.
 
 
 ## 📖 How to Play
