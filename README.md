@@ -15,13 +15,22 @@ Check out the live version of the game *[here](https://leonalkalai.github.io/Bat
 
 ## 📸 Screenshots
 
-###Game Start###
+<dl>
+  <dt>Game Start</dt>
+</dl>
+
 <img src="screenshots/BattleshipJs-startgame.png" alt="start game" width="650">
 
-###Gameplay###
+<dl>
+  <dt>Gameplay</dt>
+</dl>
+
 <img src="screenshots/BattleshipJs-inprogressgame.png" alt="in progress game" width="650">
 
-###Game Over###
+<dl>
+  <dt>Game Over</dt>
+</dl>
+
 <img src="screenshots/BattleshipJs-endgame.png" alt="end game" width="650">
 
 ## 🛠️ Technologies Used
