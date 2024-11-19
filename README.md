@@ -1,6 +1,6 @@
 # 🛡️ Battlefield Game
 
-**Battlefield<img src="screenshots/js.png" alt="JavaScript Logo" width="30">**
+**Battlefield<img src="screenshots/js.png" alt="JavaScript Logo" width="5">**
  is a classic game of strategy and fun, inspired by the timeless **Battleship** game. Play against an intelligent computer opponent and test your tactical skills in an exciting battle!
 
 ## 🎮 Features
@@ -16,13 +16,13 @@ Check out the live version of the game *[here](https://leonalkalai.github.io/Bat
 
 ## 📸 Screenshots
 
-**Game Start**
+###Game Start###
 <img src="screenshots/BattleshipJs-startgame.png" alt="start game" width="650">
 
-**Gameplay**
+###Gameplay###
 <img src="screenshots/BattleshipJs-inprogressgame.png" alt="in progress game" width="650">
 
-**Game Over**
+###Game Over###
 <img src="screenshots/BattleshipJs-endgame.png" alt="end game" width="650">
 
 ## 🛠️ Technologies Used
