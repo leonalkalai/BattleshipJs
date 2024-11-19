@@ -15,14 +15,14 @@ Check out the live version of the game [here](#). *![game URL](https://leonalkal
 
 ## 📸 Screenshots
 
-![Game Start](#)  
-![startgame](screenshots/BattleshipJs-startgame.png)
+![Game Start] 
+(screenshots/BattleshipJs-startgame.png)
 
-![Gameplay](#)  
-![inprogresssgame](screenshots/BattleshipJs-inprogresssgame.png)
+![Gameplay] 
+(screenshots/BattleshipJs-inprogressgame.png)
 
-![Game Over](#)  
-![endgame](screenshots/BattleshipJs-endgame.png)
+![Game Over]
+(screenshots/BattleshipJs-endgame.png)
 
 ## 🛠️ Technologies Used
 
