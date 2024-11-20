@@ -17,7 +17,7 @@ const DEFAULT_OPTIONS = {
         params: {
           overrides: {
             cleanupNumericValues: false,
-            removeViewBox: false, // https://github.com/svg/svgo/issues/1128
+            removeViewBox: false, 
           },
           cleanupIDs: {
             minify: false,
@@ -36,30 +36,23 @@ const DEFAULT_OPTIONS = {
     ],
   },
   png: {
-    // https://sharp.pixelplumbing.com/api-output#png
-    quality: 100,
+    quality: 70,
   },
   jpeg: {
-    // https://sharp.pixelplumbing.com/api-output#jpeg
-    quality: 100,
+    quality: 70,
   },
   jpg: {
-    // https://sharp.pixelplumbing.com/api-output#jpeg
-    quality: 100,
+    quality: 70,
   },
   tiff: {
-    // https://sharp.pixelplumbing.com/api-output#tiff
-    quality: 100,
+    quality: 70,
   },
   // gif does not support lossless compression
-  // https://sharp.pixelplumbing.com/api-output#gif
   gif: {},
   webp: {
-    // https://sharp.pixelplumbing.com/api-output#webp
     lossless: true,
   },
   avif: {
-    // https://sharp.pixelplumbing.com/api-output#avif
     lossless: true,
   },
   cache: false,
@@ -151,26 +144,14 @@ export default defineConfig({
           }
           return "fallback.js"; // Fallback if the path is not found
         },
-        // assetFileNames: ({ names = [] }) => {
-        //   const [name = ''] = names;
-        //   if (/\.(eot|ttf|woff|woff2)$/i.test(name)) {
-        //     return 'assets/fonts/[name][extname]';
-        //   } else if (/\.(png|jpe?g|svg|gif|tiff|bmp|ico)$/i.test(name)) {
-        //     return 'assets/images/[name][extname]';
-        //   }else if (/\.(mp3)$/i.test(name)) {
-        //     return 'assets/sounds/[name][extname]';
-        //   }
-
-        //   return '[name]-[hash][extname]';
-        // },
         assetFileNames: (assetInfo) => {
           if (!assetInfo || !assetInfo.name) {
             return "assets/fallback"; // Fallback if the asset name is missing
           }
 
           const extType = assetInfo.name.split(".").pop(); // Get file extension
-
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+          if (DEFAULT_OPTIONS.test.test(extType)) {
+          //if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
             return `assets/images/${assetInfo.name}`;
           }
           if (/mp3/i.test(extType)) {
@@ -186,17 +167,6 @@ export default defineConfig({
   },
   base: "/BattleshipJs/", // Base path for GitHub Pages deployment
   plugins: [
-    ViteImageOptimizer({
-      png: { quality: 80 },
-      jpeg: { quality: 75 },
-      webp: { quality: 80 },
-      avif: { quality: 70 },
-      svg: {
-        plugins: [
-          { name: "removeViewBox", active: false },
-          { name: "sortAttrs" },
-        ],
-      },
-    }),
+    ViteImageOptimizer(DEFAULT_OPTIONS),
   ],
 });

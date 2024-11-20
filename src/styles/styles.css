@@ -15,18 +15,18 @@
   --woodcursorimagepath: url("../assets/images/wood-cursor.png");
   --woodpointerimagepath: url("../assets/images/wood-pointer.png");
   --nopointerimagepath: url("../assets/images/no-pointer.png");
-  --papyrusimagepath: url("../assets/images/papyrus.svg");
-  --flamesimagepath: url("../assets/images/flames.svg");
-  --tablebackgroundimagepath: url("../assets/images/table-background.svg");
-  --pagebackgroundimagepath: url("../assets/images/page-background.svg");
-  --hitimagepath: url("../assets/images/hit.svg");
-  --missimagepath: url("../assets/images/miss.svg");
-  --aimimagepath: url("../assets/images/aim.svg");
-  --carrierimagepath: url("../assets/images/carrier.svg");
-  --battleshipimagepath: url("../assets/images/battleship.svg");
-  --cruiserimagepath: url("../assets/images/cruiser.svg");
-  --submarineimagepath: url("../assets/images/submarine.svg");
-  --destroyerimagepath: url("../assets/images/destroyer.svg");
+  --papyrusimagepath: url("../assets/images/papyrus.avif");
+  --flamesimagepath: url("../assets/images/flames.avif");
+  --tablebackgroundimagepath: url("../assets/images/table-background.avif");
+  --pagebackgroundimagepath: url("../assets/images/page-background.avif");
+  --hitimagepath: url("../assets/images/hit.avif");
+  --missimagepath: url("../assets/images/miss.avif");
+  --aimimagepath: url("../assets/images/aim.avif");
+  --carrierimagepath: url("../assets/images/carrier.avif");
+  --battleshipimagepath: url("../assets/images/battleship.avif");
+  --cruiserimagepath: url("../assets/images/cruiser.avif");
+  --submarineimagepath: url("../assets/images/submarine.avif");
+  --destroyerimagepath: url("../assets/images/destroyer.avif");
 }
 
 body {

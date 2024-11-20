@@ -181,6 +181,33 @@ The first player to sink all enemy's ships wins.
 💥 Advanced animations for attacks and explosions.
 
 
+## ⭐Credits and attributions
+
+This project was made possible with the help of:
+
+**Downloaded from Freepik**
+[Js icon | designed by Smashicons](https://www.freepik.com/icon/js_541509)
+[Flame pack in flat design | designed by Freepik](https://www.freepik.com/free-vector/flame-pack-flat-design_1083012.htm)
+[Ghost text effect, editable horror and cartoon text style designed by NACreative](https://www.freepik.com/free-vector/ghost-text-effect-editable-horror-cartoon-text-style_19308092.htm)
+**Downloaded from sweezy-cursors**
+[wood cursor | designed by sweezy-cursors](https://sweezy-cursors.com/cursor/wood/)
+**Downloaded from istockphoto**
+[Set of underwater objects stock illustration istockphoto | designed by Nearbirds](https://www.istockphoto.com/vector/set-of-underwater-objects-gm518806602-90234929?clarity=false)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## License 🛡️
 This project is licensed under the [Leon Kountouras] Proprietary License.  
 All rights reserved. For more details, see the [LICENSE](LICENSE) file. 

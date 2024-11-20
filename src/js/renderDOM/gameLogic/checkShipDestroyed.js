@@ -55,7 +55,7 @@ export function checkShipDestroyed(shipsArray) {
       );
       boardSelectorShipName.style.textDecoration = "line-through";
       boardSelectorShipNameStatus.innerHTML =
-        "<img src='./assets/images/hit.svg' alt='cruiser'><span>Destroyed</span>";
+        "<img src='./assets/images/hit.avif' alt='cruiser'><span>Destroyed</span>";
       console.log(boardSelector + "_" + name + " is destroyed");
     }
   });

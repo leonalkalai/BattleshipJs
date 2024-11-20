@@ -38,7 +38,7 @@ const { placeShip } = await import ('./placeShip.js');
           // Add the checkmark icon to the placed ship
           const img = document.createElement("img");
           // Importing the image in your JavaScript or HTML
-          const imagePath = './assets/images/checkmark-icon.svg';
+          const imagePath = './assets/images/checkmark-icon.avif';
           img.src = imagePath;
           img.alt = "checkmark";
           img.classList.add("checkmark");
