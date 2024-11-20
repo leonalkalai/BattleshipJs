@@ -48,8 +48,7 @@
 
         // Add the icon to the status cell
         const img = document.createElement("img");
-        const imagePath = `./assets/images/${name}-icon.svg`;
-        //const imagePath = new URL(`./assets/images/${name}-icon.svg`, import.meta.url).href;
+        const imagePath = `./assets/images/${name}-icon.avif`;
         img.src = imagePath;
         img.alt = name;
 
