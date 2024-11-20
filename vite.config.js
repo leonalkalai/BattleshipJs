@@ -3,38 +3,12 @@ import { defineConfig } from "vite";
 import path from "path";
 
 const DEFAULT_OPTIONS = {
-  test: /\.(jpe?g|png|gif|tiff|webp|svg|avif)$/i,
-  exclude: undefined,
+  test: /\.(jpe?g|png|gif|tiff|webp|avif)$/i,
+  exclude: ["aim.svg"],
   include: undefined,
   includePublic: true,
   logStats: true,
   ansiColors: true,
-  svg: {
-    multipass: true,
-    plugins: [
-      {
-        name: "preset-default",
-        params: {
-          overrides: {
-            cleanupNumericValues: false,
-            removeViewBox: false, 
-          },
-          cleanupIDs: {
-            minify: false,
-            remove: false,
-          },
-          convertPathData: false,
-        },
-      },
-      "sortAttrs",
-      {
-        name: "addAttributesToSVGElement",
-        params: {
-          attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
-        },
-      },
-    ],
-  },
   png: {
     quality: 70,
   },
@@ -148,10 +122,15 @@ export default defineConfig({
           if (!assetInfo || !assetInfo.name) {
             return "assets/fallback"; // Fallback if the asset name is missing
           }
+          if (assetInfo.name.split(".").pop() === "svg") {
+            return `assets/svg/${assetInfo.name}`; // Fallback if the asset name is missing
+          }
 
-          const extType = assetInfo.name.split(".").pop(); // Get file extension
-          if (DEFAULT_OPTIONS.test.test(extType)) {
           //if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+          const extType = assetInfo.name.split(".").pop(); // Get file extension
+
+          if (DEFAULT_OPTIONS.test.test(extType)) {
+            //if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
             return `assets/images/${assetInfo.name}`;
           }
           if (/mp3/i.test(extType)) {
@@ -166,7 +145,5 @@ export default defineConfig({
     },
   },
   base: "/BattleshipJs/", // Base path for GitHub Pages deployment
-  plugins: [
-    ViteImageOptimizer(DEFAULT_OPTIONS),
-  ],
+  plugins: [ViteImageOptimizer(DEFAULT_OPTIONS)],
 });
