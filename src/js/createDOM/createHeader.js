@@ -10,7 +10,7 @@ export async function createHeader() {
     const headerElement = document.createElement("header");
     const h1Element = document.createElement("h1");
     const imageElement = document.createElement("img");
-    imageElement.src = "./assets/images/logo.avif";
+    imageElement.src = "./assets/images/logo.webp";
     imageElement.alt = "logo";
     h1Element.appendChild(imageElement);
     const interfaceContainerElement = document.createElement("div");
