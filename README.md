@@ -155,6 +155,9 @@ Check out the live version of the game *[here](https://leonalkalai.github.io/Bat
         The project's documentation file, 
         containing instructions and descriptions information.
 
+    └── LICENSE
+        The license linked to in the README    
+
 
 ## 📖 How to Play
 

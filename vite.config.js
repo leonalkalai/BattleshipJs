@@ -1,5 +1,20 @@
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import { defineConfig } from "vite";
 import path from "path";
+
+const svgoPlugins = [
+  { name: 'removeDoctype', active: true },
+  { name: 'removeComments', active: true },
+  { name: 'removeMetadata', active: true },
+  { name: 'removeTitle', active: true },
+  { name: 'removeDesc', active: true },
+  { name: 'removeDimensions', active: true },
+  { name: 'convertColors', params: { currentColor: true } },
+  { name: 'removeUnusedNS', active: true },
+  { name: 'cleanupIDs', params: { remove: true } },
+  { name: 'mergePaths', active: true },
+  { name: 'convertShapeToPath', active: true },
+];
 
 
 export default defineConfig({
@@ -102,4 +117,17 @@ export default defineConfig({
     },
   },
   base: "/BattleshipJs/", // Base path for GitHub Pages deployment
+  plugins: [
+    imagemin({
+      optipng: {
+        optimizationLevel: 7, // Optimize PNGs with maximum compression
+      },
+      mozjpeg: {
+        quality: 75, // Set JPEG quality to 75
+      },
+      svgo: {
+        plugins:svgoPlugins,
+      },
+    }),
+  ],
 });
