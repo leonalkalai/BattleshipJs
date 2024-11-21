@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 import path from "path";
 
 const DEFAULT_OPTIONS = {
-  test: /\.(jpe?g|png|gif|tiff|webp|avif)$/i,
+  test: /\.(jpe?g|png|gif|tiff|webp|avif|ico)$/i,
   exclude: ["aim.svg"],
   include: undefined,
   includePublic: true,
