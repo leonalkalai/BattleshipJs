@@ -1,6 +1,7 @@
 //const { gameState } = await import ('./gameState.js');
 import { gameState } from '../../renderDOM/gameLogic/GameState.js';
 const { createBoardPattern } = await import ("./createBoardPattern.js");
+const { createBoardGlassPattern } = await import ("./createBoardGlassPattern.js");
 
   // Generate a Board for players
   export function createBoard(boardElement) {
@@ -13,7 +14,8 @@ const { createBoardPattern } = await import ("./createBoardPattern.js");
       let column =
         cell.dataset.index < 10 ? cell.dataset.index[0] : cell.dataset.index[1];
       // start applying pattern
-      createBoardPattern(cell, row, column);
+      //createBoardPattern(cell, row, column);
+      createBoardGlassPattern(cell);
       // end applying pattern
       boardElement.appendChild(cell);
     }

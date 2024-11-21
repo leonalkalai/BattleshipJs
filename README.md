@@ -208,6 +208,7 @@ This project was made possible with the help of:
 
 
 
+
 ## License 🛡️
 This project is licensed under the [Leon Kountouras] Proprietary License.  
 All rights reserved. For more details, see the [LICENSE](LICENSE) file. 
