@@ -1,1 +1,1 @@
-function a(s){s.closest(".board").classList.add("glass")}export{a as createBoardGlassPattern};
+function s(a){a.parentNode.classList.add("glass")}export{s as createBoardGlassPattern};
