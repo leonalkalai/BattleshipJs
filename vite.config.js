@@ -132,7 +132,6 @@ export default defineConfig({
             extType === "ico" ||
             extType === "jpg"
           ) {
-            console.log(extType);
             return `assets/for_delete/${assetInfo.name}`; // files to remove from build
           }
 
