@@ -3,8 +3,8 @@ import { defineConfig } from "vite";
 import path from "path";
 
 const DEFAULT_OPTIONS = {
-  test: /\.(jpe?g|png|gif|tiff|webp|avif|ico)$/i,
-  exclude: ["aim.svg"],
+  test: /\.(jpe?g|png|gif|tiff|webp|avif)$/i,
+  addImagesToBuild: /\.(jpe?g|png|gif|tiff|webp|avif|ico)$/i,
   include: undefined,
   includePublic: true,
   logStats: true,
@@ -122,12 +122,19 @@ export default defineConfig({
           if (!assetInfo || !assetInfo.name) {
             return "assets/fallback"; // Fallback if the asset name is missing
           }
-          if (assetInfo.name.split(".").pop() === "svg") {
-            return `assets/svg/${assetInfo.name}`; // Fallback if the asset name is missing
-          }
 
           //if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
           const extType = assetInfo.name.split(".").pop(); // Get file extension
+
+          if (
+            extType === "svg" ||
+            extType === "webp" ||
+            extType === "ico" ||
+            extType === "jpg"
+          ) {
+            console.log(extType);
+            return `assets/for_delete/${assetInfo.name}`; // files to remove from build
+          }
 
           if (DEFAULT_OPTIONS.test.test(extType)) {
             //if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
