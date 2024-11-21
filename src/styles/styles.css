@@ -479,6 +479,7 @@ button {
 #human-board div.aim:hover,
 #enemy-board div.aim:hover {
   background-color: #3ac1b0;
+  background-image: none;
 }
 
 #human-board div.nocursor,
