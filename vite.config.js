@@ -129,10 +129,12 @@ export default defineConfig({
           if (
             extType === "svg" ||
             extType === "webp" ||
-            extType === "ico" ||
-            extType === "jpg"
+            extType === "jpg" ||
+            extType === "png"
           ) {
             return `assets/images/${assetInfo.name}`; // files to remove from build
+          }else if (extType === "ico") {
+            return `assets/images/icons/${assetInfo.name}`; // files to remove from build
           }
 
           if (DEFAULT_OPTIONS.test.test(extType)) {
