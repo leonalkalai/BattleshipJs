@@ -854,7 +854,7 @@ tr td:nth-child(2) span {
 
 /* glassomorphysm style */
 
-#human-board.glass, #enemy-board.glass{
+/* #human-board.glass, #enemy-board.glass{
   background: white;
   background: rgba(70, 55, 252, 0.7);
   background: rgba(15, 95, 193, 0.5);
@@ -870,17 +870,17 @@ tr td:nth-child(2) span {
   width: 2.5vw;
   background-color: rgb(15 95 193 / 27%);
   border-radius: 50%;
-  border: 1px inset rgb(27 16 162);
+  border-color: #003395;
   box-shadow: inset 0px 0px 0px 0px #aaa, inset 0px 2px 3px rgb(255 255 255 / 41%);
   z-index: 5;
-  padding: 1px;
   box-sizing: content-box;
   outline: none;
   position: relative;
+  border-style: solid;
 }
 
 #human-board.glass.outline div::after, #enemy-board.glass.outline div::after{
-  content: " ";
+  content: "t";
   background-image: var(--boardcellhole);
   background-repeat: no-repeat;
   -o-background-size: 100% auto;
@@ -890,12 +890,12 @@ tr td:nth-child(2) span {
   position: absolute;
   right: 0;
   bottom: 0;
-  height: auto;
+  height: 2.2rem;
   width: 100%;
   background-position: center center;
   color: transparent;
-  border-radius: 50%;
-}
+} 
+  
 
 #human-board.glass.outline div.carrier,
 #human-board.glass.outline div.battleship,
@@ -907,6 +907,53 @@ tr td:nth-child(2) span {
 #enemy-board.glass.outline div.cruiser,
 #enemy-board.glass.outline div.submarine,
 #enemy-board.glass.outline div.destroyer {
+  border-radius: unset;
+}
+
+
+*/
+
+#human-board.glassboard, #enemy-board.glassboard{
+  background: transparent;
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  outline: 2px solid rgb(56 42 220);
+  position: relative;
+}
+
+#human-board.glassboard.outline::after, #enemy-board.glassboard.outline::after{
+  content: "t";
+  background-image: var(--boardcellhole);
+  background-repeat: no-repeat;
+  -o-background-size: 105% 105%;
+  -webkit-background-size: 105% 105%;
+  background-size: 105% 105%;
+  z-index: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30vw;
+  max-width: 30vw;
+  height: 100%;
+  background-position: center center;
+  color: transparent;
+}
+
+#human-board.glassboard.outline div, #enemy-board.glassboard.outline div{
+outline: 1px solid #0266b7;
+border-radius: 6px;
+z-index: 9999;
+}
+
+#human-board.glassboard.outline div.carrier,
+#human-board.glassboard.outline div.battleship,
+#human-board.glassboard.outline div.cruiser,
+#human-board.glassboard.outline div.submarine,
+#human-board.glassboard.outline div.destroyer,
+#enemy-board.glassboard.outline div.carrier,
+#enemy-board.glassboard.outline div.battleship,
+#enemy-board.glassboard.outline div.cruiser,
+#enemy-board.glassboard.outline div.submarine,
+#enemy-board.glassboard.outline div.destroyer {
   border-radius: unset;
 }
 

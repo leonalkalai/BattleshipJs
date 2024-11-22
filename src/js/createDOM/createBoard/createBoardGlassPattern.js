@@ -1,3 +1,3 @@
 export function createBoardGlassPattern(boardElement) {
-  boardElement.classList.add("glass"); 
+  boardElement.classList.add("glassboard"); 
 }
