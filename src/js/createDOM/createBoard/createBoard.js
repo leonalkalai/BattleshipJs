@@ -4,7 +4,8 @@ const { createBoardPattern } = await import ("./createBoardPattern.js");
 const { createBoardGlassPattern } = await import ("./createBoardGlassPattern.js");
 
   // Generate a Board for players
-  export function createBoard(boardElement) {
+  export async function createBoard(boardElement) {
+    
     for (let index = 0; index < gameState.boardSize * gameState.boardSize; index++) {
       const cell = document.createElement("div");
       cell.dataset.index = index; // Store the index for reference
@@ -15,11 +16,10 @@ const { createBoardGlassPattern } = await import ("./createBoardGlassPattern.js"
         cell.dataset.index < 10 ? cell.dataset.index[0] : cell.dataset.index[1];
       // start applying pattern
       //createBoardPattern(cell, row, column);
-      createBoardGlassPattern(cell);
       // end applying pattern
       boardElement.appendChild(cell);
     }
-
+    await createBoardGlassPattern(boardElement);
     const gameBoardContainer = document.createElement("div");
     gameBoardContainer.classList.add("game-board-container");
     gameBoardContainer.classList.add("board-container");

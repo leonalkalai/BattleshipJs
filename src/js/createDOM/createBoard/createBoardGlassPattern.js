@@ -1,3 +1,3 @@
-export function createBoardGlassPattern(cell) {
-    cell.closest('.board').classList.add("glass"); 
+export function createBoardGlassPattern(boardElement) {
+  boardElement.classList.add("glass"); 
 }

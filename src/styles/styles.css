@@ -12,6 +12,7 @@
   --images: "../assets/images";
   
   --shipwreckimagepath: url("../assets/images/shipwreck.jpg");
+  --boardcellhole: url("../assets/images/boardcellhole.avif");
   --woodcursorimagepath: url("../assets/images/wood-cursor.png");
   --woodpointerimagepath: url("../assets/images/wood-pointer.png");
   --nopointerimagepath: url("../assets/images/no-pointer.png");
@@ -863,19 +864,51 @@ tr td:nth-child(2) span {
   outline: 2px solid rgb(56 42 220);
 }
 
-#human-board.glass div, #enemy-board.glass div{
+#human-board.glass.outline div, #enemy-board.glass.outline div{
   cursor: var(--woodpointerimagepath), auto;
   aspect-ratio: 1 / 1;
   width: 2.5vw;
-  background: rgb(15 95 193 / 27%);
+  background-color: rgb(15 95 193 / 27%);
   border-radius: 50%;
   border: 1px inset rgb(27 16 162);
   box-shadow: inset 0px 0px 0px 0px #aaa, inset 0px 2px 3px rgb(255 255 255 / 41%);
   z-index: 5;
   padding: 1px;
   box-sizing: content-box;
+  outline: none;
+  position: relative;
 }
 
+#human-board.glass.outline div::after, #enemy-board.glass.outline div::after{
+  content: " ";
+  background-image: var(--boardcellhole);
+  background-repeat: no-repeat;
+  -o-background-size: 100% auto;
+  -webkit-background-size: 100% auto;
+  background-size: 100% auto;
+  z-index: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: auto;
+  width: 100%;
+  background-position: center center;
+  color: transparent;
+  border-radius: 50%;
+}
+
+#human-board.glass.outline div.carrier,
+#human-board.glass.outline div.battleship,
+#human-board.glass.outline div.cruiser,
+#human-board.glass.outline div.submarine,
+#human-board.glass.outline div.destroyer,
+#enemy-board.glass.outline div.carrier,
+#enemy-board.glass.outline div.battleship,
+#enemy-board.glass.outline div.cruiser,
+#enemy-board.glass.outline div.submarine,
+#enemy-board.glass.outline div.destroyer {
+  border-radius: unset;
+}
 
 /* Responsive styles */
 @media (max-width: 768px) {
