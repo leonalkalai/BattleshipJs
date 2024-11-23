@@ -10,7 +10,7 @@
   --color9: #66bb6a;
   --color10: #ff2400;
   --images: "../assets/images";
-  
+
   --shipwreckimagepath: url("../assets/images/shipwreck.jpg");
   --boardcellhole: url("../assets/images/boardcellhole.avif");
   --woodcursorimagepath: url("../assets/images/wood-cursor.png");
@@ -45,6 +45,69 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+
+/* preloader start */
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.781);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-content: center;
+  justify-items: center;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  font-size: calc(3rem + 15px);
+  padding: 25px 0;
+  box-sizing: border-box;
+  max-width: 80%;
+  min-width: 80%;
+  margin: 0 auto;
+}
+
+.loader {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #000;
+  box-shadow: 0 0 #0004;
+  animation: l2 1.5s infinite linear;
+  position: relative;
+  max-width: 10rem;
+  min-width: 10rem;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 #0004;
+  animation: inherit;
+  animation-delay: -0.5s;
+}
+.loader:after {
+  animation-delay: -1s;
+}
+@keyframes l2 {
+  100% {
+    box-shadow: 0 0 0 40px #0000;
+  }
+}
+
+/* preloader end */
 
 header,
 #buttons-container,
@@ -460,7 +523,9 @@ button {
 
 #human-board.pending *,
 #enemy-board.pending * {
-  background-color: #ec0c39;
+  background-color: #111d80;
+  outline: 2px #2293ff;
+  outline-style: dashed;
 }
 /* Update board cell styles */
 #human-board div,
@@ -762,7 +827,6 @@ button {
   padding: 0 5%;
 }
 
-
 #ships-table-container td {
   color: #afab98;
   font-weight: 700;
@@ -913,14 +977,28 @@ tr td:nth-child(2) span {
 
 */
 
-#human-board.glassboard, #enemy-board.glassboard{
+#human-board.glassboard,
+#enemy-board.glassboard {
   background: transparent;
   box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
   outline: 2px solid rgb(56 42 220);
   position: relative;
 }
 
-#human-board.glassboard.outline::after, #enemy-board.glassboard.outline::after{
+#human-board.glassboard.outline div::before,
+#enemy-board.glassboard.outline div::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  -moz-border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  border-radius: 7.5px;
+  background-color: #69b6d5;
+}
+
+#human-board.glassboard.outline::after,
+#enemy-board.glassboard.outline::after {
   content: "t";
   background-image: var(--boardcellhole);
   background-repeat: no-repeat;
@@ -931,17 +1009,18 @@ tr td:nth-child(2) span {
   position: absolute;
   right: 0;
   top: 0;
-  width: 30vw;
-  max-width: 30vw;
+  width: 100%;
+  max-width: 100%;
   height: 100%;
   background-position: center center;
   color: transparent;
 }
 
-#human-board.glassboard.outline div, #enemy-board.glassboard.outline div{
-outline: 1px solid #0266b7;
-border-radius: 6px;
-z-index: 9999;
+#human-board.glassboard.outline div,
+#enemy-board.glassboard.outline div {
+  outline: 1px solid #0266b7;
+  border-radius: 6px;
+  z-index: 9999;
 }
 
 #human-board.glassboard.outline div.carrier,
@@ -1012,7 +1091,6 @@ z-index: 9999;
   h1 img {
     max-height: 10rem;
     width: 10rem;
-  
   }
 
   .container {
