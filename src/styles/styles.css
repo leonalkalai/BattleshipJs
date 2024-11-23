@@ -984,7 +984,13 @@ tr td:nth-child(2) span {
   outline: 2px solid rgb(56 42 220);
   position: relative;
 }
-
+#human-board.glassboard.outline div,
+#enemy-board.glassboard.outline div {
+  position: relative;
+  outline: 1px solid #0266b7;
+  border-radius: 6px;
+  z-index: 9999;
+}
 #human-board.glassboard.outline div::before,
 #enemy-board.glassboard.outline div::before {
   content: "";
@@ -994,7 +1000,10 @@ tr td:nth-child(2) span {
   -moz-border-radius: 7.5px;
   -webkit-border-radius: 7.5px;
   border-radius: 7.5px;
-  background-color: #69b6d5;
+  background-color: #f9f8f7;
+  right: 0;
+  position: absolute;
+  bottom: 0;
 }
 
 #human-board.glassboard.outline::after,
@@ -1016,13 +1025,6 @@ tr td:nth-child(2) span {
   color: transparent;
 }
 
-#human-board.glassboard.outline div,
-#enemy-board.glassboard.outline div {
-  outline: 1px solid #0266b7;
-  border-radius: 6px;
-  z-index: 9999;
-}
-
 #human-board.glassboard.outline div.carrier,
 #human-board.glassboard.outline div.battleship,
 #human-board.glassboard.outline div.cruiser,
@@ -1034,6 +1036,10 @@ tr td:nth-child(2) span {
 #enemy-board.glassboard.outline div.submarine,
 #enemy-board.glassboard.outline div.destroyer {
   border-radius: unset;
+}
+
+#enemy-board.glassboard.outline .ship {
+  background-color: transparent;
 }
 
 /* Responsive styles */
