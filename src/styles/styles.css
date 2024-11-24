@@ -542,8 +542,8 @@ button {
   cursor: var(--aimimagepath), auto;
 }
 
-#human-board div.aim:hover,
-#enemy-board div.aim:hover {
+#human-board div.aim:not(.hit):not(.miss):hover,
+#enemy-board div.aim:not(.hit):not(.miss):hover {
   background-color: #3ac1b0;
   background-image: none;
 }
@@ -1001,9 +1001,30 @@ tr td:nth-child(2) span {
   -webkit-border-radius: 7.5px;
   border-radius: 7.5px;
   background-color: #f9f8f7;
-  right: 0;
+  right: -3px;
   position: absolute;
-  bottom: 0;
+  bottom: -3px;
+}
+
+#human-board.glassboard.outline div:nth-child(minmax(90, 99))::before,
+#enemy-board.glassboard.outline div:nth-child(minmax(90, 99))::before,
+#human-board.glassboard.outline
+  div:nth-child(10n-1)::before
+  #enemy-board.glassboard.outline
+  div:nth-child(10n-1)::before {
+  background-color: transparent;
+}
+
+#human-board.glassboard.outline div:nth-child(minmax(1, 9)),
+#enemy-board.glassboard.outline div:nth-child(minmax(1, 9)) {
+  border-top-left-radius: unset;
+  border-top-right-radius: unset;
+}
+
+#human-board.glassboard.outline div:nth-child(minmax(90, 99)),
+#enemy-board.glassboard.outline div:nth-child(minmax(90, 99)) {
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
 }
 
 #human-board.glassboard.outline::after,
@@ -1231,14 +1252,14 @@ tr td:nth-child(2) span {
   }
 
   .boardh2image {
-    max-width: 100%;
-    padding: 0px;
-    width: 35%;
-    min-width: 60px;
-    height: 5vh;
+    padding: 0;
+    width: 100%;
+    min-width: 10vw;
+    height: auto;
     border-radius: 25px;
     box-sizing: border-box;
     margin: 0 auto;
+    max-width: 2vw;
   }
   .container > .board-container {
     width: 100%;
