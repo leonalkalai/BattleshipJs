@@ -1015,14 +1015,14 @@ tr td:nth-child(2) span {
   background-color: transparent;
 }
 
-#human-board.glassboard.outline div:nth-child(minmax(1, 9)),
-#enemy-board.glassboard.outline div:nth-child(minmax(1, 9)) {
+#human-board.glassboard.outline div:nth-child(n+1):nth-child(-n+9),
+#enemy-board.glassboard.outline div:nth-child(n+1):nth-child(-n+9){
   border-top-left-radius: unset;
   border-top-right-radius: unset;
 }
 
-#human-board.glassboard.outline div:nth-child(minmax(90, 99)),
-#enemy-board.glassboard.outline div:nth-child(minmax(90, 99)) {
+#human-board.glassboard.outline div:nth-child(n+90):nth-child(-n+99),
+#enemy-board.glassboard.outline div:nth-child(n+90):nth-child(-n+99) {
   border-bottom-left-radius: unset;
   border-bottom-right-radius: unset;
 }
