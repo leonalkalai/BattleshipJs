@@ -991,8 +991,8 @@ tr td:nth-child(2) span {
   border-radius: 6px;
   z-index: 9999;
 }
-#human-board.glassboard.outline div::before,
-#enemy-board.glassboard.outline div::before {
+#human-board.glassboard.outline div:not(:nth-child(n+90)):not(:nth-child(-n+99)):not(:nth-child(10n-1))::before,
+#enemy-board.glassboard.outline div:not(:nth-child(n+90)):not(:nth-child(-n+99)):not(:nth-child(10n-1))::before{
   content: "";
   display: inline-block;
   width: 5px;
@@ -1004,13 +1004,6 @@ tr td:nth-child(2) span {
   right: -3px;
   position: absolute;
   bottom: -3px;
-}
-
-#human-board.glassboard.outline div:nth-child(n+90):nth-child(-n+99)::before,
-#enemy-board.glassboard.outline div:nth-child(n+90):nth-child(-n+99)::before,
-#human-board.glassboard.outline div:nth-child(10n-1)::before,
-#enemy-board.glassboard.outline div:nth-child(10n-1)::before {
-  background-color: transparent;
 }
 
 #human-board.glassboard.outline div:nth-child(n + 1):nth-child(-n + 9),
