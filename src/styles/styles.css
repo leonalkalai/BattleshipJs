@@ -1006,8 +1006,8 @@ tr td:nth-child(2) span {
   bottom: -3px;
 }
 
-#human-board.glassboard.outline div:nth-child(minmax(90, 99))::before,
-#enemy-board.glassboard.outline div:nth-child(minmax(90, 99))::before,
+#human-board.glassboard.outline div:nth-child(n+90):nth-child(-n+99)::before,
+#enemy-board.glassboard.outline div:nth-child(n+90):nth-child(-n+99)::before,
 #human-board.glassboard.outline
   div:nth-child(10n-1)::before
   #enemy-board.glassboard.outline
