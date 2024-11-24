@@ -564,7 +564,7 @@ button {
 /* Specific ship colors with more specific selectors */
 
 #human-board div.carrier {
-  background-color: #ff6347;
+  /*background-color: #ff6347;*/
   background-image: none;
 }
 
