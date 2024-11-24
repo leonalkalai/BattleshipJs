@@ -1008,21 +1008,19 @@ tr td:nth-child(2) span {
 
 #human-board.glassboard.outline div:nth-child(n+90):nth-child(-n+99)::before,
 #enemy-board.glassboard.outline div:nth-child(n+90):nth-child(-n+99)::before,
-#human-board.glassboard.outline
-  div:nth-child(10n-1)::before
-  #enemy-board.glassboard.outline
-  div:nth-child(10n-1)::before {
+#human-board.glassboard.outline div:nth-child(10n-1)::before,
+#enemy-board.glassboard.outline div:nth-child(10n-1)::before {
   background-color: transparent;
 }
 
-#human-board.glassboard.outline div:nth-child(n+1):nth-child(-n+9),
-#enemy-board.glassboard.outline div:nth-child(n+1):nth-child(-n+9){
+#human-board.glassboard.outline div:nth-child(n + 1):nth-child(-n + 9),
+#enemy-board.glassboard.outline div:nth-child(n + 1):nth-child(-n + 9) {
   border-top-left-radius: unset;
   border-top-right-radius: unset;
 }
 
-#human-board.glassboard.outline div:nth-child(n+90):nth-child(-n+99),
-#enemy-board.glassboard.outline div:nth-child(n+90):nth-child(-n+99) {
+#human-board.glassboard.outline div:nth-child(n + 90):nth-child(-n + 99),
+#enemy-board.glassboard.outline div:nth-child(n + 90):nth-child(-n + 99) {
   border-bottom-left-radius: unset;
   border-bottom-right-radius: unset;
 }
@@ -1059,7 +1057,7 @@ tr td:nth-child(2) span {
   border-radius: unset;
 }
 
-#enemy-board.glassboard.outline .ship {
+#enemy-board.glassboard.outline .ship:not(.hit):not(.miss) {
   background-color: transparent;
 }
 
