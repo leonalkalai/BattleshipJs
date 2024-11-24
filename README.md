@@ -185,6 +185,8 @@ The first player to sink all enemy's ships wins.
 
 This project was made possible with the help of:
 
+[css loader](https://css-loaders.com/pulsing/) by [Temani Afif](https://github.com/Afif13/) , 
+
 **Downloaded from Freepik**
 [Js icon | designed by Smashicons](https://www.freepik.com/icon/js_541509)
 [Flame pack in flat design | designed by Freepik](https://www.freepik.com/free-vector/flame-pack-flat-design_1083012.htm)

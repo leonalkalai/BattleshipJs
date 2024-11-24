@@ -997,6 +997,7 @@ tr td:nth-child(2) span {
   display: inline-block;
   width: 5px;
   height: 5px;
+  background-color: #f9f8f7;
   -moz-border-radius: 7.5px;
   -webkit-border-radius: 7.5px;
   border-radius: 7.5px;
@@ -1005,15 +1006,16 @@ tr td:nth-child(2) span {
   bottom: -3px;
 }
 
-#human-board.glassboard.outline div:not(:nth-child(n+90)):not(:nth-child(-n+99))::before,
-#enemy-board.glassboard.outline div:not(:nth-child(n+90)):not(:nth-child(-n+99))::before{
-  background-color: #f9f8f7;
+#human-board.glassboard.outline div[data-index*="9"]::before,
+#enemy-board.glassboard.outline div[data-index*="9"]::before{
+   background: transparent;
 } 
 
-#human-board.glassboard.outline div:nth-child(10n-1)::before,
-#enemy-board.glassboard.outline div:nth-child(10n-1)::before{
-  background-color: transparent;
-}  
+#human-board.glassboard.outline div[data-index*="9"],
+#enemy-board.glassboard.outline div[data-index*="9"]{
+  border-top-right-radius: unset;
+  border-bottom-right-radius: unset;
+}
 
 #human-board.glassboard.outline div:nth-child(n + 1):nth-child(-n + 9),
 #enemy-board.glassboard.outline div:nth-child(n + 1):nth-child(-n + 9) {
